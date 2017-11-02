@@ -5,6 +5,8 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
+    <script src="js/pace.js"></script>
+    <link rel="stylesheet" href="css/pace-theme-center-atom.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Go2Travel</title>
@@ -80,7 +82,7 @@
                 </ol>
                 <div class="carousel-inner carousel-zoom">
                     <div class="item active">
-                        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(https://static.pexels.com/photos/45922/pexels-photo-45922.jpeg);">
+                        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/sunrise-phu-quoc-island-ocean.jpg);">
                             <div class="display-t">
                                 <div class="display-tc">
                                     <div class="container">
@@ -96,7 +98,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(https://static.pexels.com/photos/128330/pexels-photo-128330.jpeg);">
+                        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/pexels-photo-227417.jpeg);">
                             <div class="display-t">
                                 <div class="display-tc">
                                     <div class="container">
@@ -112,7 +114,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(https://static.pexels.com/photos/374142/pexels-photo-374142.jpeg);">
+                        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/pexels-photo-368893.jpeg);">
                             <div class="display-t">
                                 <div class="display-tc">
                                     <div class="container">
@@ -161,8 +163,7 @@
 
         <!-- end:header-top -->
 
-        <div id="fh5co-started" data-stellar-background-ratio="0.5" style="background-image:url(https://static.pexels.com/photos/248771/pexels-photo-248771.jpeg);"data-stellar-background-ratio="0.5">
-            <div class="overlay"></div>
+        <div id="fh5co-started" data-stellar-background-ratio="0.5" style="background-image:url(images/pexels-photo-248771.jpeg)" >
             <div class="container">
                 <div class="row animate-box">
                     <div class="col-md-8 col-md-offset-2 text-center heading-section">
@@ -194,9 +195,11 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3 home-page-travel " style="background-image:url(https://static.pexels.com/photos/386009/pexels-photo-386009.jpeg) ">
+            <div class="col-md-3 col-sm-3 home-page-travel " style="background-image:url(images/pexels-photo-386009.jpeg) ">
+                <div class="balcken"></div>
+
                 <div class="travel-blog-text">
-                    <div class="prod-title">
+                    <div class="prod-title animate-box">
                         <h3><a href="#">Destination</a></h3>
                         <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                         <p><a href="#">Learn More...</a></p>
@@ -204,9 +207,11 @@
                 </div>
 
             </div>
-            <div class="col-md-3 home-page-travel" style="background-image:url(https://static.pexels.com/photos/77322/sun-landscape-river-sunset-77322.jpeg) ">
+            <div class="col-md-3 col-sm-3  home-page-travel" style="background-image:url(images/pexels-photo-297755.jpeg) ">
+                <div class="balcken"></div>
+
                 <div class="travel-blog-text">
-                    <div class="prod-title">
+                    <div class="prod-title animate-box">
                         <h3><a href="#">Destination</a></h3>
                         <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                         <p><a href="#">Learn More...</a></p>
@@ -214,9 +219,11 @@
                 </div>
 
             </div>
-            <div class="col-md-3 home-page-travel" style="background-image:url(https://static.pexels.com/photos/371442/pexels-photo-371442.jpeg) ">
+            <div class="col-md-3 col-sm-3  home-page-travel" style="background-image:url(https://static.pexels.com/photos/371442/pexels-photo-371442.jpeg) ">
+                <div class="balcken"></div>
+
                 <div class="travel-blog-text">
-                    <div class="prod-title">
+                    <div class="prod-title animate-box">
                         <h3><a href="#">Destination</a></h3>
                         <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                         <p><a href="#">Learn More...</a></p>
@@ -224,9 +231,11 @@
                 </div>
 
             </div>
-            <div class="col-md-3 home-page-travel" style="background-image:url(https://static.pexels.com/photos/393859/pexels-photo-393859.jpeg) ">
+            <div class="col-md-3 col-sm-3  home-page-travel" style="background-image:url(https://static.pexels.com/photos/393859/pexels-photo-393859.jpeg) ">
+                <div class="balcken"></div>
+
                 <div class="travel-blog-text">
-                    <div class="prod-title">
+                    <div class="prod-title animate-box">
                         <h3><a href="#">Destination</a></h3>
                         <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                         <p><a href="#">Learn More...</a></p>
@@ -241,14 +250,14 @@
                 <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
                     <div class="box">
                         <a href="#" data-toggle="modal" data-target="#1">
-                            <img src="http://nabeel.co.in/files/bootsnipp/gallery/1.jpg">
+                            <img src="images/pexels-photo-1.jpeg">
                         </a>
                         <div class="modal fade" id="1" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <div class="modal-body">
-                                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/1.jpg">
+                                        <img src="images/pexels-photo-1.jpeg">
                                     </div>
                                     <div class="col-md-12 description">
                                         <h4>This is the first one on my Gallery</h4>
@@ -261,14 +270,14 @@
                 <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                     <div class="box">
                         <a href="#" data-toggle="modal" data-target="#2">
-                            <img src="http://nabeel.co.in/files/bootsnipp/gallery/2.jpg">
+                            <img src="images/pexels-photo-2.jpeg">
                         </a>
                         <div class="modal fade" id="2" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <div class="modal-body">
-                                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/2.jpg">
+                                        <img src="images/pexels-photo-2.jpeg">
                                     </div>
                                     <div class="col-md-12 description">
                                         <h4>This is the second one on my Gallery</h4>
@@ -281,14 +290,14 @@
                 <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                     <div class="box">
                         <a href="#" data-toggle="modal" data-target="#3">
-                            <img src="http://nabeel.co.in/files/bootsnipp/gallery/3.jpg">
+                            <img src="images/pexels-photo-3.jpeg">
                         </a>
                         <div class="modal fade" id="3" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <div class="modal-body">
-                                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/3.jpg">
+                                        <img src="images/pexels-photo-3.jpeg">
                                     </div>
                                     <div class="col-md-12 description">
                                         <h4>This is the third one on my Gallery</h4>
@@ -301,14 +310,14 @@
                 <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                     <div class="box">
                         <a href="#" data-toggle="modal" data-target="#4">
-                            <img src="http://nabeel.co.in/files/bootsnipp/gallery/4.jpg">
+                            <img src="images/pexels-photo-4.jpeg">
                         </a>
                         <div class="modal fade" id="4" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <div class="modal-body">
-                                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/4.jpg">
+                                        <img src="images/pexels-photo-4.jpeg">
                                     </div>
                                     <div class="col-md-12 description">
                                         <h4>This is the fourth one on my Gallery</h4>
@@ -321,14 +330,14 @@
                 <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                     <div class="box">
                         <a href="#" data-toggle="modal" data-target="#5">
-                            <img src="http://nabeel.co.in/files/bootsnipp/gallery/5.jpg">
+                            <img src="images/pexels-photo-5.jpeg">
                         </a>
                         <div class="modal fade" id="5" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <div class="modal-body">
-                                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/5.jpg">
+                                        <img src="images/pexels-photo-5.jpeg">
                                     </div>
                                     <div class="col-md-12 description">
                                         <h4>This is the fifth one on my Gallery</h4>
@@ -341,14 +350,14 @@
                 <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                     <div class="box">
                         <a href="#" data-toggle="modal" data-target="#6">
-                            <img src="http://nabeel.co.in/files/bootsnipp/gallery/6.jpg">
+                            <img src="images/pexels-photo-6.jpeg">
                         </a>
                         <div class="modal fade" id="6" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <div class="modal-body">
-                                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/6.jpg">
+                                        <img src="images/pexels-photo-6.jpeg">
                                     </div>
                                     <div class="col-md-12 description">
                                         <h4>This is the sixth one on my Gallery</h4>
@@ -361,14 +370,14 @@
                 <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                     <div class="box">
                         <a href="#" data-toggle="modal" data-target="#7">
-                            <img src="http://nabeel.co.in/files/bootsnipp/gallery/7.jpg">
+                            <img src="images/pexels-photo-7.jpeg">
                         </a>
                         <div class="modal fade" id="7" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <div class="modal-body">
-                                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/7.jpg">
+                                        <img src="images/pexels-photo-7.jpeg">
                                     </div>
                                     <div class="col-md-12 description">
                                         <h4>This is the seventh one on my Gallery</h4>
@@ -381,14 +390,14 @@
                 <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                     <div class="box">
                         <a href="#" data-toggle="modal" data-target="#8">
-                            <img src="http://nabeel.co.in/files/bootsnipp/gallery/8.jpg">
+                            <img src="images/pexels-photo-8.jpeg">
                         </a>
                         <div class="modal fade" id="8" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <div class="modal-body">
-                                        <img src="http://nabeel.co.in/files/bootsnipp/gallery/8.jpg">
+                                        <img src="images/pexels-photo-8.jpeg">
                                     </div>
                                     <div class="col-md-12 description">
                                         <h4>This is the eighth one on my Gallery</h4>
@@ -402,8 +411,7 @@
             </div>
         </section>
 
-        <div id="fh5co-started" data-stellar-background-ratio="0.5" style="background-image:url(https://static.pexels.com/photos/227417/pexels-photo-227417.jpeg);"data-stellar-background-ratio="0.5">
-            <div class="overlay"></div>
+        <div id="fh5co-started" data-stellar-background-ratio="0.5" style="background-image:url(images/pexels-photo-227417.jpeg);"data-stellar-background-ratio="0.5">
             <div class="container">
                 <div class="row animate-box">
                     <div class="col-md-8 col-md-offset-2 text-center heading-section">
@@ -429,9 +437,11 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3 home-page-travel " style="background-image:url(https://static.pexels.com/photos/386009/pexels-photo-386009.jpeg) ">
+            <div class="col-md-3  col-sm-3 home-page-travel " style="background-image:url(https://static.pexels.com/photos/386009/pexels-photo-386009.jpeg) ">
+                <div class="balcken"></div>
+
                 <div class="travel-blog-text">
-                    <div class="prod-title">
+                    <div class="prod-title animate-box">
                         <h3><a href="#">Destination</a></h3>
                         <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                         <p><a href="#">Learn More...</a></p>
@@ -439,9 +449,11 @@
                 </div>
 
             </div>
-            <div class="col-md-3 home-page-travel" style="background-image:url(https://static.pexels.com/photos/77322/sun-landscape-river-sunset-77322.jpeg) ">
+            <div class="col-md-3  col-sm-3 home-page-travel" style="background-image:url(https://static.pexels.com/photos/77322/sun-landscape-river-sunset-77322.jpeg) ">
+                <div class="balcken"></div>
+
                 <div class="travel-blog-text">
-                    <div class="prod-title">
+                    <div class="prod-title animate-box">
                         <h3><a href="#">Destination</a></h3>
                         <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                         <p><a href="#">Learn More...</a></p>
@@ -449,9 +461,11 @@
                 </div>
 
             </div>
-            <div class="col-md-3 home-page-travel" style="background-image:url(https://static.pexels.com/photos/371442/pexels-photo-371442.jpeg) ">
+            <div class="col-md-3  col-sm-3 home-page-travel" style="background-image:url(https://static.pexels.com/photos/371442/pexels-photo-371442.jpeg) ">
+                <div class="balcken"></div>
+
                 <div class="travel-blog-text">
-                    <div class="prod-title">
+                    <div class="prod-title animate-box">
                         <h3><a href="#">Destination</a></h3>
                         <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                         <p><a href="#">Learn More...</a></p>
@@ -459,17 +473,18 @@
                 </div>
 
             </div>
-            <div class="col-md-3 home-page-travel" style="background-image:url(https://static.pexels.com/photos/393859/pexels-photo-393859.jpeg) ">
+            <div class="col-md-3  col-sm-3 home-page-travel" style="background-image:url(https://static.pexels.com/photos/393859/pexels-photo-393859.jpeg) ">
+                <div class="balcken"></div>
                 <div class="travel-blog-text">
-                    <div class="prod-title">
+                    <div class="prod-title animate-box">
                         <h3><a href="#">Destination</a></h3>
                         <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                         <p><a href="#">Learn More...</a></p>
                     </div>
                 </div>
-
             </div>
         </div>
+
         <footer>
             <div id="footer">
                 <div class="container">
@@ -502,7 +517,53 @@
 <!-- Google Map -->
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script> -->
 <!-- jQuery -->
-<script src="dist/scripts.js"></script>
+{{--<script src="dist/scripts.js"></script>--}}
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/sticky.js"></script>
+
+<script >
+
+    var contentWayPoint = function() {
+        var i = 0;
+        $('.animate-box').waypoint( function( direction ) {
+
+            if( direction === 'down' && !$(this.element).hasClass('animated') ) {
+
+                i++;
+
+                $(this.element).addClass('item-animate');
+                setTimeout(function(){
+
+                    $('body .animate-box.item-animate').each(function(k){
+                        var el = $(this);
+                        setTimeout( function () {
+                            el.addClass('fadeInUp animated');
+                            el.removeClass('item-animate');
+                        },  k * 50, 'easeInOutExpo' );
+                    });
+
+                }, 100);
+
+            }
+
+        } , { offset: '85%' } );
+    };
+
+    $(window).stellar();
+    var $stickyElement = $('.sticky-banner');
+    var sticky;
+    if ($stickyElement.length) {
+        sticky = new Waypoint.Sticky({
+            element: $stickyElement[0],
+            offset: 0
+        })
+    }
+    contentWayPoint();
+</script>
+
 </body>
 </html>
 

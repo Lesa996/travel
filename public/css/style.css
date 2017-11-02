@@ -681,8 +681,8 @@ figure {
 
 #fh5co-started {
   position: relative;
-  background-size: cover;
-  background-position: bottom center !important;
+  background-size: inherit;
+  background-position: bottom center ;
   background-repeat: no-repeat;
 }
 
@@ -1454,4 +1454,18 @@ figure {
   .gal-container .modal-content{
     height:250px;
   }
+}
+@media (min-width: 1200px) {
+    #fh5co-started {
+        background-size: 120%;
+    }
+}
+.balcken{
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.4);
 }
