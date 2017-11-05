@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('welcome');
+});
+Route::get('putovanje', function () {
+    return view('putovanje');
 });

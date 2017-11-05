@@ -265,11 +265,11 @@ figure {
 }
 
 .sf-menu a:hover, .sf-menu a:focus {
-  color: #F69D9D !important;
+  color: #fed700 !important;
 }
 
 .sf-menu li.active a:hover, .sf-menu li.active a:focus {
-  color: #F69D9D;
+  color: #fed700;
 }
 
 .sf-menu li,
@@ -696,7 +696,7 @@ figure {
 }
 
 #fh5co-started .form-control {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.6);
   border: none !important;
   color: #fff;
   font-size: 16px !important;
@@ -1468,4 +1468,8 @@ figure {
     top: 0px;
     left: 0px;
     background: rgba(0, 0, 0, 0.4);
+}
+.nav-bar-putovanja{
+  background-color: #f4f4f4;
+  border-bottom: unset;
 }
