@@ -71,9 +71,9 @@
         }
         .cena{
             color: #fed700;
-             font-family: Playfair Display;
+            font-family: Playfair Display;
             font-weight: 400;
-             margin: unset;
+            margin: unset;
         }
         .precrtana-cena , .aktuelna-cena{
             float: left;
@@ -184,6 +184,9 @@
         .hover_img a { position:relative; }
         .hover_img a span { position:absolute; display:none; z-index:99; }
         .hover_img a:hover span { display:block; }
+        #googleMap{
+            height: 100%;
+        }
     </style>
     @endpush
     <header id="fh5co-header-section" class="sticky-banner">
@@ -195,8 +198,8 @@
                 <nav id="fh5co-menu-wrap" role="navigation">
                     <ul class="sf-menu" id="fh5co-primary-menu">
                         <li ><a href="index.html" >Pocetna</a></li>
-                        <li class="active" ><a href="groom-bride.html" >Putovanja</a></li>
-                        <li><a href="when-where.html">Smestaj</a></li>
+                        <li  ><a href="groom-bride.html" >Putovanja</a></li>
+                        <li class="active" ><a href="when-where.html">Smestaj</a></li>
                         <li><a href="guest.html">Blog</a></li>
                         <li><a href="gallery.html">O nama </a></li>
                         <li ><a href="blog.html">Kontakt</a></li>
@@ -207,15 +210,15 @@
     </header>
 
     <div class="fh5co-hero" data-section="home">
-        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/pexels-photo-221532.jpeg);">
+        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/hotel.jpeg);">
 
             <div class="display-t">
                 <div class="display-tc">
                     <div class="container">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="animate-box">
-                                <h1>Letovanje</h1>
-                                <h2>Grcka</h2>
+                                <h1>Hotel</h1>
+                                <h2>Start</h2>
                             </div>
                         </div>
                     </div>
@@ -229,7 +232,7 @@
         <ul class="nav nav-tabs nav-bar-putovanja">
             <li class="active col-xs-12"><a href="#Informacije" data-toggle="tab"><i class="glyphicon glyphicon-list-alt"></i> Informacije</a></li>
             <li class="col-xs-12"><a href="#Cenovnik" data-toggle="tab" ><i class="glyphicon glyphicon-eur"></i> Cenovnik</a></li>
-            <li class="col-xs-12"><a href="#PlanPuta" data-toggle="tab"><i class="fa fa-map-o"></i> Plan puta</a></li>
+            <li class="col-xs-12"><a href="#Mapa" data-toggle="tab"><i class="fa fa-map-o"></i> Mapa</a></li>
             <li class="col-xs-12"><a href="#Izleti" data-toggle="tab"><i class="fa fa-tree"></i> Izleti</a></li>
         </ul>
         <div class="tab-content clearfix">
@@ -238,34 +241,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">
-                            <h1 class="putovanje-naziv">Letovanje Grcka</h1>
-                            <div class="precrtana-cena">
-                                <h3 class="cena">
-                                    <i class="glyphicon glyphicon-eur"></i>
-                                    350
-                                </h3>
-                            </div>
-                            <div class="aktuelna-cena">
-                                <h3 class="cena">
-                                    /<i class="glyphicon glyphicon-eur"></i>
-                                    250
-                                </h3>
-                            </div>
+                            <h1 class="putovanje-naziv">Hotel Start 2*</h1>
+
                             <br>
                             <div class="text">
                                 <br>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis. Aliquam erat volutpat. Nam ultrices semper felis, at laoreet metus laoreet a. Praesent orci orci, pretium ut tortor euismod, vehicula blandit purus. Aliquam suscipit, erat a maximus mollis, neque odio aliquam arcu, ut consequat leo nisi sit amet leo. Nam consectetur diam id libero fringilla, eu commodo arcu congue.</p>
                             </div>
                             <br>
-                            <div>
-                                <i class="glyphicon glyphicon-time"></i>
-                                10 Dana
-                                <i class="fa fa-moon-o"></i>
-                                8 Noci
-                            </div>
-                            <div>
 
-                            </div>
                             <br>
 
                             <div class="">
@@ -276,62 +260,67 @@
                                 </div>
                                 <div class="row">
                                     <hr>
-                                    <div class="col-md-4 opis-naziv">Vrsta prevoza</div>
-                                    <div class="col-md-7 opis-text">Autobusom</div>
+                                    <div class="col-md-4 opis-naziv">Tip objekta</div>
+                                    <div class="col-md-7 opis-text">Hotel</div>
                                 </div>
                                 <div class="row">
                                     <hr>
-                                    <div class="col-md-4 opis-naziv">Polazak</div>
-                                    <div class="col-md-7 opis-text">Nis</div>
+                                    <div class="col-md-4 opis-naziv">Broj Zvezdica</div>
+                                    <div class="col-md-7 opis-text">2</div>
                                 </div>
                                 <div class="row">
                                     <hr>
-                                    <div class="col-md-4 opis-naziv">Vreme polaska</div>
-                                    <div class="col-md-7 opis-text">8:00</div>
+                                    <div class="col-md-4 opis-naziv">Vrsta Soba</div>
+                                    <div class="col-md-7 opis-text">Studio,Apartman</div>
                                 </div>
                                 <div class="row">
                                     <hr>
-                                    <div class="col-md-4 opis-naziv">Obroci</div>
-                                    <div class="col-md-7 opis-text">Dorucak ukljucen</div>
+                                    <div class="col-md-4 opis-naziv">Tip Soba</div>
+                                    <div class="col-md-7 opis-text">1/2,1/3,1/4</div>
                                 </div>
                                 <div class="row">
                                     <hr>
-                                    <div class="col-md-4 opis-naziv">O Destinaciji</div>
-                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis. Aliquam erat volutpat. Nam ultrices semper felis, at laoreet metus laoreet a.</div>
+                                    <div class="col-md-4 opis-naziv">Broj ljudi</div>
+                                    <div class="col-md-7 opis-text">2,3,4</div>
                                 </div>
                                 <div class="row">
                                     <hr>
-                                    <div class="col-md-4 opis-naziv">Napomena</div>
-                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis. Aliquam erat volutpat. Nam ultrices semper felis, at laoreet metus laoreet a.</div>
+                                    <div class="col-md-4 opis-naziv">Struktura sobe</div>
+                                    <div class="col-md-7 opis-text">Spavaca soba, Dnevna soba, Trepezarija, WC</div>
                                 </div>
                                 <div class="row">
                                     <hr>
-                                    <div class="col-md-4 opis-naziv">Dodatna Napomena</div>
-                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis. Aliquam erat volutpat. Nam ultrices semper felis, at laoreet metus laoreet a.</div>
+                                    <div class="col-md-4 opis-naziv">Udaljenost centar</div>
+                                    <div class="col-md-7 opis-text">800</div>
                                 </div>
                                 <div class="row">
                                     <hr>
-                                    <div class="col-md-4 opis-naziv">Rok Za Prijavu</div>
-                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis. Aliquam erat volutpat. Nam ultrices semper felis, at laoreet metus laoreet a.</div>
+                                    <div class="col-md-4 opis-naziv">Udaljenost plaza</div>
+                                    <div class="col-md-7 opis-text"></div>
                                 </div>
                                 <div class="row">
                                     <hr>
-                                    <div class="col-md-4 opis-naziv">Minimalan broj putnika</div>
+                                    <div class="col-md-4 opis-naziv">Udaljenost stanica</div>
                                     <div class="col-md-7 opis-text">70</div>
                                 </div>
                                 <div class="row">
                                     <hr>
-                                    <div class="col-md-4 opis-naziv">Organizator</div>
-                                    <div class="col-md-7 opis-text">Max Travel</div>
+                                    <div class="col-md-4 opis-naziv">Udaljenost zicare</div>
+                                    <div class="col-md-7 opis-text">400</div>
                                 </div>
                                 <div class="row">
                                     <hr>
-                                    <div class="col-md-4 opis-naziv">Licenca</div>
+                                    <div class="col-md-4 opis-naziv">Dodatni sadrzaj</div>
                                     <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis.</div>
                                 </div>
                                 <div class="row">
                                     <hr>
-                                    <div class="col-md-4 opis-naziv">Garancija putovanja</div>
+                                    <div class="col-md-4 opis-naziv">Napomena</div>
+                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis.</div>
+                                </div>
+                                <div class="row">
+                                    <hr>
+                                    <div class="col-md-4 opis-naziv">Link Smestaja</div>
                                     <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis.</div>
                                 </div>
 
@@ -356,11 +345,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="putovanje-naziv">Letovanje Grcka</h1>
+                            <h1 class="putovanje-naziv">Hotel Start 2*</h1>
                             <div class="cenovnik">
                                 <div class="heder-cenovnika row">
                                     <div class="col-xs-6 opis-naziv">
-                                        Smestaj
+                                        Putovanja
                                     </div>
                                     <div class="col-xs-3 opis-naziv">
                                         Tip smestaja
@@ -373,7 +362,7 @@
                                 <div class="content-cenovnika row">
                                     <div class="col-xs-6 opis-text">
                                         <div class="hover_img">
-                                            <i class="glyphicon glyphicon-info-sign"></i><a href="#">Hotel Start 2*<span><img src="https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg" alt="image" height="100" /></span></a>
+                                            <i class="glyphicon glyphicon-info-sign"></i><a href="#">Letovanje Grcka<span><img src="https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg" alt="image" height="100" /></span></a>
                                             <div class="rating">
                                                 <span class="fa fa-star checked"></span>
                                                 <span class="fa fa-star checked"></span>
@@ -399,7 +388,7 @@
                                 <div class="content-cenovnika row">
                                     <div class="col-xs-6 opis-text">
                                         <div class="hover_img">
-                                            <i class="glyphicon glyphicon-info-sign"></i><a href="#">HOTEL Q 3++*<span><img src="https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg" alt="image" height="100" /></span></a>
+                                            <i class="glyphicon glyphicon-info-sign"></i><a href="#">Polihron<span><img src="https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg" alt="image" height="100" /></span></a>
                                             <div class="rating">
                                                 <span class="fa fa-star checked"></span>
                                                 <span class="fa fa-star checked"></span>
@@ -459,138 +448,17 @@
                 </div>
 
             </div>
-            <div class="tab-pane" id="PlanPuta">
+            <div class="tab-pane" id="Mapa">
                 <br>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="putovanje-naziv">Letovanje Grcka</h1>
+                            <h1 class="putovanje-naziv">Hotel Start 2*</h1>
                             <br>
-                            <div class="plan-puta">
-                                <div class="row">
-                                    <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">1</div>
-
-                                    </div>
-                                    <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 1: Polazak</div>
-                                        <br>
-                                        <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">2</div>
-
-                                    </div>
-                                    <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 2: Lorem</div>
-                                        <br>
-                                        <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">3</div>
-
-                                    </div>
-                                    <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 3: Lorem</div>
-                                        <br>
-                                        <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">4</div>
-
-                                    </div>
-                                    <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 4: Lorem</div>
-                                        <br>
-                                        <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">5</div>
-
-                                    </div>
-                                    <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 5: Lorem</div>
-                                        <br>
-                                        <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">6</div>
-
-                                    </div>
-                                    <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 6: Lorem</div>
-                                        <br>
-                                        <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">7</div>
-
-                                    </div>
-                                    <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 7: Lorem</div>
-                                        <br>
-                                        <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
                             <div class="mapa">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div id="map" class="fh5co-map"></div>
+                                        <div id="googleMap" style="width:100%;height:400px;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -605,7 +473,6 @@
 
                 </div>
             </div>
-
             <div class="tab-pane" id="Izleti">
                 <h3>Izleti</h3>
             </div>
@@ -623,21 +490,14 @@
     <script src="js/jquery.stellar.min.js"></script>
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/sticky.js"></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq_RSFC_BAiBNji07rK-XvpX3rOZkg4bc&callback=initMap">
-    </script>
-
     <script >
+        var map;
         function initMap() {
-            var uluru = {lat: 39.2853, lng: 20.4005};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                center: uluru
+            map = new google.maps.Map(document.getElementById('googleMap'), {
+                center: {lat: 40.0154, lng: 23.5270},
+                zoom: 8
             });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
+
         }
 
         var contentWayPoint = function() {
@@ -675,6 +535,13 @@
             })
         }
         contentWayPoint();
+    </script>
+    <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq_RSFC_BAiBNji07rK-XvpX3rOZkg4bc&callback=initMap" async defer>
+    </script>
+
+    <script>
+
     </script>
     @endpush
 @endsection

@@ -17,3 +17,10 @@ Route::get('/', function () {
 Route::get('putovanje', function () {
     return view('putovanje');
 });
+Route::get('search', function () {
+    return view('search');
+});
+
+Route::get('smestaj', function () {
+    return view('smestaj');
+});
