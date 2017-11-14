@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreSmestajRequest;
+use App\Image;
+use App\OpisSmestaj;
 use App\Smestaj;
 use Illuminate\Http\Request;
 
@@ -33,9 +36,31 @@ class SmestajController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreSmestajRequest $request)
     {
-        //
+        $smestaj = new Smestaj($request->all());
+        $smestaj->save();
+        $opis = new OpisSmestaj($request->all());
+        $opis->smestaj_id = $smestaj->id;
+        $opis->save();
+        $images = collect($request->gallery);
+
+        $images = $images->map(function($image, $key) use ($smestaj) {
+            $destinationPath =  'items/smestaj/' . $smestaj->naziv ;
+            $extension = $image->getClientOriginalExtension();
+            $fileName = "SmestajImage_" . $smestaj->naziv . rand(11111, 99999) . '.' . $extension;
+            $image->move($destinationPath, $fileName);
+            $url = $destinationPath . "/" . $fileName;
+            $image = new Image(['url' => $url]);
+            return $image;
+        });
+        $image = $images[0];
+        $image->avatar = 1;
+
+        $smestaj->gallery()->saveMany($images);
+        $smestaj->cover()->save($image);
+
+        return redirect('app');
     }
 
     /**
@@ -57,7 +82,8 @@ class SmestajController extends Controller
      */
     public function edit(Smestaj $smestaj)
     {
-        //
+        return view('admin.smestaj.edit-smestaj',['smestaj'=>$smestaj]);
+
     }
 
     /**
@@ -69,7 +95,30 @@ class SmestajController extends Controller
      */
     public function update(Request $request, Smestaj $smestaj)
     {
-        //
+        $smestaj->fill($request->all());
+        $smestaj->save();
+
+        $smestaj->opis->fill($request->all());
+        $smestaj->opis->smestaj_id = $smestaj->id;
+        $smestaj->opis->save();
+//        $images = collect($request->gallery);
+//
+//        $images = $images->map(function($image, $key) use ($smestaj) {
+//            $destinationPath =  'items/smestaj/' . $smestaj->naziv ;
+//            $extension = $image->getClientOriginalExtension();
+//            $fileName = "SmestajImage_" . $smestaj->naziv . rand(11111, 99999) . '.' . $extension;
+//            $image->move($destinationPath, $fileName);
+//            $url = $destinationPath . "/" . $fileName;
+//            $image = new Image(['url' => $url]);
+//            return $image;
+//        });
+//        $image = $images[0];
+//        $image->avatar = 1;
+//
+//        $smestaj->gallery()->saveMany($images);
+//        $smestaj->cover()->save($image);
+
+        return redirect('app');
     }
 
     /**
@@ -78,8 +127,19 @@ class SmestajController extends Controller
      * @param  \App\Smestaj  $smestaj
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Smestaj $smestaj)
+    public function destroy( $id)
     {
-        //
+
+       $smestaj= Smestaj::find($id);
+       $smestaj->delete();
+        return redirect('app');
+
+    }
+
+    public function showAll()
+    {
+        $smestaji = Smestaj::all();
+        return view('admin.smestaj.lista-smestaja',['smestaji'=>$smestaji]);
+
     }
 }

@@ -33,7 +33,7 @@ class CreateOpisPutovanjaTable extends Migration
             $table->softDeletes();
         });
         Schema::table('opis_putovanja', function (Blueprint $table) {
-            $table->foreign('putovanje_id')->references('id')->on('putovanja');
+            $table->foreign('putovanje_id')->references('id')->on('putovanja')->onDelete('cascade');
         });
     }
 

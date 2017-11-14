@@ -14,6 +14,9 @@
     <!-- Bootstrap Core Css -->
     <link href="{{url('admin/plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
 
+    <!-- Sweet Alert Css -->
+    <link href="{{url('admin/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" />
+
     <!-- Waves Effect Css -->
     <link href="{{url('admin/plugins/node-waves/waves.css')}}" rel="stylesheet" />
 
@@ -39,7 +42,41 @@
                         <h2>Kreiraj Smestaj</h2>
                     </div>
                     <div class="body">
-                        <form id="wizard_with_validation" method="POST" enctype="multipart/form-data">
+                        <form action="{{url('app/store/smestaj')}}" id="wizard_with_validation" method="POST" enctype="multipart/form-data">
+                            {!! csrf_field() !!}
+                            <h3>Lokacija</h3>
+                            <fieldset>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="drzava" class="form-control" required>
+                                        <label class="form-label">Drzava*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="grad" class="form-control" required>
+                                        <label class="form-label">Grad*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" name="lat" class="form-control" required>
+                                        <label class="form-label">Lat*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" name="lng" class="form-control" required>
+                                        <label class="form-label">Lng*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <div id="gmap_basic_example" class="gmap"></div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
 
 
                             <h3>Informacije O Smestaju</h3>
@@ -134,28 +171,6 @@
                                 </div>
                             </fieldset>
 
-                            <h3>Lokacija</h3>
-                            <fieldset>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="drzava" class="form-control" required>
-                                        <label class="form-label">Drzava*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="grad" class="form-control" required>
-                                        <label class="form-label">Grad*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <div id="gmap_basic_example" class="gmap"></div>
-                                    </div>
-                                </div>
-
-                            </fieldset>
-
                             <h3>Galerija</h3>
                             <fieldset>
                                 <div class="form-group form-float">
@@ -219,6 +234,10 @@
     <!--Form js -->
     <script src="{{url('admin/plugins/jquery-validation/jquery.validate.js')}}"></script>
     <script src="{{url('admin/plugins/jquery-steps/jquery.steps.js')}}"></script>
+
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="{{url('admin/plugins/sweetalert/sweetalert.min.js')}}"></script>
 
     <!-- GMap Js -->
     <script src="https://maps.google.com/maps/api/js?v=3&key=AIzaSyDq_RSFC_BAiBNji07rK-XvpX3rOZkg4bc"></script>

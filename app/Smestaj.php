@@ -13,4 +13,17 @@ class Smestaj extends Model
     ];
 
     public $timestamps = true;
+    protected $table = 'smestaj';
+    public function opis()
+    {
+        return $this->hasOne('App\OpisSmestaj');
+    }
+    public function gallery()
+    {
+        return $this->morphMany('\App\Image', 'imageable')->where('avatar', false);
+    }
+    public function cover()
+    {
+        return $this->morphOne('\App\Image', 'imageable')->where('avatar', true);
+    }
 }

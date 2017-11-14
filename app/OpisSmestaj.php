@@ -11,4 +11,10 @@ class OpisSmestaj extends Model
     ];
 
     public $timestamps = true;
+    protected $table = 'opis_smestaj';
+
+    public function smestaj()
+    {
+        return $this->belongTo('App\Phone');
+    }
 }

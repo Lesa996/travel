@@ -28,15 +28,26 @@ Route::get('app', function () {
     return redirect('app/smestaj');
 });
 ///////////SMESTAJ////////
-Route::get('app/smestaj', function () {
-    return view('admin.smestaj.lista-smestaja');
-});
+Route::get('app/smestaj', 'SmestajController@showAll');
 
 Route::get('app/kreiraj/smestaj', function () {
     return view('admin.smestaj.add-smestaj');
 });
-Route::get('app/edit/smestaj', function () {
-    return view('admin.smestaj.edit-smestaj');
-});
+Route::get('app/edit/smestaj/{smestaj}','SmestajController@edit');
 ///////////PUTOVANJE////////
+
+
+
+
+///////////FUNCKIONALNOSI////////
+
+Route::post('app/store/smestaj','SmestajController@store');
+Route::post('app/edit/smestaj/{smestaj}','SmestajController@update');
+Route::get('app/delete/smestaj/{smestaj}','SmestajController@destroy');
+
+Route::get('test', function () {
+    return \App\Smestaj::find(1)->opis;
+});
+
+
 

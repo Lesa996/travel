@@ -14,6 +14,9 @@
     <!-- Bootstrap Core Css -->
     <link href="{{url('admin/plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
 
+    <!-- Sweet Alert Css -->
+    <link href="{{url('admin/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" />
+
     <!-- Waves Effect Css -->
     <link href="{{url('admin/plugins/node-waves/waves.css')}}" rel="stylesheet" />
 
@@ -39,113 +42,32 @@
                         <h2>Kreiraj Smestaj</h2>
                     </div>
                     <div class="body">
-                        <form id="wizard_with_validation" method="POST" enctype="multipart/form-data">
-
-
-                            <h3>Informacije O Smestaju</h3>
-                            <fieldset>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="naziv" required>
-                                        <label class="form-label">Naziv*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="tip_objekta"  required>
-                                        <label class="form-label">Tip Objekta*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" name="broj_zvezdica" required>
-                                        <label class="form-label">Broj Zvezdica*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="vrsta_soba" >
-                                        <label class="form-label">Vrsta Sobe*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="tip_soba" >
-                                        <label class="form-label">Tip Soba*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="broj_ljudi" >
-                                        <label class="form-label">Broj ljudi*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="struktura_sobe" >
-                                        <label class="form-label">Struktura Sobe*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="sadrzaj_sobe" >
-                                        <label class="form-label">Sadrzaj Sobe*</label>
-                                    </div>
-                                </div>
-                            </fieldset>
-
-                            <h3>Opis Smestaja</h3>
-                            <fieldset>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <textarea cols="30" rows="3" class="form-control no-resize"  name="kratak_opis" required></textarea>
-                                        <label class="form-label">Kratak Opis*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <textarea cols="30" rows="3" class="form-control no-resize"  name="opis" required></textarea>
-                                        <label class="form-label">Opis smestaja*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="adresa" required>
-                                        <label class="form-label">Adresa*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="link" required>
-                                        <label class="form-label">Link*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <textarea cols="30" rows="3" class="form-control no-resize"  name="dodatni_sadrzaj" required></textarea>
-                                        <label class="form-label">Dodatni sadrzaj*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <textarea cols="30" rows="3" class="form-control no-resize"  name="napomena_hotel" required></textarea>
-                                        <label class="form-label">Napomena Hotela*</label>
-                                    </div>
-                                </div>
-                            </fieldset>
-
+                        <form action="{{url('app/edit/smestaj',$smestaj->id)}}" id="wizard_with_validation" method="POST" enctype="multipart/form-data">
+                            {!! csrf_field() !!}
                             <h3>Lokacija</h3>
                             <fieldset>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="drzava" class="form-control" required>
+                                        <input type="text" name="drzava" class="form-control" value="{{$smestaj->drzava}}" required>
                                         <label class="form-label">Drzava*</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="grad" class="form-control" required>
+                                        <input type="text" name="grad" class="form-control" value="{{$smestaj->grad}}" required>
                                         <label class="form-label">Grad*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" name="lat" class="form-control" value="{{$smestaj->lat}}" required>
+                                        <label class="form-label">Lat*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" name="lng" class="form-control" value="{{$smestaj->lng}}" required>
+                                        <label class="form-label">Lng*</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
@@ -156,16 +78,109 @@
 
                             </fieldset>
 
-                            <h3>Galerija</h3>
+
+                            <h3>Informacije O Smestaju</h3>
                             <fieldset>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="file" name="gallery[]" multiple class="form-control" required>
-                                        <br>
-                                        <label class="form-label">Gallery*</label>
+                                        <input type="text" class="form-control" name="naziv" value="{{$smestaj->naziv}}" required>
+                                        <label class="form-label">Naziv*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="tip_objekta" value="{{$smestaj->tip_objekta}}" required>
+                                        <label class="form-label">Tip Objekta*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="broj_zvezdica" value="{{$smestaj->broj_zvezdica}}" required>
+                                        <label class="form-label">Broj Zvezdica*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="vrsta_soba" value="{{$smestaj->vrsta_soba}}" required>
+                                        <label class="form-label">Vrsta Sobe*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="tip_soba" value="{{$smestaj->tip_soba}}">
+                                        <label class="form-label">Tip Soba*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="broj_ljudi" value="{{$smestaj->broj_ljudi}}">
+                                        <label class="form-label">Broj ljudi*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="struktura_sobe" value="{{$smestaj->struktura_sobe}}" >
+                                        <label class="form-label">Struktura Sobe*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="sadrzaj_sobe" value="{{$smestaj->sadrzaj_sobe}}">
+                                        <label class="form-label">Sadrzaj Sobe*</label>
                                     </div>
                                 </div>
                             </fieldset>
+
+                            <h3>Opis Smestaja</h3>
+                            <fieldset>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea cols="30" rows="3" class="form-control no-resize"   name="kratak_opis" required>{{$smestaj->opis->kratak_opis}}</textarea>
+                                        <label class="form-label">Kratak Opis*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea cols="30" rows="3" class="form-control no-resize"  name="opis" required>{{$smestaj->opis->opis}}</textarea>
+                                        <label class="form-label">Opis smestaja*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="{{$smestaj->opis->adresa}}" name="adresa" required>
+                                        <label class="form-label">Adresa*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="{{$smestaj->opis->link}}" name="link" required>
+                                        <label class="form-label">Link*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea cols="30" rows="3" class="form-control no-resize"  name="dodatni_sadrzaj" required>{{$smestaj->dodatni_sadrzaj}}</textarea>
+                                        <label class="form-label">Dodatni sadrzaj*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea cols="30" rows="3" class="form-control no-resize"  name="napomena_hotel" required>{{$smestaj->napomena_hotel}}</textarea>
+                                        <label class="form-label">Napomena Hotela*</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            {{--<h3>Galerija</h3>--}}
+                            {{--<fieldset>--}}
+                                {{--<div class="form-group form-float">--}}
+                                    {{--<div class="form-line">--}}
+                                        {{--<input type="file" name="gallery[]" multiple class="form-control" required>--}}
+                                        {{--<br>--}}
+                                        {{--<label class="form-label">Gallery*</label>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</fieldset>--}}
 
                         </form>
                     </div>
@@ -219,6 +234,10 @@
     <!--Form js -->
     <script src="{{url('admin/plugins/jquery-validation/jquery.validate.js')}}"></script>
     <script src="{{url('admin/plugins/jquery-steps/jquery.steps.js')}}"></script>
+
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="{{url('admin/plugins/sweetalert/sweetalert.min.js')}}"></script>
 
     <!-- GMap Js -->
     <script src="https://maps.google.com/maps/api/js?v=3&key=AIzaSyDq_RSFC_BAiBNji07rK-XvpX3rOZkg4bc"></script>

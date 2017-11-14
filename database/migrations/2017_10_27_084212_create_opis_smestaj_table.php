@@ -24,7 +24,7 @@ class CreateOpisSmestajTable extends Migration
             $table->softDeletes();
         });
         Schema::table('opis_smestaj', function (Blueprint $table) {
-            $table->foreign('smestaj_id')->references('id')->on('smestaj');
+            $table->foreign('smestaj_id')->references('id')->on('smestaj')->onDelete('cascade');
         });
     }
 

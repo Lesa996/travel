@@ -22,7 +22,7 @@ class CreatePlanPutaTable extends Migration
             $table->softDeletes();
         });
         Schema::table('plan_puta', function (Blueprint $table) {
-            $table->foreign('putovanje_id')->references('id')->on('putovanja');
+            $table->foreign('putovanje_id')->references('id')->on('putovanja')->onDelete('cascade');
         });
     }
 

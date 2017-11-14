@@ -37,6 +37,7 @@ $(function () {
         },
         onFinished: function (event, currentIndex) {
             swal("Good job!", "Submitted!", "success");
+            form.submit();
         }
     });
 

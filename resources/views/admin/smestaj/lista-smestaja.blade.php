@@ -32,17 +32,19 @@
 
     <div class="container-fluid">
         <div class="block-header">
-            <h2>Lista Smestaja</h2>
+            <h2>Lista Smestaja </h2>
+            <a href="{{url('app/kreiraj/smestaj')}}">Kreiraj</a>
         </div>
         <div class="row clearfix">
+            @foreach($smestaji as $smestaj)
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="card">
                     <div class="body">
-                        <img class="img-responsive" src="{{url('images/pexels-photo-221532.jpeg')}}">
+                        <img class="img-responsive" src="{{url($smestaj->cover->url)}}">
                     </div>
                     <div class="header bg-green">
                         <h2>
-                            Putovanje Grcka <small>Description text here...</small>
+                            {{$smestaj->naziv}} <small>{{str_limit($smestaj->opis->kratak_opis, $limit = 20, $end = '...')}}...</small>
                         </h2>
                         <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
@@ -51,8 +53,8 @@
                                 </a>
                                 <ul class="dropdown-menu pull-right">
                                     <li><a href="{{url('app/kreiraj/smestaj')}}">Kreiraj</a></li>
-                                    <li><a href="{{url('app/edit/smestaj')}}">Edit</a></li>
-                                    <li><a href="javascript:void(0);">Arhiva</a></li>
+                                    <li><a href="{{url('app/edit/smestaj/'.$smestaj->id)}}">Edit</a></li>
+                                    <li><a href="{{url('app/delete/smestaj/'.$smestaj->id)}}">Izbrisi</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -60,6 +62,7 @@
 
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 

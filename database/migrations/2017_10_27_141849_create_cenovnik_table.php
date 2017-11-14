@@ -25,8 +25,8 @@ class CreateCenovnikTable extends Migration
             $table->softDeletes();
         });
         Schema::table('cenovnik', function (Blueprint $table) {
-            $table->foreign('smestaj_id')->references('id')->on('smestaj');
-            $table->foreign('putovanje_id')->references('id')->on('putovanja');
+            $table->foreign('smestaj_id')->references('id')->on('smestaj')->onDelete('cascade');
+            $table->foreign('putovanje_id')->references('id')->on('putovanja')->onDelete('cascade');
         });
     }
 

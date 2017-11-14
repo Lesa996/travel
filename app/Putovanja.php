@@ -11,6 +11,7 @@ class Putovanja extends Model
         'naziv', 'status', 'cena_od', 'precrtana_cena', 'broj_dana','broj_noci',
         'vrsta_prevoza','obroci','grupa','drzava','grad',
     ];
+    protected $table = 'putovanja';
 
     public $timestamps = true;
 }
