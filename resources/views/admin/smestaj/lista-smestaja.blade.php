@@ -23,6 +23,9 @@
         <!-- Morris Chart Css-->
         <link href="{{url('admin/plugins/morrisjs/morris.css')}}" rel="stylesheet" />
 
+        <!-- Multi Select Css -->
+        <link href="{{url('admin/plugins/multi-select/css/multi-select.css')}}" rel="stylesheet">
+
         <!-- Custom Css -->
         <link href="{{url('admin/css/style.css')}}" rel="stylesheet">
 
@@ -32,9 +35,44 @@
 
     <div class="container-fluid">
         <div class="block-header">
-            <h2>Lista Smestaja </h2>
-            <a href="{{url('app/kreiraj/smestaj')}}">Kreiraj</a>
+            <h2>
+                Lista Smestaja
+
+                <a href="{{url('app/kreiraj/smestaj')}}" class="btn btn-success btn-circle waves-effect waves-circle waves-float">
+                    <i class="material-icons">add</i>
+                </a>
+            </h2>
+
         </div>
+        <!-- Multi Select -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            Slajder pocetne strane
+                        </h2>
+
+                    </div>
+                    <div class="body">
+                        <form action="{{url('app/store/smestaj/slajder')}}" method="POST" >
+                            {!! csrf_field() !!}
+                            <select id="optgroup" class="ms" multiple="multiple" name="slajder[]">
+                                @foreach($smestaji as $smestaj)
+                                    @if($smestaj->slajder == "1")
+                                        <option value="{{$smestaj->id}}" selected>{{$smestaj->naziv}}</option>
+                                    @else
+                                        <option value="{{$smestaj->id}}" >{{$smestaj->naziv}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            <button type="submit" class="btn btn-primary m-t-15 waves-effect">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Multi Select -->
         <div class="row clearfix">
             @foreach($smestaji as $smestaj)
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -108,11 +146,18 @@
         <!-- Sparkline Chart Plugin Js -->
         <script src="{{url('admin/plugins/jquery-sparkline/jquery.sparkline.js')}}"></script>
 
+        <!-- Multi Select Plugin Js -->
+        <script src="{{url('admin/plugins/multi-select/js/jquery.multi-select.js')}}"></script>
+
         <!-- Custom Js -->
         <script src="{{url('admin/js/admin.js')}}"></script>
         <script src="{{url('admin/js/pages/index.js')}}"></script>
 
         <!-- Demo Js -->
         <script src="{{url('admin/js/demo.js')}}"></script>
+
+        <script>
+            $('#optgroup').multiSelect();
+        </script>
     @endpush
 @endsection

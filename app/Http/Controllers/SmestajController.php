@@ -142,4 +142,25 @@ class SmestajController extends Controller
         return view('admin.smestaj.lista-smestaja',['smestaji'=>$smestaji]);
 
     }
+    public function setSlajder(Request $request){
+        $all = Smestaj::where('slajder',"1")->get();
+
+        foreach ($all as $one){
+            $one->slajder = "0";
+            $one->save();
+        }
+
+
+        $slajder_ids = $request->slajder;
+        if(is_array($slajder_ids)){
+            foreach ($slajder_ids as $slajd){
+                $smestaj = Smestaj::find($slajd);
+                $smestaj->slajder = '1';
+                $smestaj->save();
+
+            }
+        }
+
+        return redirect('app/smestaj');
+    }
 }

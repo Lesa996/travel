@@ -45,8 +45,9 @@ Route::post('app/store/smestaj','SmestajController@store');
 Route::post('app/edit/smestaj/{smestaj}','SmestajController@update');
 Route::get('app/delete/smestaj/{smestaj}','SmestajController@destroy');
 
+Route::post('app/store/smestaj/slajder','SmestajController@setSlajder');
 Route::get('test', function () {
-    return \App\Smestaj::find(1)->opis;
+    return \App\Smestaj::where('slajder',"1")->get();
 });
 
 

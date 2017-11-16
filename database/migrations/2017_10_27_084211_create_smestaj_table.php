@@ -34,6 +34,7 @@ class CreateSmestajTable extends Migration
             $table->string('grad');
             $table->string('lat');
             $table->string('lng');
+            $table->enum('slajder', [0, 1])->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
