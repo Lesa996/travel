@@ -1,44 +1,93 @@
-@extends('front.template')
+<!DOCTYPE html>
+<html>
 
-@section('main')
-    <div class="row">
-        <div class="box">
-            <div class="col-lg-12">
-                @if(session()->has('error'))
-                    @include('partials/error', ['type' => 'danger', 'message' => session('error')])
-                @endif	
-                <hr>	
-                <h2 class="intro-text text-center">{{ trans('front/login.connection') }}</h2>
-                <hr>
-                <p>{{ trans('front/login.text') }}</p>				
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Sign In | Bootstrap Based Admin Template - Material Design</title>
+    <!-- Favicon-->
+    <link rel="icon" href="{{url('admin/favicon.ico')}}" type="image/x-icon">
 
-                {!! Form::open(['url' => 'login']) !!}	
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
-                    <div class="row">
+    <!-- Bootstrap Core Css -->
+    <link href="{{url('admin/plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
 
+    <!-- Waves Effect Css -->
+    <link href="{{url('admin/plugins/node-waves/waves.css')}}" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="{{url('admin/plugins/animate-css/animate.css')}}" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="{{url('admin/css/style.css')}}" rel="stylesheet">
+</head>
+
+<body class="login-page">
+<div class="login-box">
+    <div class="logo">
+        <a href="javascript:void(0);">Admin<b>BSB</b></a>
+        <small>Admin BootStrap Based - Material Design</small>
+    </div>
+    <div class="card">
+        <div class="body">
+            {!! Form::open(['url' => 'login']) !!}
+            <div class="msg">Sign in to start your session</div>
+                <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+                    <div class="form-line">
                         {!! Form::controlBootstrap('text', 6, 'log', $errors, trans('front/login.log')) !!}
+
+                        {{--<input type="text" class="form-control" name="username" placeholder="Username" required autofocus>--}}
+                    </div>
+                </div>
+                <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                    <div class="form-line">
                         {!! Form::controlBootstrap('password', 6, 'password', $errors, trans('front/login.password')) !!}
+
+                        {{--<input type="password" class="form-control" name="password" placeholder="Password" required>--}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8 p-t-5">
+                        <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
+                        <label for="rememberme">Remember Me</label>
+                    </div>
+                    <div class="col-xs-4">
                         {!! Form::submitBootstrap(trans('front/form.send'), 'col-lg-12') !!}
-                        {!! Form::checkboxBootstrap('memory', trans('front/login.remind')) !!}
-                        {!! Form::text('address', '', ['class' => 'hpet']) !!}		  
-                        <div class="col-lg-12">					
-                            {!! link_to('password/reset', trans('front/login.forget')) !!}
-                        </div>
 
                     </div>
-
-                {!! Form::close() !!}
-
-                <div class="text-center">
-                    <hr>
-                    <h2 class="intro-text text-center">{{ trans('front/login.register') }}</h2>
-                    <hr>	
-                    <p>{{ trans('front/login.register-info') }}</p>
-                    {!! link_to('register', trans('front/login.registering'), ['class' => 'btn btn-default']) !!}
                 </div>
 
-            </div>
+            {!! Form::close() !!}
         </div>
     </div>
-@endsection
+</div>
+
+<!-- Jquery Core Js -->
+<script src="{{url('admin/plugins/jquery/jquery.min.js')}}"></script>
+
+<!-- Bootstrap Core Js -->
+<script src="{{url('admin/plugins/bootstrap/js/bootstrap.js')}}"></script>
+
+<!-- Waves Effect Plugin Js -->
+<script src="{{url('admin/plugins/node-waves/waves.js')}}"></script>
+
+<!-- Validation Plugin Js -->
+<script src="{{url('admin/plugins/jquery-validation/jquery.validate.js')}}"></script>
+
+<!-- Custom Js -->
+<script src="{{url('admin/js/admin.js')}}"></script>
+<script src="{{url('admin/js/pages/examples/sign-in.js')}}"></script>
+</body>
+
+</html>
+
 

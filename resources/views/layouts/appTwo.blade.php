@@ -78,7 +78,7 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="active">
+                <li >
                     <a href="{{url('app/smestaj')}}" @if(\Request::is('test')) class="active" @endif>
                         <i class="material-icons">home</i>
                         <span>Smestaj</span>
@@ -92,7 +92,7 @@
                     </a>
 
                 </li>
-                <li>
+                <li class="active">
                     <a href="javascript:void(0);" >
                         <i class="material-icons">format_textdirection_l_to_r</i>
                         <span>Blog</span>

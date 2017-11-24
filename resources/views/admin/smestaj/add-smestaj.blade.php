@@ -171,16 +171,7 @@
                                 </div>
                             </fieldset>
 
-                            <h3>Galerija</h3>
-                            <fieldset>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="file" name="gallery[]" multiple class="form-control" required>
-                                        <br>
-                                        <label class="form-label">Gallery*</label>
-                                    </div>
-                                </div>
-                            </fieldset>
+
 
                         </form>
                     </div>

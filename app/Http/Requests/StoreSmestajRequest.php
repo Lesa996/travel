@@ -41,8 +41,7 @@ class StoreSmestajRequest extends FormRequest
             'drzava' => 'required',
             'grad' => 'required',
             'lat' => 'required|numeric',
-            'lng' => 'required|numeric',
-            'gallery' => 'required'
+            'lng' => 'required|numeric'
         ];
     }
 }

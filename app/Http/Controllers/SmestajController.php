@@ -7,6 +7,7 @@ use App\Image;
 use App\OpisSmestaj;
 use App\Smestaj;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class SmestajController extends Controller
 {
@@ -43,24 +44,24 @@ class SmestajController extends Controller
         $opis = new OpisSmestaj($request->all());
         $opis->smestaj_id = $smestaj->id;
         $opis->save();
-        $images = collect($request->gallery);
+//        $images = collect($request->gallery);
+//
+//        $images = $images->map(function($image, $key) use ($smestaj) {
+//            $destinationPath =  'items/smestaj/' . $smestaj->naziv ;
+//            $extension = $image->getClientOriginalExtension();
+//            $fileName = "SmestajImage_" . $smestaj->naziv . rand(11111, 99999) . '.' . $extension;
+//            $image->move($destinationPath, $fileName);
+//            $url = $destinationPath . "/" . $fileName;
+//            $image = new Image(['url' => $url]);
+//            return $image;
+//        });
+//        $image = $images[0];
+//        $image->avatar = 1;
+//
+//        $smestaj->gallery()->saveMany($images);
+//        $smestaj->cover()->save($image);
 
-        $images = $images->map(function($image, $key) use ($smestaj) {
-            $destinationPath =  'items/smestaj/' . $smestaj->naziv ;
-            $extension = $image->getClientOriginalExtension();
-            $fileName = "SmestajImage_" . $smestaj->naziv . rand(11111, 99999) . '.' . $extension;
-            $image->move($destinationPath, $fileName);
-            $url = $destinationPath . "/" . $fileName;
-            $image = new Image(['url' => $url]);
-            return $image;
-        });
-        $image = $images[0];
-        $image->avatar = 1;
-
-        $smestaj->gallery()->saveMany($images);
-        $smestaj->cover()->save($image);
-
-        return redirect('app');
+        return view('admin.smestaj.galerija',['smestaj'=>$smestaj]);
     }
 
     /**
@@ -167,5 +168,12 @@ class SmestajController extends Controller
     {
         $smestaj = Smestaj::where([['drzava',$drzava],['grad',$grad],['naziv',$smestajIme]])->first();
         return view('smestaj',['smestaj'=>$smestaj]);
+    }
+    public function  editGalerija($id){
+        $smestaj = Smestaj::find($id);
+
+        return view('admin.smestaj.galerija',['smestaj'=>$smestaj]);
+
+
     }
 }

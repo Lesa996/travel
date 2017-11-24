@@ -210,6 +210,8 @@ return [
         Magyarjeti\LaravelLipsum\LipsumServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
         App\Providers\ElfinderServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -260,6 +262,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
         'Lipsum' => Magyarjeti\LaravelLipsum\LipsumFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\OpisPutovanje;
 use App\Putovanja;
+use App\Smestaj;
 use Illuminate\Http\Request;
 
 class PutovanjeController extends Controller
@@ -15,7 +16,9 @@ class PutovanjeController extends Controller
      */
     public function index()
     {
-        //
+        $smestaji = Smestaj::all();
+        return view('admin.putovanje.add-putovanje',['smestaji'=>$smestaji]);
+
     }
 
     /**
