@@ -24,26 +24,26 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 
     <!-- Animate.css -->
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="{{url('css/animate.css')}}">
     <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="{{url('css/icomoon.css')}}">
     <!-- Bootstrap  -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="{{url('css/bootstrap.css')}}">
     <!-- Superfish -->
-    <link rel="stylesheet" href="css/superfish.css">
+    <link rel="stylesheet" href="{{url('css/superfish.css')}}">
     <!-- Magnific Popup -->
-    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="{{url('css/magnific-popup.css')}}">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{url('css/style.css')}}">
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 
     <!-- Modernizr JS -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="{{url('js/modernizr-2.6.2.min.js')}}"></script>
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
-    <script src="js/respond.min.js"></script>
+    <script src="{{url('js/respond.min.js')}}"></script>
     <![endif]-->
     <style>
         .fh5co-cover,
@@ -210,15 +210,14 @@
     </header>
 
     <div class="fh5co-hero" data-section="home">
-        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/hotel.jpeg);">
+        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url({{url($smestaj->cover->url)}});">
 
             <div class="display-t">
                 <div class="display-tc">
                     <div class="container">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="animate-box">
-                                <h1>Hotel</h1>
-                                <h2>Start</h2>
+                                <h2>{{$smestaj->naziv}}</h2>
                             </div>
                         </div>
                     </div>
@@ -241,12 +240,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">
-                            <h1 class="putovanje-naziv">Hotel Start 2*</h1>
+                            <h1 class="putovanje-naziv">{{$smestaj->naziv}}</h1>
 
                             <br>
                             <div class="text">
                                 <br>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis. Aliquam erat volutpat. Nam ultrices semper felis, at laoreet metus laoreet a. Praesent orci orci, pretium ut tortor euismod, vehicula blandit purus. Aliquam suscipit, erat a maximus mollis, neque odio aliquam arcu, ut consequat leo nisi sit amet leo. Nam consectetur diam id libero fringilla, eu commodo arcu congue.</p>
+                                <p>{{$smestaj->opis->opis}}</p>
                             </div>
                             <br>
 
@@ -256,72 +255,72 @@
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Destinacija</div>
-                                    <div class="col-md-7 opis-text"> Parga, Grcka</div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->grad . ", ". $smestaj->drzava}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Tip objekta</div>
-                                    <div class="col-md-7 opis-text">Hotel</div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->tip_objekta}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Broj Zvezdica</div>
-                                    <div class="col-md-7 opis-text">2</div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->broj_zvezdica}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Vrsta Soba</div>
-                                    <div class="col-md-7 opis-text">Studio,Apartman</div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->vrsta_soba}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Tip Soba</div>
-                                    <div class="col-md-7 opis-text">1/2,1/3,1/4</div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->tip_soba}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Broj ljudi</div>
-                                    <div class="col-md-7 opis-text">2,3,4</div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->broj_ljudi}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Struktura sobe</div>
-                                    <div class="col-md-7 opis-text">Spavaca soba, Dnevna soba, Trepezarija, WC</div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->struktura_sobe}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Udaljenost centar</div>
-                                    <div class="col-md-7 opis-text">800</div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->udaljenost_centar}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Udaljenost plaza</div>
-                                    <div class="col-md-7 opis-text"></div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->udaljenost_plaza}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Udaljenost stanica</div>
-                                    <div class="col-md-7 opis-text">70</div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->udaljenost_stanica}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Udaljenost zicare</div>
-                                    <div class="col-md-7 opis-text">400</div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->udaljenost_zicara}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Dodatni sadrzaj</div>
-                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis.</div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->dodatni_sadrzaj}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Napomena</div>
-                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis.</div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->napomena_hotel}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Link Smestaja</div>
-                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis.</div>
+                                    <div class="col-md-7 opis-text">{{$smestaj->opis->link}}</div>
                                 </div>
 
                             </div>
@@ -485,11 +484,11 @@
     {{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script> --}}
     <!-- jQuery -->
     {{--<script src="dist/scripts.js"></script>--}}
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/sticky.js"></script>
+    <script src="{{url('js/jquery.min.js')}}"></script>
+    <script src="{{url('js/bootstrap.min.js')}}"></script>
+    <script src="{{url('js/jquery.stellar.min.js')}}"></script>
+    <script src="{{url('js/jquery.waypoints.min.js')}}"></script>
+    <script src="{{url('js/sticky.js')}}"></script>
     <script >
         var map;
         function initMap() {
@@ -540,8 +539,5 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq_RSFC_BAiBNji07rK-XvpX3rOZkg4bc&callback=initMap" async defer>
     </script>
 
-    <script>
-
-    </script>
     @endpush
 @endsection

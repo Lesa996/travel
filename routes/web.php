@@ -27,6 +27,8 @@ Route::get('smestaj', function () {
 Route::get('app', function () {
     return redirect('app/smestaj');
 });
+Route::get('smestaj/{drzava}/{grad}/{smestaj}','SmestajController@singleSmestaj');
+
 ///////////SMESTAJ////////
 Route::get('app/smestaj', 'SmestajController@showAll');
 
@@ -34,8 +36,15 @@ Route::get('app/kreiraj/smestaj', function () {
     return view('admin.smestaj.add-smestaj');
 });
 Route::get('app/edit/smestaj/{smestaj}','SmestajController@edit');
-///////////PUTOVANJE////////
 
+
+///////////PUTOVANJE////////
+Route::get('app/putovanje', 'PutovanjeController@showAll');
+
+Route::get('app/kreiraj/putovanje', function () {
+    return view('admin.putovanje.add-putovanje');
+});
+Route::get('app/edit/putovanje/{putovanje}','PutovanjeController@edit');
 
 
 
@@ -45,9 +54,11 @@ Route::post('app/store/smestaj','SmestajController@store');
 Route::post('app/edit/smestaj/{smestaj}','SmestajController@update');
 Route::get('app/delete/smestaj/{smestaj}','SmestajController@destroy');
 
+Route::get('app/delete/putovanje/{putovanje}','PutovanjeController@destroy');
+
 Route::post('app/store/smestaj/slajder','SmestajController@setSlajder');
 Route::get('test', function () {
-    return \App\Smestaj::where('slajder',"1")->get();
+    var_dump(\App\Smestaj::find(1)->cover->url);
 });
 
 

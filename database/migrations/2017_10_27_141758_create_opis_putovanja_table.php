@@ -25,7 +25,7 @@ class CreateOpisPutovanjaTable extends Migration
             $table->text('min_putnika');
             $table->text('rok_otkaz');
             $table->text('organizator');
-            $table->string('program');
+            $table->text('program');
             $table->text('licenca');
             $table->text('garancija');
             $table->integer('putovanje_id')->unsigned();

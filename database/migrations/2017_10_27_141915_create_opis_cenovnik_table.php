@@ -16,7 +16,7 @@ class CreateOpisCenovnikTable extends Migration
 
         Schema::create('opis_cenovnik', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('opis');
+            $table->text('napomena_cenovnik');
             $table->text('obuhvata');
             $table->text('neobuhvata');
             $table->text('dinamika_placanja');

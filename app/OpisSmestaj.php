@@ -15,6 +15,6 @@ class OpisSmestaj extends Model
 
     public function smestaj()
     {
-        return $this->belongTo('App\Phone');
+        return $this->belongTo('App\Smestaj');
     }
 }

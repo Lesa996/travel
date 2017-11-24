@@ -78,15 +78,15 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="active">
+                <li @if(strpos(\Route::current()->uri , 'smestaj')) class="active" @endif>
                     <a href="{{url('app/smestaj')}}" @if(\Request::is('test')) class="active" @endif>
                         <i class="material-icons">home</i>
                         <span>Smestaj</span>
                     </a>
 
                 </li>
-                <li>
-                    <a href="javascript:void(0);" >
+                <li @if(strpos(\Route::current()->uri ,'putovanje')) class="active" @endif>
+                    <a href="{{url('app/putovanje')}}" >
                         <i class="material-icons">work</i>
                         <span>Putovanje</span>
                     </a>

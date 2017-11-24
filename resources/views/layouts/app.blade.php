@@ -5,8 +5,8 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-    <script src="js/pace.js"></script>
-    <link rel="stylesheet" href="css/pace-theme-center-atom.css">
+    <script src="{{url('js/pace.js')}}"></script>
+    <link rel="stylesheet" href="{{url('css/pace-theme-center-atom.css')}}">
 
 
     <meta charset="utf-8">

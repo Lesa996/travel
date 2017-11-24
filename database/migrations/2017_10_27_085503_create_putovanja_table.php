@@ -26,6 +26,11 @@ class CreatePutovanjaTable extends Migration
             $table->string('grupa');
             $table->string('drzava');
             $table->string('grad');
+            $table->string('lat');
+            $table->string('lng');
+            $table->enum('slajder', [0, 1])->default(0);
+            $table->enum('glavni_slajder', [0, 1])->default(0);
+
             $table->timestamps();
             $table->softDeletes();
         });

@@ -163,4 +163,9 @@ class SmestajController extends Controller
 
         return redirect('app/smestaj');
     }
+    public function singleSmestaj($drzava, $grad,$smestajIme)
+    {
+        $smestaj = Smestaj::where([['drzava',$drzava],['grad',$grad],['naziv',$smestajIme]])->first();
+        return view('smestaj',['smestaj'=>$smestaj]);
+    }
 }

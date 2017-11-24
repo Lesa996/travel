@@ -13,4 +13,9 @@ class OpisPutovanje extends Model
     protected $table = 'opis_putovanja';
 
     public $timestamps = true;
+
+    public function putovanje()
+    {
+        return $this->belongTo('App\Putovanja');
+    }
 }
