@@ -21,9 +21,9 @@ class SmestajSeeder extends Seeder
             $smestaj->naziv = $faker->company;
             $smestaj->tip_objekta = 'Hotel';
             $smestaj->broj_zvezdica =random_int(1,5);
-            $smestaj->vrsta_soba =array_random(['apartman','studio']);
-            $smestaj->tip_soba = array_random(['1/4','1/5','1/6','1/7']);
-            $smestaj->broj_ljudi = array_random(['1/4','1/5','1/6','1/7']);
+            $smestaj->vrsta_soba =array_rand(['apartman','studio']);
+            $smestaj->tip_soba = array_rand(['1/4','1/5','1/6','1/7']);
+            $smestaj->broj_ljudi = array_rand(['1/4','1/5','1/6','1/7']);
             $smestaj->struktura_sobe = $faker->realText(20);
             $smestaj->sadrzaj_sobe = $faker->realText(20);
             $smestaj->udaljenost_centar = random_int(0,1000);
@@ -52,9 +52,9 @@ class SmestajSeeder extends Seeder
             $smestaj_slike = [];
             for ($k= 0; $k < 3 ; $k++){
                 if ($k == 0){
-                    array_push($smestaj_slike, new \App\Image(['url' => array_random($images),'avatar'=>1]));
+                    array_push($smestaj_slike, new \App\Image(['url' => array_rand($images),'avatar'=>1]));
                 }
-                array_push($smestaj_slike, new \App\Image(['url' => array_random($images)]));
+                array_push($smestaj_slike, new \App\Image(['url' => array_rand($images)]));
             }
             $smestaj->gallery()->saveMany($smestaj_slike);
             $smestaj->cover()->save($smestaj_slike[0]);

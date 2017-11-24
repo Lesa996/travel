@@ -10,10 +10,9 @@ return [
     | This value is the name of your application. This value is used when the
     | framework needs to place the application's name in a notification or
     | any other location as required by the application or its packages.
-    |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => 'Laravel 5',
 
     /*
     |--------------------------------------------------------------------------
@@ -103,10 +102,42 @@ return [
     | will not be safe. Please do this before deploying an application!
     |
     */
+   
+    'key' => env('APP_KEY'), 
 
-    'key' => env('APP_KEY'),
+    'cipher' => 'AES-256-CBC',  
 
-    'cipher' => 'AES-256-CBC',
+    /*
+    |--------------------------------------------------------------------------
+    | Application available Languages
+    |--------------------------------------------------------------------------
+    |
+    | A list of available languages defined from their ISO Language Codes codes, 
+    | see more: http://www.w3schools.com/tags/ref_language_codes.asp.
+    | If the code isn't in the list, HomeController@language is set from fallback_locale value.
+    | To set new language, please create a folder in /resources/lang/{ISO-CODE}, 
+    | create a flag image in public/img/{ISO-CODE}-flang.png
+    ! and at least, add the ISO code in languages array.
+    */
+
+    'languages' => ['en', 'fr', 'pt-BR'],   
+
+    /*
+    |--------------------------------------------------------------------------
+    | Pagination Configuration
+    |--------------------------------------------------------------------------
+    */
+   
+    'nbrPages' => [
+        'front' => [
+            'posts' => 2,
+        ],
+        'back' => [
+            'posts' => 5,
+            'users' => 5,
+            'comments' => 3,
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -173,9 +204,12 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        Magyarjeti\LaravelLipsum\LipsumServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
+        App\Providers\ElfinderServiceProvider::class,
 
     ],
 
@@ -196,8 +230,6 @@ return [
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
         'Blade' => Illuminate\Support\Facades\Blade::class,
-        'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
-        'Bus' => Illuminate\Support\Facades\Bus::class,
         'Cache' => Illuminate\Support\Facades\Cache::class,
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
@@ -225,7 +257,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Form' => Collective\Html\FormFacade::class,
+        'HTML' => Collective\Html\HtmlFacade::class,
+        'Lipsum' => Magyarjeti\LaravelLipsum\LipsumFacade::class,
     ],
 
 ];

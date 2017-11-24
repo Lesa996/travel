@@ -222,14 +222,14 @@
                 <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
                     <div class="box">
                         <a href="#" data-toggle="modal" data-target="#1">
-                            <img src="images/pexels-photo-1.jpeg">
+                            <img src="{{asset('images/pexels-photo-1.jpeg')}}">
                         </a>
                         <div class="modal fade" id="1" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <div class="modal-body">
-                                        <img src="images/pexels-photo-1.jpeg">
+                                        <img src="{{asset('images/pexels-photo-1.jpeg')}}">
                                     </div>
                                     <div class="col-md-12 description">
                                         <h4>This is the first one on my Gallery</h4>
@@ -242,14 +242,14 @@
                 <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                     <div class="box">
                         <a href="#" data-toggle="modal" data-target="#2">
-                            <img src="images/pexels-photo-2.jpeg">
+                            <img src="{{asset('images/pexels-photo-2.jpeg')}}">
                         </a>
                         <div class="modal fade" id="2" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <div class="modal-body">
-                                        <img src="images/pexels-photo-2.jpeg">
+                                        <img src="{{asset('images/pexels-photo-2.jpeg')}}">
                                     </div>
                                     <div class="col-md-12 description">
                                         <h4>This is the second one on my Gallery</h4>
@@ -262,14 +262,14 @@
                 <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                     <div class="box">
                         <a href="#" data-toggle="modal" data-target="#3">
-                            <img src="images/pexels-photo-3.jpeg">
+                            <img src="{{asset('images/pexels-photo-3.jpeg')}}">
                         </a>
                         <div class="modal fade" id="3" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <div class="modal-body">
-                                        <img src="images/pexels-photo-3.jpeg">
+                                        <img src="{{asset('images/pexels-photo-3.jpeg')}}">
                                     </div>
                                     <div class="col-md-12 description">
                                         <h4>This is the third one on my Gallery</h4>
@@ -282,14 +282,14 @@
                 <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
                     <div class="box">
                         <a href="#" data-toggle="modal" data-target="#4">
-                            <img src="images/pexels-photo-4.jpeg">
+                            <img src="{{asset('images/pexels-photo-4.jpeg')}}">
                         </a>
                         <div class="modal fade" id="4" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                     <div class="modal-body">
-                                        <img src="images/pexels-photo-4.jpeg">
+                                        <img src="{{asset('images/pexels-photo-4.jpeg')}}">
                                     </div>
                                     <div class="col-md-12 description">
                                         <h4>This is the fourth one on my Gallery</h4>

@@ -1,65 +1,112 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// Route::group(['prefix' => 'staro'], function () {
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('putovanje', function () {
-    return view('putovanje');
-});
-Route::get('search', function () {
-    return view('search');
-});
+	Route::get('/', function () {
+	    return view('welcome');
+	});
+	Route::get('putovanje', function () {
+	    return view('putovanje');
+	});
+	Route::get('search', function () {
+	    return view('search');
+	});
 
-Route::get('smestaj', function () {
-    return view('smestaj');
-});
-Route::get('app', function () {
-    return redirect('app/smestaj');
-});
-Route::get('smestaj/{drzava}/{grad}/{smestaj}','SmestajController@singleSmestaj');
+	Route::get('smestaj', function () {
+	    return view('smestaj');
+	});
+	Route::get('app', function () {
+	    return redirect('app/smestaj');
+	});
+	Route::get('smestaj/{drzava}/{grad}/{smestaj}','SmestajController@singleSmestaj');
 
-///////////SMESTAJ////////
-Route::get('app/smestaj', 'SmestajController@showAll');
+	///////////SMESTAJ////////
+	Route::get('app/smestaj', 'SmestajController@showAll');
 
-Route::get('app/kreiraj/smestaj', function () {
-    return view('admin.smestaj.add-smestaj');
-});
-Route::get('app/edit/smestaj/{smestaj}','SmestajController@edit');
+	Route::get('app/kreiraj/smestaj', function () {
+	    return view('admin.smestaj.add-smestaj');
+	});
+	Route::get('app/edit/smestaj/{smestaj}','SmestajController@edit');
 
 
-///////////PUTOVANJE////////
-Route::get('app/putovanje', 'PutovanjeController@showAll');
+	///////////PUTOVANJE////////
+	Route::get('app/putovanje', 'PutovanjeController@showAll');
 
-Route::get('app/kreiraj/putovanje', function () {
-    return view('admin.putovanje.add-putovanje');
-});
-Route::get('app/edit/putovanje/{putovanje}','PutovanjeController@edit');
+	Route::get('app/kreiraj/putovanje', function () {
+	    return view('admin.putovanje.add-putovanje');
+	});
+	Route::get('app/edit/putovanje/{putovanje}','PutovanjeController@edit');
 
 
 
-///////////FUNCKIONALNOSI////////
+	///////////FUNCKIONALNOSI////////
 
-Route::post('app/store/smestaj','SmestajController@store');
-Route::post('app/edit/smestaj/{smestaj}','SmestajController@update');
-Route::get('app/delete/smestaj/{smestaj}','SmestajController@destroy');
+	Route::post('app/store/smestaj','SmestajController@store');
+	Route::post('app/edit/smestaj/{smestaj}','SmestajController@update');
+	Route::get('app/delete/smestaj/{smestaj}','SmestajController@destroy');
 
-Route::get('app/delete/putovanje/{putovanje}','PutovanjeController@destroy');
+	Route::get('app/delete/putovanje/{putovanje}','PutovanjeController@destroy');
 
-Route::post('app/store/smestaj/slajder','SmestajController@setSlajder');
-Route::get('test', function () {
-    var_dump(\App\Smestaj::find(1)->cover->url);
-});
+	Route::post('app/store/smestaj/slajder','SmestajController@setSlajder');
+	Route::get('test', function () {
+	    var_dump(\App\Smestaj::find(1));
+	});
 
+// });
+// Route::group(['prefix' => 'novo'], function () {
+//     // Home
+// 	Route::get('/', 'HomeController')->name('home');
 
+// 	// Language
+// 	Route::get('language/{lang}', 'LanguageController')
+// 	    ->where('lang', implode('|', config('app.languages')));
 
+// 	// Admin
+// 	Route::get('admin', 'AdminController')->name('admin');
+
+// 	// Medias
+// 	Route::get('medias', 'FilemanagerController')->name('medias');
+
+// 	// Blog 
+// 	Route::get('blog/tag', 'BlogFrontController@tag');
+// 	Route::get('blog/search', 'BlogFrontController@search');
+// 	Route::get('articles', 'BlogFrontController@index');
+// 	Route::get('blog/order', 'BlogController@indexOrder')->name('blog.order');
+// 	Route::resource('blog', 'BlogController', ['except' => 'show']);
+// 	Route::put('postseen/{id}', 'BlogAjaxController@updateSeen');
+// 	Route::put('postactive/{id}', 'BlogAjaxController@updateActive');
+// 	Route::get('blog/{blog}', 'BlogFrontController@show')->name('blog.show');
+
+// 	// Comment
+// 	Route::resource('comment', 'CommentController', [
+// 	    'except' => ['create', 'show', 'update']
+// 	]);
+// 	Route::put('comment/{comment}', 'CommentAjaxController@update')->name('comment.update');
+// 	Route::put('commentseen/{id}', 'CommentAjaxController@updateSeen');
+
+// 	// Contact
+// 	Route::resource('contact', 'ContactController', ['except' => ['show', 'edit']]);
+
+// 	// Roles
+// 	Route::get('roles', 'RoleController@edit');
+// 	Route::post('roles', 'RoleController@update');
+
+// 	// Users
+// 	Route::get('user/sort/{role?}', 'UserController@index');
+// 	Route::get('user/blog-report', 'UserController@blogReport')->name('user.blog.report');
+// 	Route::resource('user', 'UserController', ['except' => 'index']);
+// 	Route::put('uservalid/{id}', 'UserAjaxController@valid');
+// 	Route::put('userseen/{user}', 'UserAjaxController@updateSeen');
+
+// 	// Authentication 
+// 	Auth::routes();
+
+// 	// Email confirmation 
+// 	Route::get('resend', 'Auth\RegisterController@resend');
+// 	Route::get('confirm/{token}', 'Auth\RegisterController@confirm');
+
+// 	// Notifications
+// 	Route::get('notifications/{user}', 'NotificationController@index');
+// 	Route::put('notifications/{notification}', 'NotificationController@update');
+
+// });
