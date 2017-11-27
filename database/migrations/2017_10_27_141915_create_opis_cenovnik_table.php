@@ -22,11 +22,11 @@ class CreateOpisCenovnikTable extends Migration
             $table->text('dinamika_placanja');
             $table->text('nacin_placanja');
             $table->text('nacin_prijave');
-            $table->integer('cenovnik_id')->unsigned();
+            $table->integer('putovanje_id')->unsigned();
             $table->timestamps();
         });
         Schema::table('opis_cenovnik', function (Blueprint $table) {
-            $table->foreign('cenovnik_id')->references('id')->on('cenovnik')->onDelete('cascade');
+            $table->foreign('putovanje_id')->references('id')->on('putovanja')->onDelete('cascade');
         });
     }
 

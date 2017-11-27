@@ -12,4 +12,8 @@ class Cenovnik extends Model
     protected $table = 'cenovnik';
 
     public $timestamps = true;
+    public function smestaj()
+    {
+        return $this->belongsTo('App\Smestaj');
+    }
 }

@@ -49,7 +49,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        Posts <a href="{{url('blog/create')}}" class="btn btn-success btn-circle waves-effect waves-circle waves-float">
+                        Posts <a href="{{url('articles/create')}}" class="btn btn-success btn-circle waves-effect waves-circle waves-float">
                             <i class="material-icons">add</i>
                         </a>
                     </h2>

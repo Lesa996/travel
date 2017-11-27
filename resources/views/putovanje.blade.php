@@ -24,26 +24,26 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 
     <!-- Animate.css -->
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="{{url('css/animate.css')}}">
     <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="{{url('css/icomoon.css')}}">
     <!-- Bootstrap  -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="{{url('css/bootstrap.css')}}">
     <!-- Superfish -->
-    <link rel="stylesheet" href="css/superfish.css">
+    <link rel="stylesheet" href="{{url('css/superfish.css')}}">
     <!-- Magnific Popup -->
-    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="{{url('css/magnific-popup.css')}}">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{url('css/style.css')}}">
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 
     <!-- Modernizr JS -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="{{url('js/modernizr-2.6.2.min.js')}}"></script>
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
-    <script src="js/respond.min.js"></script>
+    <script src="{{url('js/respond.min.js')}}"></script>
     <![endif]-->
     <style>
         .fh5co-cover,
@@ -186,20 +186,21 @@
         .hover_img a:hover span { display:block; }
     </style>
     @endpush
+
     <header id="fh5co-header-section" class="sticky-banner">
         <div class="container">
             <div class="nav-header">
                 <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                <h1 id="fh5co-logo"><a href="index.html">Go2Travel</a></h1>
+                <h1 id="fh5co-logo"><a href="/">Go2Travel</a></h1>
                 <!-- START #fh5co-menu-wrap -->
                 <nav id="fh5co-menu-wrap" role="navigation">
                     <ul class="sf-menu" id="fh5co-primary-menu">
-                        <li ><a href="index.html" >Pocetna</a></li>
-                        <li class="active" ><a href="groom-bride.html" >Putovanja</a></li>
-                        <li><a href="when-where.html">Smestaj</a></li>
-                        <li><a href="guest.html">Blog</a></li>
-                        <li><a href="gallery.html">O nama </a></li>
-                        <li ><a href="blog.html">Kontakt</a></li>
+                        <li {!! classActivePath('/') !!} ><a href="/" >Pocetna</a></li>
+                        <li {!! classActivePath('putovanje') !!} ><a href="putovanje" >Putovanja</a></li>
+                        <li {!! classActivePath('smestaj') !!} ><a href="smestaj">Smestaj</a></li>
+                        <li {!! classActivePath('blog') !!}><a href="blog">Blog</a></li>
+                        <li {!! classActivePath('o-nama') !!}><a href="o-nama">O nama </a></li>
+                        <li {!! classActivePath('kontakt') !!}><a href="kontakt">Kontakt</a></li>
                     </ul>
                 </nav>
             </div>
@@ -207,15 +208,15 @@
     </header>
 
     <div class="fh5co-hero" data-section="home">
-        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/pexels-photo-221532.jpeg);">
+        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url({{'../'.$putovanje->cover->url}});">
 
             <div class="display-t">
                 <div class="display-tc">
                     <div class="container">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="animate-box">
-                                <h1>Letovanje</h1>
-                                <h2>Grcka</h2>
+
+                                <h2>{{$putovanje->naziv}}</h2>
                             </div>
                         </div>
                     </div>
@@ -238,30 +239,32 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">
-                            <h1 class="putovanje-naziv">Letovanje Grcka</h1>
+                            <h1 class="putovanje-naziv">{{$putovanje->naziv}}</h1>
                             <div class="precrtana-cena">
                                 <h3 class="cena">
                                     <i class="glyphicon glyphicon-eur"></i>
-                                    350
+                                    {{$putovanje->precrtana_cena}}
                                 </h3>
                             </div>
                             <div class="aktuelna-cena">
                                 <h3 class="cena">
                                     /<i class="glyphicon glyphicon-eur"></i>
-                                    250
+                                    {{$putovanje->cena_od}}
                                 </h3>
                             </div>
                             <br>
                             <div class="text">
                                 <br>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis. Aliquam erat volutpat. Nam ultrices semper felis, at laoreet metus laoreet a. Praesent orci orci, pretium ut tortor euismod, vehicula blandit purus. Aliquam suscipit, erat a maximus mollis, neque odio aliquam arcu, ut consequat leo nisi sit amet leo. Nam consectetur diam id libero fringilla, eu commodo arcu congue.</p>
+                                <p>{{$putovanje->opis->kratak_opis}}</p>
                             </div>
                             <br>
                             <div>
                                 <i class="glyphicon glyphicon-time"></i>
-                                10 Dana
+                                {{$putovanje->broj_dana}}
+
                                 <i class="fa fa-moon-o"></i>
-                                8 Noci
+                                {{$putovanje->broj_noci}}
+
                             </div>
                             <div>
 
@@ -272,67 +275,64 @@
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Destinacija</div>
-                                    <div class="col-md-7 opis-text"> Parga, Grcka</div>
+                                    <div class="col-md-7 opis-text">
+                                        {{$putovanje->grad . '/'. $putovanje->drzava}}
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Vrsta prevoza</div>
-                                    <div class="col-md-7 opis-text">Autobusom</div>
-                                </div>
-                                <div class="row">
-                                    <hr>
-                                    <div class="col-md-4 opis-naziv">Polazak</div>
-                                    <div class="col-md-7 opis-text">Nis</div>
-                                </div>
-                                <div class="row">
-                                    <hr>
-                                    <div class="col-md-4 opis-naziv">Vreme polaska</div>
-                                    <div class="col-md-7 opis-text">8:00</div>
+                                    <div class="col-md-7 opis-text">{{$putovanje->vrsta_prevoza}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Obroci</div>
-                                    <div class="col-md-7 opis-text">Dorucak ukljucen</div>
+                                    <div class="col-md-7 opis-text">{{$putovanje->obroci}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">O Destinaciji</div>
-                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis. Aliquam erat volutpat. Nam ultrices semper felis, at laoreet metus laoreet a.</div>
+                                    <div class="col-md-7 opis-text">{{$putovanje->opis->destinacija}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Napomena</div>
-                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis. Aliquam erat volutpat. Nam ultrices semper felis, at laoreet metus laoreet a.</div>
+                                    <div class="col-md-7 opis-text">{{$putovanje->opis->napomena}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Dodatna Napomena</div>
-                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis. Aliquam erat volutpat. Nam ultrices semper felis, at laoreet metus laoreet a.</div>
+                                    <div class="col-md-7 opis-text">{{$putovanje->opis->dodatna_napomena}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Rok Za Prijavu</div>
-                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis. Aliquam erat volutpat. Nam ultrices semper felis, at laoreet metus laoreet a.</div>
+                                    <div class="col-md-7 opis-text">{{$putovanje->opis->rok_prijava}}.</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Minimalan broj putnika</div>
-                                    <div class="col-md-7 opis-text">70</div>
+                                    <div class="col-md-7 opis-text">{{$putovanje->opis->min_putnika}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Organizator</div>
-                                    <div class="col-md-7 opis-text">Max Travel</div>
+                                    <div class="col-md-7 opis-text">{{$putovanje->opis->organizator}}</div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Licenca</div>
-                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis.</div>
+                                    <div class="col-md-7 opis-text">
+                                        {{$putovanje->opis->licenca}}
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-4 opis-naziv">Garancija putovanja</div>
-                                    <div class="col-md-7 opis-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere metus et tortor pulvinar venenatis.</div>
+                                    <div class="col-md-7 opis-text">
+                                        {{$putovanje->opis->garancija}}
+
+                                    </div>
                                 </div>
 
                             </div>
@@ -356,7 +356,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="putovanje-naziv">Letovanje Grcka</h1>
+                            <h1 class="putovanje-naziv">{{$putovanje->naziv}}</h1>
                             <div class="cenovnik">
                                 <div class="heder-cenovnika row">
                                     <div class="col-xs-6 opis-naziv">
@@ -618,11 +618,11 @@
     {{--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script> --}}
     <!-- jQuery -->
     {{--<script src="dist/scripts.js"></script>--}}
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/sticky.js"></script>
+    <script src="{{url('js/jquery.min.js')}}"></script>
+    <script src="{{url('js/bootstrap.min.js')}}"></script>
+    <script src="{{url('js/jquery.stellar.min.js')}}"></script>
+    <script src="{{url('js/jquery.waypoints.min.js')}}"></script>
+    <script src="{{url('js/sticky.js')}}"></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq_RSFC_BAiBNji07rK-XvpX3rOZkg4bc&callback=initMap">
     </script>

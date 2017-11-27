@@ -24,7 +24,7 @@ return [
     */
 
     // If true, private folders will be created for each signed-in user.
-    'allow_multi_user' => true,
+    'allow_multi_user' => false,
     // If true, share folder will be created when allow_multi_user is true.
     'allow_share_folder' => false,
 
@@ -45,10 +45,10 @@ return [
     // You should create routes to serve images if it is not set to public.
     'base_directory' => 'public/items',
 
-    'images_folder_name' => 'photos',
-    'files_folder_name'  => 'files',
+    'images_folder_name' => '',
+    'files_folder_name'  => '',
 
-    'shared_folder_name' => 'shares',
+    'shared_folder_name' => '',
     'thumb_folder_name'  => '',
 
     /*

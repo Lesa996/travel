@@ -17,7 +17,7 @@ class Putovanja extends Model
 
     public function opis()
     {
-        return $this->hasOne('App\OpisPutovanje');
+        return $this->hasOne('App\OpisPutovanje','putovanje_id');
     }
     public function gallery()
     {
@@ -26,5 +26,17 @@ class Putovanja extends Model
     public function cover()
     {
         return $this->morphOne('\App\Image', 'imageable')->where('avatar', true);
+    }
+    public function plan()
+    {
+        return $this->hasMany('App\PlanPuta','putovanje_id');
+    }
+    public function cenovnik()
+    {
+        return $this->hasMany('App\Cenovnik','putovanje_id');
+    }
+    public function cenovnikGroup()
+    {
+        return $this->hasMany('App\Cenovnik');
     }
 }

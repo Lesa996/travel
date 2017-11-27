@@ -36,7 +36,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return redirect(route('blog.order', [
+        return redirect(route('articles.order', [
             'name' => 'posts.created_at',
             'sens' => 'asc',
         ]));
@@ -99,7 +99,7 @@ class BlogController extends Controller
     {
         $this->blogRepository->store($request->all(), $request->user()->id);
 
-        return redirect('blog')->with('ok', trans('back/blog.stored'));
+        return redirect('articles')->with('ok', trans('back/blog.stored'));
     }
 
     /**
@@ -132,7 +132,7 @@ class BlogController extends Controller
 
         $this->blogRepository->update($request->all(), $post);
 
-        return redirect('blog')->with('ok', trans('back/blog.updated'));
+        return redirect('articles')->with('ok', trans('back/blog.updated'));
     }
 
     /**
@@ -149,6 +149,6 @@ class BlogController extends Controller
 
         $this->blogRepository->destroy($post);
 
-        return redirect('blog')->with('ok', trans('back/blog.destroyed'));
+        return redirect('articles')->with('ok', trans('back/blog.destroyed'));
     }
 }

@@ -2,60 +2,35 @@
 
 // Route::group(['prefix' => 'staro'], function () {
 
-	Route::get('/', function () {
-	    return view('welcome');
-	});
+	Route::get('/', "MainController@index");
+
 	Route::get('putovanje', function () {
-	    return view('putovanje');
+        return view('search');
 	});
 	Route::get('search', function () {
 	    return view('search');
 	});
 
 	Route::get('smestaj', function () {
-	    return view('smestaj');
+        return view('search');
 	});
-	Route::get('app', function () {
-	    return redirect('app/smestaj');
-	});
+
 	Route::get('smestaj/{drzava}/{grad}/{smestaj}','SmestajController@singleSmestaj');
-
-	///////////SMESTAJ////////
-	Route::get('app/smestaj', 'SmestajController@showAll');
-
-	Route::get('app/kreiraj/smestaj', function () {
-	    return view('admin.smestaj.add-smestaj');
-	});
-
-	Route::get('app/edit/smestaj/{smestaj}','SmestajController@edit');
-
-
-	///////////PUTOVANJE////////
-	Route::get('app/putovanje', 'PutovanjeController@showAll');
-
-	Route::get('app/kreiraj/putovanje','PutovanjeController@index');
-	Route::get('app/edit/putovanje/{putovanje}','PutovanjeController@edit');
+	Route::get('putovanje/{putovanje}','PutovanjeController@singlePutovanje');
+    Route::get('o-nama',function (){
+        return view('info');
+    });
+    Route::get('kontakt',function (){
+       return view('kontakt');
+    });
 
 
 
-	///////////FUNCKIONALNOSI////////
-    Route::get('app/edit/smestaj/{smestaj}/galerija','SmestajController@editGalerija');
-	Route::post('app/store/smestaj','SmestajController@store');
-	Route::post('app/edit/smestaj/{smestaj}','SmestajController@update');
-	Route::get('app/delete/smestaj/{smestaj}','SmestajController@destroy');
 
-	Route::get('app/delete/putovanje/{putovanje}','PutovanjeController@destroy');
+    Route::get('test', function () {
+            return '';
+    });
 
-	Route::post('app/store/smestaj/slajder','SmestajController@setSlajder');
-
-	Route::post('app/store/smestaj/slajder','SmestajController@setSlajder');
-	Route::get('test', function () {
-	    return '';
-	});
-
-//
-     // Home
- 	Route::get('/', 'HomeController')->name('home');
 
  	// Language
  	Route::get('language/{lang}', 'LanguageController')
@@ -70,9 +45,9 @@
  	// Blog
  	Route::get('blog/tag', 'BlogFrontController@tag');
  	Route::get('blog/search', 'BlogFrontController@search');
- 	Route::get('articles', 'BlogFrontController@index');
- 	Route::get('blog/order', 'BlogController@indexOrder')->name('blog.order');
- 	Route::resource('blog', 'BlogController', ['except' => 'show']);
+ 	Route::get('blog', 'BlogFrontController@index');
+ 	Route::get('articles/order', 'BlogController@indexOrder')->name('articles.order');
+ 	Route::resource('articles', 'BlogController', ['except' => 'show']);
  	Route::put('postseen/{id}', 'BlogAjaxController@updateSeen');
  	Route::put('postactive/{id}', 'BlogAjaxController@updateActive');
  	Route::get('blog/{blog}', 'BlogFrontController@show')->name('blog.show');
@@ -108,5 +83,54 @@
  	// Notifications
  	Route::get('notifications/{user}', 'NotificationController@index');
  	Route::put('notifications/{notification}', 'NotificationController@update');
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('app', function () {
+        return redirect('app/smestaj');
+    });
+
+    Route::get('app/smestaj', 'SmestajController@showAll');
+
+    Route::get('app/file-manager',function (){
+        return view('admin.smestaj.galerija');
+    });
+
+    Route::get('app/kreiraj/smestaj', function () {
+        return view('admin.smestaj.add-smestaj');
+    });
+
+    Route::get('app/edit/smestaj/{smestaj}','SmestajController@edit');
+
+
+    Route::get('app/putovanje', 'PutovanjeController@showAll');
+
+    Route::get('app/kreiraj/putovanje','PutovanjeController@index');
+
+    Route::get('app/kreiraj/putovanje/{putovanje}','PutovanjeController@indexKreiraj');
+
+    Route::get('app/edit/putovanje/{putovanje}','PutovanjeController@edit');
+
+
+    Route::get('app/edit/smestaj/{smestaj}/galerija','SmestajController@editGalerija');
+
+    Route::post('app/store/smestaj','SmestajController@store');
+
+    Route::post('app/store/smestaj/dva','PutovanjeController@storeDva');
+
+    Route::post('app/edit/smestaj/{smestaj}','SmestajController@update');
+
+    Route::get('app/delete/smestaj/{smestaj}','SmestajController@destroy');
+
+    Route::get('app/delete/putovanje/{putovanje}','PutovanjeController@destroy');
+
+    Route::post('app/store/smestaj/slajder','SmestajController@setSlajder');
+
+    Route::post('app/store/putovanje/slajder/glavni','PutovanjeController@setSlajderGlavni');
+    Route::post('app/store/putovanje/slajder/sporedni','PutovanjeController@setSlajderSporedni');
+
+    Route::post('app/store/putovanje','PutovanjeController@store');
+
+});
 
 

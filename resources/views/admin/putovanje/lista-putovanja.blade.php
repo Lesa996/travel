@@ -55,7 +55,7 @@
 
                     </div>
                     <div class="body">
-                        <form action="{{url('app/store/smestaj/slajder')}}" method="POST" >
+                        <form action="{{url('app/store/putovanje/slajder/glavni')}}" method="POST" >
                             {!! csrf_field() !!}
                             <select id="header_slajder" class="ms" multiple="multiple" name="slajder[]">
                                 @foreach($putovanja as $putovanje)
@@ -80,7 +80,7 @@
 
                     </div>
                     <div class="body">
-                        <form action="{{url('app/store/smestaj/slajder')}}" method="POST" >
+                        <form action="{{url('app/store/putovanje/slajder/sporedni')}}" method="POST" >
                             {!! csrf_field() !!}
                             <select id="other_slajder" class="ms" multiple="multiple" name="slajder[]">
                                 @foreach($putovanja as $putovanje)

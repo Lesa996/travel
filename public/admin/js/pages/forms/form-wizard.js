@@ -16,6 +16,28 @@ $(function () {
 
             //set button waves effect
             setButtonWavesEffect(event);
+            console.log($('#optgroup')[0])
+            if($('#optgroup')[0]){
+                $('#optgroup').multiSelect();
+
+            }
+
+            if($("input[name='vrsta_prevoza']" )[0]){
+                var a = $( "input[name='vrsta_prevoza']" );
+                a.tagsinput({
+                });
+                a.css("display","none");
+            }
+            if($("input[name='obroci']" )[0]){
+                var a = $( "input[name='obroci']" );
+                a.tagsinput({
+                });
+            }
+            if($("input[name='grupa']" )[0]){
+                var a = $( "input[name='grupa']" );
+                a.tagsinput({
+                });
+            }
         },
         onStepChanging: function (event, currentIndex, newIndex) {
             if (currentIndex > newIndex) { return true; }

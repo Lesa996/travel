@@ -46,7 +46,7 @@
                                 {!! link_to('contact/create', trans('front/site.contact')) !!}
                             </li>
                         @endif
-                        <li {!! classActiveSegment(1, ['articles', 'blog']) !!}>
+                        <li {!! classActiveSegment(1, [ 'blog']) !!}>
                             {!! link_to('articles', trans('front/site.blog')) !!}
                         </li>
                         @if(Request::is('auth/register'))

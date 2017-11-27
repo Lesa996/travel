@@ -189,20 +189,21 @@
         }
     </style>
     @endpush
+
     <header id="fh5co-header-section" class="sticky-banner">
         <div class="container">
             <div class="nav-header">
                 <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                <h1 id="fh5co-logo"><a href="index.html">Go2Travel</a></h1>
+                <h1 id="fh5co-logo"><a href="/">Go2Travel</a></h1>
                 <!-- START #fh5co-menu-wrap -->
                 <nav id="fh5co-menu-wrap" role="navigation">
                     <ul class="sf-menu" id="fh5co-primary-menu">
-                        <li ><a href="index.html" >Pocetna</a></li>
-                        <li  ><a href="groom-bride.html" >Putovanja</a></li>
-                        <li class="active" ><a href="when-where.html">Smestaj</a></li>
-                        <li><a href="guest.html">Blog</a></li>
-                        <li><a href="gallery.html">O nama </a></li>
-                        <li ><a href="blog.html">Kontakt</a></li>
+                        <li {!! classActivePath('/') !!} ><a href="/" >Pocetna</a></li>
+                        <li {!! classActivePath('putovanje') !!} ><a href="putovanje" >Putovanja</a></li>
+                        <li {!! classActivePath('smestaj') !!} ><a href="smestaj">Smestaj</a></li>
+                        <li {!! classActivePath('blog') !!}><a href="blog">Blog</a></li>
+                        <li {!! classActivePath('o-nama') !!}><a href="o-nama">O nama </a></li>
+                        <li {!! classActivePath('kontakt') !!}><a href="kontakt">Kontakt</a></li>
                     </ul>
                 </nav>
             </div>

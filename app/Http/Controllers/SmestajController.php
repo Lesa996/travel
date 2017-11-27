@@ -44,24 +44,24 @@ class SmestajController extends Controller
         $opis = new OpisSmestaj($request->all());
         $opis->smestaj_id = $smestaj->id;
         $opis->save();
-//        $images = collect($request->gallery);
-//
-//        $images = $images->map(function($image, $key) use ($smestaj) {
-//            $destinationPath =  'items/smestaj/' . $smestaj->naziv ;
-//            $extension = $image->getClientOriginalExtension();
-//            $fileName = "SmestajImage_" . $smestaj->naziv . rand(11111, 99999) . '.' . $extension;
-//            $image->move($destinationPath, $fileName);
-//            $url = $destinationPath . "/" . $fileName;
-//            $image = new Image(['url' => $url]);
-//            return $image;
-//        });
-//        $image = $images[0];
-//        $image->avatar = 1;
-//
-//        $smestaj->gallery()->saveMany($images);
-//        $smestaj->cover()->save($image);
+        $images = collect($request->gallery);
 
-        return view('admin.smestaj.galerija',['smestaj'=>$smestaj]);
+        $images = $images->map(function($image, $key) use ($smestaj) {
+            $destinationPath =  'items/smestaj/' . $smestaj->naziv ;
+            $extension = $image->getClientOriginalExtension();
+            $fileName = "SmestajImage_" . $smestaj->naziv . rand(11111, 99999) . '.' . $extension;
+            $image->move($destinationPath, $fileName);
+            $url = $destinationPath . "/" . $fileName;
+            $image = new Image(['url' => $url]);
+            return $image;
+        });
+        $image = $images[0];
+        $image->avatar = 1;
+
+        $smestaj->gallery()->saveMany($images);
+        $smestaj->cover()->save($image);
+
+        return redirect('app');
     }
 
     /**

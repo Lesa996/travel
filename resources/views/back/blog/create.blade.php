@@ -40,7 +40,7 @@
                     <h2>Create Blog</h2>
                 </div>
                 <div class="body">
-                    {!! Form::open(['url' => 'blog', 'method' => 'post', 'class' => 'form-horizontal panel']) !!}
+                    {!! Form::open(['url' => 'articles', 'method' => 'post', 'class' => 'form-horizontal panel']) !!}
                     <div class="form-group checkbox pull-right">
                         <label>
                             {!! Form::checkbox('active') !!}

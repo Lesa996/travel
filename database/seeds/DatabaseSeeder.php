@@ -168,8 +168,8 @@ class DatabaseSeeder extends Seeder
             $smestaj->tip_objekta = 'Hotel';
             $smestaj->broj_zvezdica =random_int(1,5);
             $smestaj->vrsta_soba =array_rand(['apartman','studio']);
-            $smestaj->tip_soba = array_rand(['1/4','1/5','1/6','1/7']);
-            $smestaj->broj_ljudi = array_rand(['1/4','1/5','1/6','1/7']);
+            $smestaj->tip_soba = '1/4,1/5,1/6,1/7';
+            $smestaj->broj_ljudi = '4,5,6,7';
             $smestaj->struktura_sobe = $faker->realText(20);
             $smestaj->sadrzaj_sobe = $faker->realText(20);
             $smestaj->udaljenost_centar = random_int(0,1000);
@@ -205,6 +205,112 @@ class DatabaseSeeder extends Seeder
             $smestaj->gallery()->saveMany($smestaj_slike);
             $smestaj->cover()->save($smestaj_slike[0]);
 
+        }
+
+        for ($i = 0; $i < 10; $i++){
+            $putovanje = new \App\Putovanja();
+            $opisPutovanje = new \App\OpisPutovanje();
+            $cenovnik = new \App\Cenovnik();
+            $opisCenovnik = new \App\OpisCenovnik();
+            $plan = new \App\PlanPuta();
+            $put_smestaj = \App\Smestaj::find(1);
+            $images = ['images/hotel.jpeg','images/pexels-photo-221532.jpeg','images/pexels-photo-386009.jpeg'];
+
+
+            $putovanje->naziv = $faker->realText(20);
+            $putovanje->status = "aktivno";
+            $putovanje->cena_od = 50;
+            $putovanje->precrtana_cena = 100;
+            $putovanje->broj_dana = 5;
+            $putovanje->broj_noci = 4;
+            $putovanje->vrsta_prevoza = 'auto,bus';
+            $putovanje->obroci = 'dorucak';
+            $putovanje->grupa = 'provod';
+            $putovanje->drzava = $faker->country;
+            $putovanje->grad = $faker->city;
+            $putovanje->lat = $faker->latitude;
+            $putovanje->lng = $faker->longitude;
+            if ($i <3 ){
+                $putovanje->glavni_slajder = '1';
+                $putovanje->slajder = '1';
+            }else{
+                $putovanje->glavni_slajder = '0';
+                $putovanje->slajder = '0';
+            }
+            $putovanje->save();
+
+            $opisPutovanje->kratak_opis = $faker->realText(100);
+            $opisPutovanje->destinacija = $faker->realText(100);
+            $opisPutovanje->napomena = $faker->realText(100);
+            $opisPutovanje->dodatna_napomena = $faker->realText(100);
+            $opisPutovanje->rok_prijava = $faker->realText(100);
+            $opisPutovanje->min_putnika = $faker->realText(100);
+            $opisPutovanje->rok_otkaz = $faker->realText(100);
+            $opisPutovanje->organizator = $faker->realText(100);
+            $opisPutovanje->program = $faker->realText(100);
+            $opisPutovanje->licenca = $faker->realText(100);
+            $opisPutovanje->garancija = $faker->realText(100);
+            $opisPutovanje->putovanje_id = $putovanje->id;
+            $opisPutovanje->save();
+
+            for ($k = 1 ; $k <4 ;$k++){
+                $cenovnik = new \App\Cenovnik();
+                $cenovnik->smestaj_id = $k;
+                $cenovnik->putovanje_id = $putovanje->id;
+                $cenovnik->tip = '1/4';
+                $cenovnik->datum_od = \Carbon\Carbon::now();
+                $cenovnik->datum_do = \Carbon\Carbon::now();
+                $cenovnik->cena = 100;
+                $cenovnik->save();
+                $cenovnik = new \App\Cenovnik();
+                $cenovnik->smestaj_id = $k;
+                $cenovnik->putovanje_id = $putovanje->id;
+                $cenovnik->tip = '1/3';
+                $cenovnik->datum_od = \Carbon\Carbon::now();
+                $cenovnik->datum_do = \Carbon\Carbon::now();
+                $cenovnik->cena = 70;
+                $cenovnik->save();
+                $cenovnik = new \App\Cenovnik();
+                $cenovnik->smestaj_id = $k;
+                $cenovnik->putovanje_id = $putovanje->id;
+                $cenovnik->tip = '1/5';
+                $cenovnik->datum_od = \Carbon\Carbon::now();
+                $cenovnik->datum_do = \Carbon\Carbon::now();
+                $cenovnik->cena = 120;
+                $cenovnik->save();
+                $cenovnik = new \App\Cenovnik();
+                $cenovnik->smestaj_id = $k;
+                $cenovnik->putovanje_id = $putovanje->id;
+                $cenovnik->tip = '1/6';
+                $cenovnik->datum_od = \Carbon\Carbon::now();
+                $cenovnik->datum_do = \Carbon\Carbon::now();
+                $cenovnik->cena = 200;
+                $cenovnik->save();
+            }
+            $opisCenovnik->napomena_cenovnik = $faker->realText(100);
+            $opisCenovnik->obuhvata = $faker->realText(100);
+            $opisCenovnik->neobuhvata = $faker->realText(100);
+            $opisCenovnik->dinamika_placanja = $faker->realText(100);
+            $opisCenovnik->nacin_placanja = $faker->realText(100);
+            $opisCenovnik->nacin_prijave = $faker->realText(100);
+            $opisCenovnik->putovanje_id = $putovanje->id;
+            $opisCenovnik->save();
+
+            for ($j = 1 ; $j <= 5;$j++){
+                $plan->dan = $j;
+                $plan->opis = $faker->realText(100);
+                    $plan->putovanje_id = $putovanje->id;
+                    $plan->save();
+            }
+            $putovanje_slike = [];
+            for ($k= 0; $k < 3 ; $k++){
+                if ($k == 0){
+                    array_push($putovanje_slike, new \App\Image(['url' => $images[array_rand($images)],'avatar'=>1]));
+                }
+                array_push($putovanje_slike, new \App\Image(['url' => $images[array_rand($images)] ]));
+            }
+            $putovanje->gallery()->saveMany($putovanje_slike);
+            $putovanje->cover()->save($putovanje_slike[0]);
         }
     }
 }

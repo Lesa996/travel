@@ -23,6 +23,9 @@
     <!-- Animation Css -->
     <link href="{{url('admin/plugins/animate-css/animate.css')}}" rel="stylesheet" />
 
+    <!-- Bootstrap Tagsinput Css -->
+    <link href="{{url('admin/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" rel="stylesheet">
+
     <!-- Morris Chart Css-->
     <link href="{{url('admin/plugins/morrisjs/morris.css')}}" rel="stylesheet" />
 
@@ -31,6 +34,9 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{url('admin/css/themes/all-themes.css')}}" rel="stylesheet" />
+
+    <!-- Multi Select Css -->
+    <link href="{{url('admin/plugins/multi-select/css/multi-select.css')}}" rel="stylesheet">
     @endpush
 
     <div class="container-fluid">
@@ -42,8 +48,60 @@
                         <h2>Kreiraj Putovanje</h2>
                     </div>
                     <div class="body">
-                        <form action="{{url('app/store/smestaj')}}" id="wizard_with_validation" method="POST" enctype="multipart/form-data">
+                        <form action="{{url('app/store/putovanje')}}" id="wizard_with_validation" method="POST" enctype="multipart/form-data">
                             {!! csrf_field() !!}
+                            <h3>Informacije O Putovanju</h3>
+                            <fieldset>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="naziv" required>
+                                        <label class="form-label">Naziv*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="cena_od" required>
+                                        <label class="form-label">Cena Od*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="precrtana_cena" required>
+                                        <label class="form-label">Precrtana Cena*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="broj_dana" required>
+                                        <label class="form-label">Broj Dana*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="broj_noci" required>
+                                        <label class="form-label">Broj Noci*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="vrsta_prevoza" data-role="tagsinput" required>
+                                        <label class="form-label">Vrsta Prevoza*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="obroci" data-role="tagsinput" required>
+                                        <label class="form-label">Obroci*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="grupa" data-role="tagsinput" required>
+                                        <label class="form-label">Grupa*</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+
                             <h3>Lokacija</h3>
                             <fieldset>
                                 <div class="form-group form-float">
@@ -79,57 +137,6 @@
                             </fieldset>
 
 
-                            <h3>Informacije O Putovanju</h3>
-                            <fieldset>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="naziv" required>
-                                        <label class="form-label">Naziv*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" name="cena_od" required>
-                                        <label class="form-label">Cena Od*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" name="precrtana_cena" required>
-                                        <label class="form-label">Precrtana Cena*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" name="broj_dana" required>
-                                        <label class="form-label">Broj Dana*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" name="broj_noci" required>
-                                        <label class="form-label">Broj Noci*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="vrsta_prevoza" required>
-                                        <label class="form-label">Vrsta Prevoza*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="obroci" required>
-                                        <label class="form-label">Obroci*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="grupa" required>
-                                        <label class="form-label">Grupa*</label>
-                                    </div>
-                                </div>
-                            </fieldset>
 
                             <h3>Opis Putovanja</h3>
                             <fieldset>
@@ -203,6 +210,49 @@
 
                             <h3>Cenovnik</h3>
                             <fieldset>
+                                <select id="optgroup" class="ms" multiple="multiple" name="cenovnik[]">
+                                    @foreach($smestaji as $smestaj)
+
+                                        <option value="{{$smestaj->id}}" >{{$smestaj->naziv}}</option>
+
+                                    @endforeach
+                                </select>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea cols="30" rows="3" class="form-control no-resize"  name="napomena_cenovnik" required></textarea>
+                                        <label class="form-label">Napomena*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea cols="30" rows="3" class="form-control no-resize"  name="obuhvata" required></textarea>
+                                        <label class="form-label">Obuhvata*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea cols="30" rows="3" class="form-control no-resize"  name="neobuhvata" required></textarea>
+                                        <label class="form-label">Neobuhvata*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea cols="30" rows="3" class="form-control no-resize"  name="dinamika_placanja" required></textarea>
+                                        <label class="form-label">Dinamika Placanja*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea cols="30" rows="3" class="form-control no-resize"  name="nacin_placanja" required></textarea>
+                                        <label class="form-label">Nacin Placanja*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea cols="30" rows="3" class="form-control no-resize"  name="nacin_prijave" required></textarea>
+                                        <label class="form-label">Nacin Prijave*</label>
+                                    </div>
+                                </div>
 
                             </fieldset>
 
@@ -269,7 +319,8 @@
     <!--Form js -->
     <script src="{{url('admin/plugins/jquery-validation/jquery.validate.js')}}"></script>
     <script src="{{url('admin/plugins/jquery-steps/jquery.steps.js')}}"></script>
-
+    <!-- Bootstrap Tags Input Plugin Js -->
+    <script src="{{url('admin/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
 
     <!-- Sweet Alert Plugin Js -->
     <script src="{{url('admin/plugins/sweetalert/sweetalert.min.js')}}"></script>
@@ -285,5 +336,9 @@
 
     <!-- Demo Js -->
     <script src="{{url('admin/js/demo.js')}}"></script>
+
+    <!-- Multi Select Plugin Js -->
+    <script src="{{url('admin/plugins/multi-select/js/jquery.multi-select.js')}}"></script>
+
     @endpush
 @endsection

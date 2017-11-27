@@ -53,15 +53,16 @@
                     <li data-target="#myCarousel" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner carousel-zoom">
-                    <div class="item active">
-                        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/sunrise-phu-quoc-island-ocean.jpg);">
+                    @foreach($glavni as $key => $item)
+                        <div class="item @if($key==0) active @endif">
+                        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url({{$item->cover->url}});">
                             <div class="display-t">
                                 <div class="display-tc">
                                     <div class="container">
                                         <div class="col-md-10 col-md-offset-1">
                                             <div class="animate-box">
-                                                <h1>Nuptial</h1>
-                                                <h2>Journal</h2>
+                                                <h1>Putovanje</h1>
+                                                <h2>{{$item->naziv}}</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -69,38 +70,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/pexels-photo-227417.jpeg);">
-                            <div class="display-t">
-                                <div class="display-tc">
-                                    <div class="container">
-                                        <div class="col-md-10 col-md-offset-1">
-                                            <div class="animate-box">
-                                                <h1>Nuptial</h1>
-                                                <h2>Journal</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/pexels-photo-368893.jpeg);">
-                            <div class="display-t">
-                                <div class="display-tc">
-                                    <div class="container">
-                                        <div class="col-md-10 col-md-offset-1">
-                                            <div class="animate-box">
-                                                <h1>Nuptial</h1>
-                                                <h2>Journal</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                         <span class="sr-only">Previous</span>
@@ -117,16 +88,16 @@
             <div class="container">
                 <div class="nav-header">
                     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                    <h1 id="fh5co-logo"><a href="index.html">Go2Travel</a></h1>
+                    <h1 id="fh5co-logo"><a href="/">Go2Travel</a></h1>
                     <!-- START #fh5co-menu-wrap -->
                     <nav id="fh5co-menu-wrap" role="navigation">
                         <ul class="sf-menu" id="fh5co-primary-menu">
-                            <li class="active" ><a href="index.html" >Pocetna</a></li>
-                            <li><a href="groom-bride.html" >Putovanja</a></li>
-                            <li><a href="when-where.html">Smestaj</a></li>
-                            <li><a href="guest.html">Blog</a></li>
-                            <li><a href="gallery.html">O nama </a></li>
-                            <li ><a href="blog.html">Kontakt</a></li>
+                            <li {!! classActivePath('/') !!} ><a href="/" >Pocetna</a></li>
+                            <li {!! classActivePath('putovanje') !!} ><a href="putovanje" >Putovanja</a></li>
+                            <li {!! classActivePath('smestaj') !!} ><a href="smestaj">Smestaj</a></li>
+                            <li {!! classActivePath('blog') !!}><a href="blog">Blog</a></li>
+                            <li {!! classActivePath('o-nama') !!}><a href="o-nama">O nama </a></li>
+                            <li {!! classActivePath('kontakt') !!}><a href="kontakt">Kontakt</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -167,54 +138,21 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3 col-sm-3 home-page-travel " style="background-image:url(images/pexels-photo-386009.jpeg) ">
-                <div class="balcken"></div>
+            @foreach($putovanja as $item)
+                <div class="col-md-3 col-sm-3 home-page-travel " style="background-image:url({{$item->cover->url}}) ">
+                    <div class="balcken"></div>
 
-                <div class="travel-blog-text">
-                    <div class="prod-title animate-box">
-                        <h3><a href="#">Destination</a></h3>
-                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#">Learn More...</a></p>
+                    <div class="travel-blog-text">
+                        <div class="prod-title animate-box">
+                            <h3><a href="{{url('putovanje',$item->naziv)}}">{{$item->naziv}}</a></h3>
+                            <p style="color: white">{{$item->opis->kratak_opis}}</p>
+                            <p><a href="{{url('putovanje',$item->naziv)}}">Learn More...</a></p>
+                        </div>
                     </div>
+
                 </div>
+            @endforeach
 
-            </div>
-            <div class="col-md-3 col-sm-3  home-page-travel" style="background-image:url(images/pexels-photo-297755.jpeg) ">
-                <div class="balcken"></div>
-
-                <div class="travel-blog-text">
-                    <div class="prod-title animate-box">
-                        <h3><a href="#">Destination</a></h3>
-                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#">Learn More...</a></p>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-3 col-sm-3  home-page-travel" style="background-image:url(https://static.pexels.com/photos/371442/pexels-photo-371442.jpeg) ">
-                <div class="balcken"></div>
-
-                <div class="travel-blog-text">
-                    <div class="prod-title animate-box">
-                        <h3><a href="#">Destination</a></h3>
-                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#">Learn More...</a></p>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-3 col-sm-3  home-page-travel" style="background-image:url(https://static.pexels.com/photos/393859/pexels-photo-393859.jpeg) ">
-                <div class="balcken"></div>
-
-                <div class="travel-blog-text">
-                    <div class="prod-title animate-box">
-                        <h3><a href="#">Destination</a></h3>
-                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#">Learn More...</a></p>
-                    </div>
-                </div>
-
-            </div>
         </div>
 
         <section>
@@ -409,52 +347,20 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3  col-sm-3 home-page-travel " style="background-image:url(https://static.pexels.com/photos/386009/pexels-photo-386009.jpeg) ">
+            @foreach($smestaji as $item)
+            <div class="col-md-3  col-sm-3 home-page-travel " style="background-image:url({{$item->cover->url}}) ">
                 <div class="balcken"></div>
 
                 <div class="travel-blog-text">
                     <div class="prod-title animate-box">
-                        <h3><a href="#">Destination</a></h3>
-                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#">Learn More...</a></p>
+                        <h3><a href="{{url('smestaj/'.$item->drzava.'/'.$item->grad.'/'.$item->naziv)}}">{{$item->naziv}}</a></h3>
+                        <p style="color: white">{{$item->opis->kratak_opis}}</p>
+                        <p><a href="{{url('smestaj/'.$item->drzava.'/'.$item->grad.'/'.$item->naziv)}}">Learn More...</a></p>
                     </div>
                 </div>
 
             </div>
-            <div class="col-md-3  col-sm-3 home-page-travel" style="background-image:url(https://static.pexels.com/photos/77322/sun-landscape-river-sunset-77322.jpeg) ">
-                <div class="balcken"></div>
-
-                <div class="travel-blog-text">
-                    <div class="prod-title animate-box">
-                        <h3><a href="#">Destination</a></h3>
-                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#">Learn More...</a></p>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-3  col-sm-3 home-page-travel" style="background-image:url(https://static.pexels.com/photos/371442/pexels-photo-371442.jpeg) ">
-                <div class="balcken"></div>
-
-                <div class="travel-blog-text">
-                    <div class="prod-title animate-box">
-                        <h3><a href="#">Destination</a></h3>
-                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#">Learn More...</a></p>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-3  col-sm-3 home-page-travel" style="background-image:url(https://static.pexels.com/photos/393859/pexels-photo-393859.jpeg) ">
-                <div class="balcken"></div>
-                <div class="travel-blog-text">
-                    <div class="prod-title animate-box">
-                        <h3><a href="#">Destination</a></h3>
-                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#">Learn More...</a></p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
     @push('scripts')

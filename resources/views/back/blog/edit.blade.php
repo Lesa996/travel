@@ -40,7 +40,7 @@
                     <h2>Edit Blog</h2>
                 </div>
                 <div class="body">
-                    {!! Form::model($post, ['route' => ['blog.update', $post->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+                    {!! Form::model($post, ['route' => ['articles.update', $post->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
                     <div class="form-group checkbox pull-right">
                         <label>
                             {!! Form::checkbox('active') !!}
