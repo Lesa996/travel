@@ -195,12 +195,12 @@
                 <!-- START #fh5co-menu-wrap -->
                 <nav id="fh5co-menu-wrap" role="navigation">
                     <ul class="sf-menu" id="fh5co-primary-menu">
-                        <li {!! classActivePath('/') !!} ><a href="/" >Pocetna</a></li>
-                        <li {!! classActivePath('putovanje') !!} ><a href="putovanje" >Putovanja</a></li>
-                        <li {!! classActivePath('smestaj') !!} ><a href="smestaj">Smestaj</a></li>
-                        <li {!! classActivePath('blog') !!}><a href="blog">Blog</a></li>
-                        <li {!! classActivePath('o-nama') !!}><a href="o-nama">O nama </a></li>
-                        <li {!! classActivePath('kontakt') !!}><a href="kontakt">Kontakt</a></li>
+                        <li {!! classActivePath('/') !!} ><a href="{{url('/')}}" >Pocetna</a></li>
+                        <li {!! classActivePath('putovanje') !!} ><a href="{{url('putovanje')}}" >Putovanja</a></li>
+                        <li {!! classActivePath('smestaj') !!} ><a href="{{url('smestaj')}}">Smestaj</a></li>
+                        <li {!! classActivePath('blog') !!}><a href="{{url('blog')}}">Blog</a></li>
+                        <li {!! classActivePath('o-nama') !!}><a href="{{url('o-nama')}}">O nama </a></li>
+                        <li {!! classActivePath('kontakt') !!}><a href="{{url('kontakt')}}">Kontakt</a></li>
                     </ul>
                 </nav>
             </div>
@@ -231,7 +231,7 @@
             <li class="active col-xs-12"><a href="#Informacije" data-toggle="tab"><i class="glyphicon glyphicon-list-alt"></i> Informacije</a></li>
             <li class="col-xs-12"><a href="#Cenovnik" data-toggle="tab" ><i class="glyphicon glyphicon-eur"></i> Cenovnik</a></li>
             <li class="col-xs-12"><a href="#PlanPuta" data-toggle="tab"><i class="fa fa-map-o"></i> Plan puta</a></li>
-            <li class="col-xs-12"><a href="#Izleti" data-toggle="tab"><i class="fa fa-tree"></i> Izleti</a></li>
+            {{--<li class="col-xs-12"><a href="#Izleti" data-toggle="tab"><i class="fa fa-tree"></i> Izleti</a></li>--}}
         </ul>
         <div class="tab-content clearfix">
             <div class="tab-pane active" id="Informacije">
@@ -339,7 +339,7 @@
                             <br>
                         </div>
                         <div class="col-md-4">
-                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSekWQ54JyyBrggP9B_gD_BvnXNR73b8BXqMz9Gb4P6PQ_DA8w/viewform?embedded=true" width="auto" height="1000" frameborder="0" marginheight="1" marginwidth="1">Loading...</iframe>
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc_3WKEqd7RKmF1zfiw-DupW7HV_mRRtYZDgSRT8pl0iibQxg/viewform?embedded=true" width="auto" height="1000" frameborder="0" marginheight="1" marginwidth="1">Loading...</iframe>
                         </div>
                         <div class="col-md-10">
                             <hr>

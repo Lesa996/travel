@@ -85,7 +85,11 @@ class PutovanjeController extends Controller
         $images = $images->map(function($image, $key) use ($putovanje) {
             $destinationPath =  'items/putovanje/' . $putovanje->naziv ;
             $extension = $image->getClientOriginalExtension();
-            $fileName = "SmestajImage_" . $putovanje->naziv . rand(11111, 99999) . '.' . $extension;
+            $fileName = "PutovanjeImage_" . $putovanje->naziv . rand(11111, 99999) . '.' . $extension;
+            if ($key == 0){
+                $fileName = "PutovanjeImage_" . $putovanje->naziv . 'Cover.' . $extension;
+
+            }
             $image->move($destinationPath, $fileName);
             $url = $destinationPath . "/" . $fileName;
             $image = new Image(['url' => $url]);
@@ -139,9 +143,9 @@ class PutovanjeController extends Controller
      * @param  \App\Putovanja $putovanje
      * @return \Illuminate\Http\Response
      */
-    public function edit(Putovanje $putovanje)
+    public function edit(Putovanja $putovanje)
     {
-        return view('admin.smestaj.edit-smestaj',['putovanje'=>$putovanje]);
+        return view('admin.putovanje.edit-putovanje',['putovanje'=>$putovanje]);
 
     }
 

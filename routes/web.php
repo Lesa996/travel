@@ -2,7 +2,7 @@
 
 // Route::group(['prefix' => 'staro'], function () {
 
-	Route::get('/', "MainController@index");
+	Route::get('/', "MainController@index")->name('home');
 
 	Route::get('putovanje', function () {
         return view('search');

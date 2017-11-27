@@ -43,7 +43,7 @@
         <div class="navbar-header">
             <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="index.html">Go2Travel - Admin Panel</a>
+            <a class="navbar-brand" href="/">Go2Travel - Admin Panel</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -78,24 +78,39 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                <li >
-                    <a href="{{url('app/smestaj')}}" @if(\Request::is('test')) class="active" @endif>
+                <li {!! classActiveSegment(2, ['smestaj']) !!} {!! classActiveSegment(3, ['smestaj']) !!} >
+                    <a href="{{url('app/smestaj')}}" {!! classActiveSegment(2, ['smestaj']) !!}>
                         <i class="material-icons">home</i>
                         <span>Smestaj</span>
                     </a>
 
                 </li>
-                <li >
+                <li {!! classActiveSegment(2, ['putovanje']) !!} {!! classActiveSegment(3, ['putovanje']) !!}>
                     <a href="{{url('app/putovanje')}}" >
                         <i class="material-icons">work</i>
                         <span>Putovanje</span>
                     </a>
 
                 </li>
-                <li class="active">
-                    <a href="javascript:void(0);" >
+                <li {!! classActiveSegment(1, ['articles']) !!}>
+                    <a href="{{url('articles')}}" >
                         <i class="material-icons">format_textdirection_l_to_r</i>
                         <span>Blog</span>
+                    </a>
+
+                </li>
+                <li {!! classActiveSegment(2, ['file-manager']) !!}>
+                    <a href="{{url('app/file-manager')}}" >
+                        <i class="material-icons">create</i>
+                        <span>File Menager</span>
+                    </a>
+
+                </li>
+
+                <li {!! classActiveSegment(1, ['contact']) !!}>
+                    <a href="{{url('contact')}}" >
+                        <i class="material-icons">mail</i>
+                        <span>Kontakt</span>
                     </a>
 
                 </li>

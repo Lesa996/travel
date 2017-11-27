@@ -320,8 +320,20 @@
 
             </div>
         </section>
+    <div id="fh5co-started" data-stellar-background-ratio="0.5" style="background-image:url(images/sunrise-phu-quoc-island-ocean.jpg)" >
+        <div class="container">
+            <div class="row animate-box">
+                <div class="col-md-8 col-md-offset-2 text-center heading-section">
+                    <a href="putovanje">
+                        <h2 >Last Minute</h2>
+                        <h3>More here...</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <div id="fh5co-started" data-stellar-background-ratio="0.5" style="background-image:url(images/pexels-photo-227417.jpeg);"data-stellar-background-ratio="0.5">
+    <div id="fh5co-started" data-stellar-background-ratio="0.5" style="background-image:url(images/pexels-photo-227417.jpeg);"data-stellar-background-ratio="0.5">
             <div class="container">
                 <div class="row animate-box">
                     <div class="col-md-8 col-md-offset-2 text-center heading-section">
