@@ -50,6 +50,39 @@
                     <div class="body">
                         <form action="{{url('app/store/putovanje')}}" id="wizard_with_validation" method="POST" enctype="multipart/form-data">
                             {!! csrf_field() !!}
+                            <h3>Lokacija</h3>
+                            <fieldset>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="drzava" class="form-control" required>
+                                        <label class="form-label">Drzava*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="grad" class="form-control" required>
+                                        <label class="form-label">Grad*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" name="lat" class="form-control" required>
+                                        <label class="form-label">Lat*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" name="lng" class="form-control" required>
+                                        <label class="form-label">Lng*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <div id="gmap_basic_example" class="gmap"></div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
                             <h3>Informacije O Putovanju</h3>
                             <fieldset>
                                 <div class="form-group form-float">
@@ -102,39 +135,7 @@
                                 </div>
                             </fieldset>
 
-                            <h3>Lokacija</h3>
-                            <fieldset>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="drzava" class="form-control" required>
-                                        <label class="form-label">Drzava*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="grad" class="form-control" required>
-                                        <label class="form-label">Grad*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="number" name="lat" class="form-control" required>
-                                        <label class="form-label">Lat*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="number" name="lng" class="form-control" required>
-                                        <label class="form-label">Lng*</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <div id="gmap_basic_example" class="gmap"></div>
-                                    </div>
-                                </div>
 
-                            </fieldset>
 
 
 

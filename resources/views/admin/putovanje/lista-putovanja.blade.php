@@ -75,7 +75,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            Slajder Pocetne Sstrane
+                            Slajder Pocetne Strane
                         </h2>
 
                     </div>
@@ -83,6 +83,31 @@
                         <form action="{{url('app/store/putovanje/slajder/sporedni')}}" method="POST" >
                             {!! csrf_field() !!}
                             <select id="other_slajder" class="ms" multiple="multiple" name="slajder[]">
+                                @foreach($putovanja as $putovanje)
+                                    @if($putovanje->slajder == "1")
+                                        <option value="{{$putovanje->id}}" selected>{{$putovanje->naziv}}</option>
+                                    @else
+                                        <option value="{{$putovanje->id}}" >{{$putovanje->naziv}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            <button type="submit" class="btn btn-primary m-t-15 waves-effect">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            Last Minute
+                        </h2>
+
+                    </div>
+                    <div class="body">
+                        <form action="{{url('app/store/putovanje/slajder/sporedni')}}" method="POST" >
+                            {!! csrf_field() !!}
+                            <select id="last_slajder" class="ms" multiple="multiple" name="slajder[]">
                                 @foreach($putovanja as $putovanje)
                                     @if($putovanje->slajder == "1")
                                         <option value="{{$putovanje->id}}" selected>{{$putovanje->naziv}}</option>
@@ -184,6 +209,7 @@
         <script>
             $('#header_slajder').multiSelect();
             $('#other_slajder').multiSelect();
+            $('#last_slajder').multiSelect();
         </script>
     @endpush
 @endsection

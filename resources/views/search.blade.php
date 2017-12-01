@@ -352,24 +352,19 @@
         <div class="container">
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center heading-section">
-                    <h2>Pretrazite putovanja</h2>
+                    <h2>Pretrazite</h2>
                 </div>
             </div>
             <div class="row animate-box">
-                <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-10 col-md-offset-2">
                     <form class="form-inline">
                         <div class="col-md-4 col-sm-4">
                             <div class="form-group">
-                                <label for="name" class="sr-only">Gde</label>
-                                <input type="name" class="form-control" id="name" placeholder="Gde">
+                                <label for="name" class="sr-only">Search</label>
+                                <input type="name" class="form-control" id="name" placeholder="Search">
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-4">
-                            <div class="form-group">
-                                <label for="email" class="sr-only">Kad</label>
-                                <input type="email" class="form-control" id="email" placeholder="Kad">
-                            </div>
-                        </div>
+
                         <div class="col-md-4 col-sm-4">
                             <button type="submit" class="btn btn-primary btn-block">Pretrazi</button>
                         </div>

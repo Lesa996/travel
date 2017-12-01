@@ -216,7 +216,7 @@
                         <div class="col-md-10 col-md-offset-1">
                             <div class="animate-box">
 
-                                <h2>O nama</h2>
+                                <h2>Kontakt</h2>
                             </div>
                         </div>
                     </div>

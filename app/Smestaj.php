@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Model;
 
 class Smestaj extends Model
@@ -25,5 +26,13 @@ class Smestaj extends Model
     public function cover()
     {
         return $this->morphOne('\App\Image', 'imageable')->where('avatar', true);
+    }
+    public function cenovnik()
+    {
+        return $this->hasMany('App\Cenovnik');
+    }
+    public function blog()
+    {
+        return $this->belongsToMany(Post::class,'blog_smestaj','smestaj_id');
     }
 }

@@ -38,6 +38,40 @@ $(function () {
                 a.tagsinput({
                 });
             }
+            if($("input[name='vrsta_soba']" )[0]){
+                var a = $( "input[name='vrsta_soba']" );
+                a.tagsinput({
+                });
+                a.css("display","none");
+            }
+            if($("input[name='tip_soba']" )[0]){
+                var a = $( "input[name='tip_soba']" );
+                a.tagsinput({
+                });
+                a.css("display","none");
+            }
+            if($("input[name='struktura_sobe']" )[0]){
+                var a = $( "input[name='struktura_sobe']" );
+                a.tagsinput({
+                });
+                a.css("display","none");
+            }
+            if($("input[name='sadrzaj_sobe']" )[0]){
+                var a = $( "input[name='sadrzaj_sobe']" );
+                a.tagsinput({
+                });
+                a.css("display","none");
+            }
+            console.log($('.datepicker').length)
+            if ($('.datepicker').length){
+                $('.datepicker').bootstrapMaterialDatePicker({
+                    format: 'DD/MM/YYYY',
+                    clearButton: true,
+                    weekStart: 1,
+                    time: false
+                });
+            }
+
         },
         onStepChanging: function (event, currentIndex, newIndex) {
             if (currentIndex > newIndex) { return true; }

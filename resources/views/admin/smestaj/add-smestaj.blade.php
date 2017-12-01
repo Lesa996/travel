@@ -23,6 +23,10 @@
     <!-- Animation Css -->
     <link href="{{url('admin/plugins/animate-css/animate.css')}}" rel="stylesheet" />
 
+
+    <!-- Bootstrap Tagsinput Css -->
+    <link href="{{url('admin/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" rel="stylesheet">
+
     <!-- Morris Chart Css-->
     <link href="{{url('admin/plugins/morrisjs/morris.css')}}" rel="stylesheet" />
 
@@ -238,7 +242,8 @@
 
     <!-- Sweet Alert Plugin Js -->
     <script src="{{url('admin/plugins/sweetalert/sweetalert.min.js')}}"></script>
-
+    <!-- Bootstrap Tags Input Plugin Js -->
+    <script src="{{url('admin/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
     <!-- GMap Js -->
     <script src="https://maps.google.com/maps/api/js?v=3&key=AIzaSyDq_RSFC_BAiBNji07rK-XvpX3rOZkg4bc"></script>
     <script src="{{url('admin/plugins/gmaps/gmaps.js')}}"></script>

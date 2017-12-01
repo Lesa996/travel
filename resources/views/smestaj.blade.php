@@ -232,8 +232,11 @@
         <ul class="nav nav-tabs nav-bar-putovanja">
             <li class="active col-xs-12"><a href="#Informacije" data-toggle="tab"><i class="glyphicon glyphicon-list-alt"></i> Informacije</a></li>
             <li class="col-xs-12"><a href="#Cenovnik" data-toggle="tab" ><i class="glyphicon glyphicon-eur"></i> Cenovnik</a></li>
+            <li class="col-xs-12"><a href="#Putovanja" data-toggle="tab"><i class="fa fa-map-o"></i> Putovanja </a></li>
+
             <li class="col-xs-12"><a href="#Mapa" data-toggle="tab"><i class="fa fa-map-o"></i> Mapa</a></li>
-            <li class="col-xs-12"><a href="#Izleti" data-toggle="tab"><i class="fa fa-tree"></i> Izleti</a></li>
+            <li class="col-xs-12"><a href="#Galerija" data-toggle="tab"><i class="fa fa-map-o"></i> Galerija </a></li>
+
         </ul>
         <div class="tab-content clearfix">
             <div class="tab-pane active" id="Informacije">
@@ -328,7 +331,19 @@
                             <br>
                         </div>
                         <div class="col-md-4">
-                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSekWQ54JyyBrggP9B_gD_BvnXNR73b8BXqMz9Gb4P6PQ_DA8w/viewform?embedded=true" width="auto" height="1000" frameborder="0" marginheight="1" marginwidth="1">Loading...</iframe>
+                            @foreach($smestaj->blog as $post)
+                                <div class="card">
+                                    <div class="header">
+                                        <h2>
+                                            {{ $post->title }}
+                                        </h2>
+
+                                    </div>
+                                    <div class="body">
+                                        {!! $post->summary !!}
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                         <div class="col-md-10">
                             <hr>
@@ -473,9 +488,59 @@
 
                 </div>
             </div>
-            <div class="tab-pane" id="Izleti">
-                <h3>Izleti</h3>
+            <div class="tab-pane" id="Galerija">
+                <br>
+                <div class="container">
+                    <div class="row ">
+                        @foreach($smestaj->gallery as $slika)
+                            <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                                <div class="box">
+                                    <a href="#" data-toggle="modal" data-target="#2">
+                                        <img src="{{url($slika->url)}}">
+                                    </a>
+                                    <div class="modal fade" id="2" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                <div class="modal-body">
+                                                    <img src="{{url($slika->url)}}">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+                    </div>
+                </div>
+                <br>
             </div>
+            <div class="tab-pane" id="Putovanja">
+                <br>
+                <div class="container">
+                    <div class="row">
+                        @foreach($smestaj->cenovnik()->groupBy('putovanje_id')->get() as  $item)
+                            <div class="col-md-3  col-md-offset-1 col-sm-3 home-page-travel " style="background-image:url({{url($item->putovanje->cover->url)}}) ">
+                                <div class="balcken"></div>
+
+                                <div class="travel-blog-text">
+                                    <div class="prod-title animate-box">
+                                        <h3><a href="{{url('putovanje/'.$item->putovanje->naziv)}}">{{$item->putovanje->naziv}}</a></h3>
+                                        <p style="color: white">{{$item->putovanje->opis->kratak_opis}}</p>
+                                        <p><a href="{{url('putovanje/'.$item->putovanje->naziv)}}">Learn More...</a></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        @endforeach
+
+                    </div>
+                </div>
+                <br>
+            </div>
+
         </div>
     </div>
 

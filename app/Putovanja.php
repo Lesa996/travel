@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Model;
 
 class Putovanja extends Model
@@ -38,5 +39,13 @@ class Putovanja extends Model
     public function cenovnikGroup()
     {
         return $this->hasMany('App\Cenovnik');
+    }
+    public function izlet()
+    {
+        return $this->belongsToMany('App\Izlet','izlet_putovanje','putovanje_id');
+    }
+    public function blog()
+    {
+        return $this->belongsToMany(Post::class,'blog_putovanje','putovanje_id');
     }
 }

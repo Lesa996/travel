@@ -2,11 +2,12 @@
 
 namespace App\Repositories;
 
+use App\Izlet;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Comment;
 
-class BlogRepository extends BaseRepository
+class IzletRepository extends BaseRepository
 {
     /**
      * The Tag instance.
@@ -30,7 +31,7 @@ class BlogRepository extends BaseRepository
      * @param  \App\Models\Comment $comment
      * @return void
      */
-    public function __construct(Post $post, Tag $tag, Comment $comment)
+    public function __construct(Izlet $post, Tag $tag, Comment $comment)
     {
         $this->model = $post;
         $this->tag = $tag;
@@ -129,8 +130,8 @@ class BlogRepository extends BaseRepository
     public function getPostsWithOrder($n, $user_id = null, $orderby = 'created_at', $direction = 'desc')
     {
         $query = $this->model
-            ->select('posts.id', 'posts.created_at', 'title', 'posts.seen', 'active', 'user_id', 'slug', 'username')
-            ->join('users', 'users.id', '=', 'posts.user_id')
+            ->select('izlets.id', 'izlets.created_at', 'title', 'izlets.seen', 'active', 'user_id', 'slug', 'username')
+            ->join('users', 'users.id', '=', 'izlets.user_id')
             ->orderBy($orderby, $direction);
 
         if ($user_id) {
@@ -171,9 +172,9 @@ class BlogRepository extends BaseRepository
     {
         $tags = [];
 
-        foreach ($post->tags as $tag) {
-            array_push($tags, $tag->tag);
-        }
+//        foreach ($post->tags as $tag) {
+//            array_push($tags, $tag->tag);
+//        }
 
         return compact('post', 'tags');
     }
@@ -186,7 +187,7 @@ class BlogRepository extends BaseRepository
      */
     public function getByIdWithTags($id)
     {
-        return $this->model->with('tags')->findOrFail($id);
+        return $this->model->findOrFail($id);
     }
 
     /**
@@ -201,26 +202,8 @@ class BlogRepository extends BaseRepository
         $post = $this->savePost($post, $inputs);
         $post->putovanje()->detach();
         $post->putovanje()->attach($inputs['putovanja']);
-        $post->smestaj()->detach();
-        $post->smestaj()->attach($inputs['smestaj']);
 
-        // Tag gestion
-        $tags_id = [];
-        if (array_key_exists('tags', $inputs) && $inputs['tags'] != '') {
-            $tags = explode(',', $inputs['tags']);
 
-            foreach ($tags as $tag) {
-                $tag_ref = $this->tag->whereTag($tag)->first();
-                if (is_null($tag_ref)) {
-                    $tag_ref = new $this->tag();
-                    $tag_ref->tag = $tag;
-                    $tag_ref->save();
-                }
-                array_push($tags_id, $tag_ref->id);
-            }
-        }
-
-        $post->tags()->sync($tags_id);
     }
 
     /**
@@ -266,24 +249,21 @@ class BlogRepository extends BaseRepository
     {
         $post = $this->savePost(new $this->model, $inputs, $user_id);
         $post->putovanje()->attach($inputs['putovanja']);
-        $post->smestaj()->attach($inputs['smestaj']);
-
-
         // Tags gestion
-        if (array_key_exists('tags', $inputs) && $inputs['tags'] != '') {
-            $tags = explode(',', $inputs['tags']);
-
-            foreach ($tags as $tag) {
-                $tag_ref = $this->tag->whereTag($tag)->first();
-                if (is_null($tag_ref)) {
-                    $tag_ref = new $this->tag;
-                    $tag_ref->tag = $tag;
-                    $post->tags()->save($tag_ref);
-                } else {
-                    $post->tags()->attach($tag_ref->id);
-                }
-            }
-        }
+//        if (array_key_exists('tags', $inputs) && $inputs['tags'] != '') {
+//            $tags = explode(',', $inputs['tags']);
+//
+//            foreach ($tags as $tag) {
+//                $tag_ref = $this->tag->whereTag($tag)->first();
+//                if (is_null($tag_ref)) {
+//                    $tag_ref = new $this->tag;
+//                    $tag_ref->tag = $tag;
+//                    $post->tags()->save($tag_ref);
+//                } else {
+//                    $post->tags()->attach($tag_ref->id);
+//                }
+//            }
+//        }
 
         // Maybe purge orphan tags...
     }
@@ -296,7 +276,7 @@ class BlogRepository extends BaseRepository
      */
     public function destroy($post)
     {
-        $post->tags()->detach();
+//        $post->tags()->detach();
 
         $post->delete();
     }

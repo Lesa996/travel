@@ -104,18 +104,21 @@ class PutovanjeController extends Controller
     }
     public function storeDva(Request $request)
     {
+
+
         $putovanje = Putovanja::find($request->putovanje);
-        foreach ($putovanje->cenovnik as $cenovnik){
+
+        foreach ($putovanje->cenovnik as $i => $cenovnik){
             if ($request->input('cenovnikCena'.$cenovnik->smestaj->naziv)){
                 $cena = $request->input('cenovnikCena'.$cenovnik->smestaj->naziv);
-                $od  = $request->input('cenovnikOd'.$cenovnik->smestaj->naziv);
-                $do = $request->input('cenovnikDo'.$cenovnik->smestaj->naziv);
-                for ($i = 0; $i <sizeof($cena); $i++ ){
+                $od  = $request->input('datum_od');
+                $do = $request->input('datum_do');
+
                     $cenovnik->cena = $cena[$i];
-                    $cenovnik->datum_od = \DateTime::createFromFormat('d/m/Y',$od[$i]);
-                    $cenovnik->datum_do = \DateTime::createFromFormat('d/m/Y',$do[$i]);
+                    $cenovnik->datum_od = \DateTime::createFromFormat('d/m/Y',$od);
+                    $cenovnik->datum_do = \DateTime::createFromFormat('d/m/Y',$do);
                     $cenovnik->save();
-                }
+
 
             }
 
@@ -124,7 +127,7 @@ class PutovanjeController extends Controller
             $plan->opis = $request->input('dan')[$key];
             $plan->save();
         }
-       return redirect('app');
+        return redirect('app');
     }
     /**
      * Display the specified resource.
@@ -179,6 +182,7 @@ class PutovanjeController extends Controller
 
     public function singlePutovanje($put){
         $putovanje = Putovanja::where('naziv',$put)->first();
+
         return view('putovanje',['putovanje'=>$putovanje]);
     }
     public function setSlajderGlavni(Request $request){

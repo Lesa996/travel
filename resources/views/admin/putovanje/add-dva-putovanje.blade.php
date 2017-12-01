@@ -20,6 +20,9 @@
     <!-- Waves Effect Css -->
     <link href="{{url('admin/plugins/node-waves/waves.css')}}" rel="stylesheet" />
 
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{{url('admin/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}" rel="stylesheet" />
+
     <!-- Animation Css -->
     <link href="{{url('admin/plugins/animate-css/animate.css')}}" rel="stylesheet" />
 
@@ -60,6 +63,18 @@
 
                             <h3>Cenovnik</h3>
                             <fieldset>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="datepicker form-control" name="datum_od" placeholder="Datum od">
+
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="datepicker form-control" name="datum_do" placeholder="Datum do">
+
+                                    </div>
+                                </div>
                                 <input type="text" name="putovanje" id="" value="{{$putovanje->id}}" hidden>
                                 @foreach($putovanje->cenovnik as $cenovnik)
                                     <b>{{$cenovnik->smestaj->naziv . '  '.$cenovnik->tip}}</b>
@@ -69,18 +84,7 @@
                                             <label class="form-label">Cena</label>
                                         </div>
                                     </div>
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date"  name="cenovnikOd{{$cenovnik->smestaj->naziv}}[]" >
-                                            <label class="form-label">Datum od  Ex: 30/07/2016</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date"  name="cenovnikDo{{$cenovnik->smestaj->naziv}}[]" >
-                                            <label class="form-label">Datum do  Ex: 30/07/2016</label>
-                                        </div>
-                                    </div>
+
 
                                 @endforeach
                             </fieldset>
@@ -157,9 +161,20 @@
     <script src="{{url('admin/js/pages/forms/form-wizard.js')}}"></script>
     <script src="{{url('admin/js/pages/maps/google.js')}}"></script>
 
+    <!-- Moment Plugin Js -->
+    <script src="{{url('admin/plugins/momentjs/moment.js')}}"></script>
+
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{{url('admin/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>
     <!-- Demo Js -->
     <script src="{{url('admin/js/demo.js')}}"></script>
     <script >
+        $('.datepicker').bootstrapMaterialDatePicker({
+            format: 'dddd DD MMMM YYYY',
+            clearButton: true,
+            weekStart: 1,
+            time: false
+        });
         var $demoMaskedInput = $('.form-group');
 
         //Date

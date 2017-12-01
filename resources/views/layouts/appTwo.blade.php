@@ -68,7 +68,11 @@
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
-                        <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                        <li><a href="{{ url('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="material-icons">input</i>Sign Out</a></li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -96,6 +100,13 @@
                     <a href="{{url('articles')}}" >
                         <i class="material-icons">format_textdirection_l_to_r</i>
                         <span>Blog</span>
+                    </a>
+
+                </li>
+                <li {!! classActiveSegment(1, ['izlet']) !!}>
+                    <a href="{{url('izlet')}}" >
+                        <i class="material-icons">local_library</i>
+                        <span>Izlet</span>
                     </a>
 
                 </li>

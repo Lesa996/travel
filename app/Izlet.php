@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Presenters\DatePresenter;
@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\Tag;
 use App\Models\Comment;
 
-class Post extends Model
+class Izlet extends Model
 {
     use DatePresenter;
 
@@ -22,11 +22,7 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Many to Many relation
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\belongToMany
-     */
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
@@ -41,13 +37,8 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
-
     public function putovanje()
     {
-        return $this->belongsToMany('App\Putovanja','blog_putovanje','post_id','putovanje_id');
-    }
-    public function smestaj()
-    {
-        return $this->belongsToMany('App\Smestaj','blog_smestaj','post_id','smestaj_id');
+        return $this->belongsToMany('App\Putovanja','izlet_putovanje','izlet_id','putovanje_id');
     }
 }

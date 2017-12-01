@@ -20,12 +20,12 @@
     <!-- Waves Effect Css -->
     <link href="{{url('admin/plugins/node-waves/waves.css')}}" rel="stylesheet" />
 
+    <!-- Animation Css -->
+    <link href="{{url('admin/plugins/animate-css/animate.css')}}" rel="stylesheet" />
+
 
     <!-- Multi Select Css -->
     <link href="{{url('admin/plugins/multi-select/css/multi-select.css')}}" rel="stylesheet">
-
-    <!-- Animation Css -->
-    <link href="{{url('admin/plugins/animate-css/animate.css')}}" rel="stylesheet" />
 
     <!-- Morris Chart Css-->
     <link href="{{url('admin/plugins/morrisjs/morris.css')}}" rel="stylesheet" />
@@ -44,7 +44,7 @@
                     <h2>Edit Blog</h2>
                 </div>
                 <div class="body">
-                    {!! Form::model($post, ['route' => ['articles.update', $post->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+                    {!! Form::model($post, ['route' => ['izlet.update', $post->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
                     <div class="form-group checkbox pull-right">
                         <label>
                             {!! Form::checkbox('active') !!}
@@ -62,8 +62,6 @@
 
                     {!! Form::controlBootstrap('textarea', 0, 'summary', $errors, trans('back/blog.summary')) !!}
                     {!! Form::controlBootstrap('textarea', 0, 'content', $errors, trans('back/blog.content')) !!}
-                    {!! Form::controlBootstrap('text', 0, 'tags', $errors, trans('back/blog.tags'), isset($tags)? implode(',', $tags) : '') !!}
-
                     <div class="form-group">
                         <label>Putovanja</label>
                         <select id="putovanja" class="ms" multiple="multiple" name="putovanja[]">
@@ -76,17 +74,6 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label>Putovanja</label>
-                        <select id="smestaj" class="ms" multiple="multiple" name="smestaj[]">
-                            @foreach(\App\Smestaj::whereNotIn('id',$post->smestaj->pluck('id'))->get() as $putovanje)
-                                <option value="{{$putovanje->id}}" >{{$putovanje->naziv}}</option>
-                            @endforeach
-                            @foreach($post->putovanje as $putovanje)
-                                <option value="{{$putovanje->id}}" selected>{{$putovanje->naziv}}</option>
-                            @endforeach
-                        </select>
-                    </div>
                     {!! Form::submitBootstrap(trans('front/form.send')) !!}
 
                     {!! Form::close() !!}
@@ -153,10 +140,8 @@
         {!! HTML::script('ckeditor/ckeditor.js') !!}
         <!-- Multi Select Plugin Js -->
             <script src="{{url('admin/plugins/multi-select/js/jquery.multi-select.js')}}"></script>
-            <script>
-                $('#putovanja').multiSelect();
-                $('#smestaj').multiSelect();
-
+        <script>
+            $('#putovanja').multiSelect();
             var config = {
                 codeSnippet_theme: 'Monokai',
                 language: '{{ config('app.locale') }}',

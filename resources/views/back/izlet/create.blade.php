@@ -23,10 +23,11 @@
     <!-- Animation Css -->
     <link href="{{url('admin/plugins/animate-css/animate.css')}}" rel="stylesheet" />
 
-    <!-- Morris Chart Css-->
-    <link href="{{url('admin/plugins/morrisjs/morris.css')}}" rel="stylesheet" />
     <!-- Multi Select Css -->
     <link href="{{url('admin/plugins/multi-select/css/multi-select.css')}}" rel="stylesheet">
+
+    <!-- Morris Chart Css-->
+    <link href="{{url('admin/plugins/morrisjs/morris.css')}}" rel="stylesheet" />
 
     <!-- Custom Css -->
     <link href="{{url('admin/css/style.css')}}" rel="stylesheet">
@@ -42,7 +43,7 @@
                     <h2>Create Blog</h2>
                 </div>
                 <div class="body">
-                    {!! Form::open(['url' => 'articles', 'method' => 'post', 'class' => 'form-horizontal panel']) !!}
+                    {!! Form::open(['url' => 'izlet', 'method' => 'post', 'class' => 'form-horizontal panel']) !!}
                     <div class="form-group checkbox pull-right">
                         <label>
                             {!! Form::checkbox('active') !!}
@@ -60,7 +61,6 @@
 
                     {!! Form::controlBootstrap('textarea', 0, 'summary', $errors, trans('back/blog.summary')) !!}
                     {!! Form::controlBootstrap('textarea', 0, 'content', $errors, trans('back/blog.content')) !!}
-                    {!! Form::controlBootstrap('text', 0, 'tags', $errors, trans('back/blog.tags'), isset($tags)? implode(',', $tags) : '') !!}
                     <div class="form-group">
                         <label>Putovanja</label>
                         <select id="putovanja" class="ms" multiple="multiple" name="putovanja[]">
@@ -69,14 +69,8 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label>Smestaj</label>
-                        <select id="smestaj" class="ms" multiple="multiple" name="smestaj[]">
-                            @foreach($smestaj as $putovanje)
-                                <option value="{{$putovanje->id}}" >{{$putovanje->naziv}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+
+
                     {!! Form::submitBootstrap(trans('front/form.send')) !!}
 
                     {!! Form::close() !!}
@@ -141,12 +135,10 @@
             <!-- Demo Js -->
             <script src="{{url('admin/js/demo.js')}}"></script>
             {!! HTML::script('ckeditor/ckeditor.js') !!}
-        <!-- Multi Select Plugin Js -->
+            <!-- Multi Select Plugin Js -->
             <script src="{{url('admin/plugins/multi-select/js/jquery.multi-select.js')}}"></script>
             <script>
                 $('#putovanja').multiSelect();
-                $('#smestaj').multiSelect();
-
                 var config = {
                     codeSnippet_theme: 'Monokai',
                     language: '{{ config('app.locale') }}',

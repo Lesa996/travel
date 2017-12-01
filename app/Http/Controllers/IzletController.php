@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Putovanja;
-use App\Smestaj;
+use App\Repositories\IzletRepository;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Http\Requests\SearchRequest;
-use App\Repositories\BlogRepository;
 
-class BlogController extends Controller
+
+class IzletController extends Controller
 {
     /**
      * The BlogRepository instance.
@@ -23,8 +23,8 @@ class BlogController extends Controller
      *
      * @param  \App\Repositories\BlogRepository $blogRepository
      * @return void
-    */
-    public function __construct(BlogRepository $blogRepository)
+     */
+    public function __construct(IzletRepository $blogRepository)
     {
         $this->blogRepository = $blogRepository;
 
@@ -38,8 +38,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return redirect(route('articles.order', [
-            'name' => 'posts.created_at',
+        return redirect(route('izlet.order', [
+            'name' => 'izlets.created_at',
             'sens' => 'asc',
         ]));
     }
@@ -59,7 +59,7 @@ class BlogController extends Controller
             $request->name,
             $request->sens
         );
-        
+
         $links = $posts->appends([
             'name' => $request->name,
             'sens' => $request->sens
@@ -67,7 +67,7 @@ class BlogController extends Controller
 
         if ($request->ajax()) {
             return [
-                'view' => view('back.blog.table', compact('statut', 'posts'))->render(),
+                'view' => view('back.izlet.table', compact('statut', 'posts'))->render(),
                 'links' => e($links->setPath('order')->links()),
             ];
         }
@@ -78,7 +78,7 @@ class BlogController extends Controller
         $order->name = $request->name;
         $order->sens = 'sort-' . $request->sens;
 
-        return view('back.blog.index', compact('posts', 'links', 'order'));
+        return view('back.izlet.index', compact('posts', 'links', 'order'));
     }
 
     /**
@@ -89,8 +89,7 @@ class BlogController extends Controller
     public function create()
     {
         $putovanja = Putovanja::all();
-        $smestaj = Smestaj::all();
-        return view('back.blog.create',['smestaj'=>$smestaj,'putovanja'=>$putovanja]);
+        return view('back.izlet.create',['putovanja'=>$putovanja]);
     }
 
     /**
@@ -103,7 +102,7 @@ class BlogController extends Controller
     {
         $this->blogRepository->store($request->all(), $request->user()->id);
 
-        return redirect('articles')->with('ok', trans('back/blog.stored'));
+        return redirect('izlet')->with('ok', trans('back/blog.stored'));
     }
 
     /**
@@ -116,10 +115,10 @@ class BlogController extends Controller
     {
         $post = $this->blogRepository->getByIdWithTags($id);
 
-        $this->authorize('change', $post);
+//        $this->authorize('change', $post);
+        $putovanja = Putovanja::all();
 
-
-        return view('back.blog.edit', $this->blogRepository->getPostWithTags($post));
+        return view('back.izlet.edit', $this->blogRepository->getPostWithTags($post));
     }
 
     /**
@@ -133,11 +132,11 @@ class BlogController extends Controller
     {
         $post = $this->blogRepository->getById($id);
 
-        $this->authorize('change', $post);
+//        $this->authorize('change', $post);
 
         $this->blogRepository->update($request->all(), $post);
 
-        return redirect('articles')->with('ok', trans('back/blog.updated'));
+        return redirect('izlet')->with('ok', trans('back/blog.updated'));
     }
 
     /**
@@ -150,10 +149,10 @@ class BlogController extends Controller
     {
         $post = $this->blogRepository->getById($id);
 
-        $this->authorize('change', $post);
+//        $this->authorize('change', $post);
 
         $this->blogRepository->destroy($post);
 
-        return redirect('articles')->with('ok', trans('back/blog.destroyed'));
+        return redirect('izlet')->with('ok', trans('back/blog.destroyed'));
     }
 }

@@ -28,7 +28,7 @@
 
 
     Route::get('test', function () {
-            return '';
+            var_dump(\App\Putovanja::whereNotIn('id',\App\Izlet::find(7)->putovanje->pluck('id'))->get());
     });
 
 
@@ -47,7 +47,9 @@
  	Route::get('blog/search', 'BlogFrontController@search');
  	Route::get('blog', 'BlogFrontController@index');
  	Route::get('articles/order', 'BlogController@indexOrder')->name('articles.order');
+ 	Route::get('izlet/order', 'IzletController@indexOrder')->name('izlet.order');
  	Route::resource('articles', 'BlogController', ['except' => 'show']);
+ 	Route::resource('izlet', 'IzletController', ['except' => 'show']);
  	Route::put('postseen/{id}', 'BlogAjaxController@updateSeen');
  	Route::put('postactive/{id}', 'BlogAjaxController@updateActive');
  	Route::get('blog/{blog}', 'BlogFrontController@show')->name('blog.show');

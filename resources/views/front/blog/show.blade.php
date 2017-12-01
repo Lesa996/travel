@@ -204,12 +204,12 @@
                 <!-- START #fh5co-menu-wrap -->
                 <nav id="fh5co-menu-wrap" role="navigation">
                     <ul class="sf-menu" id="fh5co-primary-menu">
-                        <li {!! classActivePath('/') !!} ><a href="/" >Pocetna</a></li>
-                        <li {!! classActivePath('putovanje') !!} ><a href="putovanje" >Putovanja</a></li>
-                        <li {!! classActivePath('smestaj') !!} ><a href="smestaj">Smestaj</a></li>
-                        <li {!! classActiveSegment(1, ['blog']) !!} {!! classActivePath('blog') !!}><a href="/blog">Blog</a></li>
-                        <li {!! classActivePath('o-nama') !!}><a href="o-nama">O nama </a></li>
-                        <li {!! classActivePath('kontakt') !!}><a href="kontakt">Kontakt</a></li>
+                        <li {!! classActivePath('/') !!} ><a href="{{url('/')}}" >Pocetna</a></li>
+                        <li {!! classActivePath('putovanje') !!} ><a href="{{url('putovanje')}}" >Putovanja</a></li>
+                        <li {!! classActivePath('smestaj') !!} ><a href="{{url('smestaj')}}">Smestaj</a></li>
+                        <li {!! classActiveSegment(1, ['blog']) !!} {!! classActivePath('blog') !!}><a href="{{url('blog')}}">Blog</a></li>
+                        <li {!! classActivePath('o-nama') !!}><a href="{{url('o-nama')}}">O nama </a></li>
+                        <li {!! classActivePath('kontakt') !!}><a href="{{url('kontakt')}}'">Kontakt</a></li>
                     </ul>
                 </nav>
             </div>

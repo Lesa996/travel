@@ -43,8 +43,27 @@
             <script src="js/respond.min.js"></script>
         <![endif]-->
     @endpush
+    <header id="fh5co-header-section" class="sticky-banner">
+        <div class="container">
+            <div class="nav-header">
+                <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+                <h1 id="fh5co-logo"><a href="/">Go2Travel</a></h1>
+                <!-- START #fh5co-menu-wrap -->
+                <nav id="fh5co-menu-wrap" role="navigation">
+                    <ul class="sf-menu" id="fh5co-primary-menu">
+                        <li {!! classActivePath('/') !!} ><a href="/" >Pocetna</a></li>
+                        <li {!! classActivePath('putovanje') !!} ><a href="putovanje" >Putovanja</a></li>
+                        <li {!! classActivePath('smestaj') !!} ><a href="smestaj">Smestaj</a></li>
+                        <li {!! classActivePath('blog') !!}><a href="blog">Blog</a></li>
+                        <li {!! classActivePath('o-nama') !!}><a href="o-nama">O nama </a></li>
+                        <li {!! classActivePath('kontakt') !!}><a href="kontakt">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-        <div class="fh5co-hero" data-section="home">
+    <div class="fh5co-hero" data-section="home">
             {{--<div class="fh5co-overlay"></div>--}}
             <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -84,25 +103,6 @@
             </div>
         </div>
 
-        <header id="fh5co-header-section" class="sticky-banner">
-            <div class="container">
-                <div class="nav-header">
-                    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                    <h1 id="fh5co-logo"><a href="/">Go2Travel</a></h1>
-                    <!-- START #fh5co-menu-wrap -->
-                    <nav id="fh5co-menu-wrap" role="navigation">
-                        <ul class="sf-menu" id="fh5co-primary-menu">
-                            <li {!! classActivePath('/') !!} ><a href="/" >Pocetna</a></li>
-                            <li {!! classActivePath('putovanje') !!} ><a href="putovanje" >Putovanja</a></li>
-                            <li {!! classActivePath('smestaj') !!} ><a href="smestaj">Smestaj</a></li>
-                            <li {!! classActivePath('blog') !!}><a href="blog">Blog</a></li>
-                            <li {!! classActivePath('o-nama') !!}><a href="o-nama">O nama </a></li>
-                            <li {!! classActivePath('kontakt') !!}><a href="kontakt">Kontakt</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
 
         <!-- end:header-top -->
 
@@ -360,7 +360,7 @@
 
         <div class="row">
             @foreach($smestaji as $item)
-            <div class="col-md-3  col-sm-3 home-page-travel " style="background-image:url({{$item->cover->url}}) ">
+            <div class="col-md-3   col-sm-3 home-page-travel " style="background-image:url({{$item->cover->url}}) ">
                 <div class="balcken"></div>
 
                 <div class="travel-blog-text">

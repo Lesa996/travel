@@ -4,6 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Unisharp\Laravelfilemanager\Events\ImageIsDeleting;
+use Unisharp\Laravelfilemanager\Events\ImageIsRenaming;
+use Unisharp\Laravelfilemanager\Events\ImageIsUploading;
+use Unisharp\Laravelfilemanager\Events\ImageWasUploaded;
+
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -15,7 +20,19 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'Illuminate\Auth\Events\Login' => ['App\Listeners\LoginSuccess'],
         'Illuminate\Auth\Events\Logout' => ['App\Listeners\LogoutSuccess'],
-        'App\Events\UserAccess' => ['App\Listeners\UserAccess']
+        'App\Events\UserAccess' => ['App\Listeners\UserAccess'],
+        ImageIsDeleting::class => [
+            DeleteImageListener::class
+        ],
+        ImageIsRenaming::class => [
+            RenameImageListener::class
+        ],
+        ImageIsUploading::class => [
+            IsUploadingImageListener::class
+        ],
+        ImageWasUploaded::class => [
+            HasUploadedImageListener::class
+        ]
     ];
 
     /**

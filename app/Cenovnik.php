@@ -16,4 +16,8 @@ class Cenovnik extends Model
     {
         return $this->belongsTo('App\Smestaj');
     }
+    public function putovanje()
+    {
+        return $this->belongsTo('App\Putovanja','putovanje_id');
+    }
 }
