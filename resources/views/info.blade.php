@@ -184,13 +184,28 @@
         .hover_img a { position:relative; }
         .hover_img a span { position:absolute; display:none; z-index:99; }
         .hover_img a:hover span { display:block; }
+        .logo-heder{
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 7%;
+            float: left;
+        }
+        #fh5co-menu-wrap{
+            margin: auto;
+        }
+        #header-title{
+
+        }
     </style>
     @endpush
     <header id="fh5co-header-section" class="sticky-banner">
         <div class="container">
             <div class="nav-header">
                 <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                <h1 id="fh5co-logo"><a href="/">Go2Travel</a></h1>
+                <h1 >
+                    <img src="{{url('logo.png')}}" class="img-responsive logo-heder" alt="">
+                </h1>
                 <!-- START #fh5co-menu-wrap -->
                 <nav id="fh5co-menu-wrap" role="navigation">
                     <ul class="sf-menu" id="fh5co-primary-menu">
@@ -200,6 +215,8 @@
                         <li {!! classActiveSegment(1, ['blog']) !!} {!! classActivePath('blog') !!}><a href="blog">Blog</a></li>
                         <li {!! classActivePath('o-nama') !!}><a href="o-nama">O nama </a></li>
                         <li {!! classActivePath('kontakt') !!}><a href="kontakt">Kontakt</a></li>
+                        <li class="active"><a>Kontakt: +381 18 257 991 </a> </li>
+
                     </ul>
                 </nav>
             </div>

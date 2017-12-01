@@ -12,7 +12,7 @@
 	});
 
 	Route::get('smestaj', function () {
-        return view('search');
+        return view('searchSmestaj');
 	});
 
 	Route::get('smestaj/{drzava}/{grad}/{smestaj}','SmestajController@singleSmestaj');

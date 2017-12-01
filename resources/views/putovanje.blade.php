@@ -412,6 +412,19 @@
         .card .body .col-md-12,
         .card .body .col-lg-12 {
             margin-bottom: 20px; }
+        .logo-heder{
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 7%;
+            float: left;
+        }
+        #fh5co-menu-wrap{
+            margin: auto;
+        }
+        #header-title{
+
+        }
     </style>
     @endpush
 
@@ -419,7 +432,9 @@
         <div class="container">
             <div class="nav-header">
                 <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                <h1 id="fh5co-logo"><a href="/">Go2Travel</a></h1>
+                <h1 >
+                    <img src="{{url('logo.png')}}" class="img-responsive logo-heder" alt="">
+                </h1>
                 <!-- START #fh5co-menu-wrap -->
                 <nav id="fh5co-menu-wrap" role="navigation">
                     <ul class="sf-menu" id="fh5co-primary-menu">
@@ -429,6 +444,8 @@
                         <li {!! classActivePath('blog') !!}><a href="{{url('blog')}}">Blog</a></li>
                         <li {!! classActivePath('o-nama') !!}><a href="{{url('o-nama')}}">O nama </a></li>
                         <li {!! classActivePath('kontakt') !!}><a href="{{url('kontakt')}}">Kontakt</a></li>
+                        <li class="active"><a>Kontakt: +381 18 257 991 </a> </li>
+
                     </ul>
                 </nav>
             </div>
@@ -567,7 +584,7 @@
 
                             </div>
                             <br>
-                        </div>
+                            </div>
                         <div class="col-md-4">
                             @foreach($putovanje->blog as $post)
                             <div class="card">
