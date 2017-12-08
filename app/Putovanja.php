@@ -10,7 +10,7 @@ class Putovanja extends Model
 //    ODVOJI GRUPU
     protected $fillable = [
         'naziv', 'status', 'cena_od', 'precrtana_cena', 'broj_dana','broj_noci',
-        'vrsta_prevoza','obroci','grupa','drzava','grad','lat','lng','glavni_slajder','slajder'
+        'vrsta_prevoza','obroci','grupa','drzava','grad','lat','lng','glavni_slajder','slajder','piktogram','cena_do_vreme'
     ];
     protected $table = 'putovanja';
 

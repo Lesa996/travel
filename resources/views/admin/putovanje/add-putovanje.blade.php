@@ -17,6 +17,10 @@
     <!-- Sweet Alert Css -->
     <link href="{{url('admin/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" />
 
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{{url('admin/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}" rel="stylesheet" />
+
+
     <!-- Waves Effect Css -->
     <link href="{{url('admin/plugins/node-waves/waves.css')}}" rel="stylesheet" />
 
@@ -99,6 +103,12 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
+                                        <input type="text" class="datepicker-count form-control" name="cena_do_vreme" placeholder="Cena Countdown" required>
+                                        <label class="form-label">Cena Countdown*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
                                         <input type="number" class="form-control" name="precrtana_cena" required>
                                         <label class="form-label">Precrtana Cena*</label>
                                     </div>
@@ -131,6 +141,21 @@
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="grupa" data-role="tagsinput" required>
                                         <label class="form-label">Grupa*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input list="browsers" name="piktogram" type="text" >
+                                        <datalist id="browsers">
+                                            <option value="Hit Cena">
+                                            <option value="Super Ponuda">
+                                            <option value="Firs Minute">
+                                            <option value="Last Minute">
+                                            <option value="Akcija">
+                                            <option value="Best Offer">
+                                            <option value="Hot Offer">
+                                        </datalist>
+                                        <label class="form-label">Piktogram</label>
                                     </div>
                                 </div>
                             </fieldset>
@@ -338,8 +363,16 @@
     <!-- Demo Js -->
     <script src="{{url('admin/js/demo.js')}}"></script>
 
+    <!-- Moment Plugin Js -->
+    <script src="{{url('admin/plugins/momentjs/moment.js')}}"></script>
+
     <!-- Multi Select Plugin Js -->
     <script src="{{url('admin/plugins/multi-select/js/jquery.multi-select.js')}}"></script>
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{{url('admin/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>
 
+    <script>
+        $('.datepicker').bootstrapMaterialDatePicker({ format : 'dddd DD MMMM YYYY - HH:mm' });
+    </script>
     @endpush
 @endsection

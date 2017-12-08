@@ -49,7 +49,11 @@ class PutovanjeController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
         $putovanje = new Putovanja($request->all());
+        $putovanje->cena_do_vreme = \DateTime::createFromFormat('d/m/Y - H:i',$request->cena_do_vreme);
         $putovanje->save();
         $opisPutovanja = new OpisPutovanje($request->all());
         $opisPutovanja->putovanje_id = $putovanje->id;
@@ -85,9 +89,9 @@ class PutovanjeController extends Controller
         $images = $images->map(function($image, $key) use ($putovanje) {
             $destinationPath =  'items/putovanje/' . $putovanje->naziv ;
             $extension = $image->getClientOriginalExtension();
-            $fileName = "PutovanjeImage_" . $putovanje->naziv . rand(11111, 99999) . '.' . $extension;
+            $fileName = "PutovanjeImage_" .  rand(11111, 99999) . '.' . $extension;
             if ($key == 0){
-                $fileName = "PutovanjeImage_" . $putovanje->naziv . 'Cover.' . $extension;
+                $fileName = "PutovanjeImage_" .  'Cover.' . $extension;
 
             }
             $image->move($destinationPath, $fileName);

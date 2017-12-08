@@ -164,7 +164,7 @@ class DatabaseSeeder extends Seeder
             $smestaj = new \App\Smestaj();
             $images = ['images/hotel.jpeg','images/pexels-photo-221532.jpeg','images/pexels-photo-386009.jpeg'];
 
-            $smestaj->naziv = $faker->company;
+            $smestaj->naziv = "Smestaj ".($i+1);
             $smestaj->tip_objekta = 'Hotel';
             $smestaj->broj_zvezdica =random_int(1,5);
             $smestaj->vrsta_soba =array_rand(['apartman','studio']);
@@ -198,9 +198,9 @@ class DatabaseSeeder extends Seeder
             $smestaj_slike = [];
             for ($k= 0; $k < 3 ; $k++){
                 if ($k == 0){
-                    array_push($smestaj_slike, new \App\Image(['url' => $images[array_rand($images)],'avatar'=>1]));
+                    array_push($smestaj_slike, new \App\Image(['url' => 'items/smestaj/'.$smestaj->naziv.'/SmestajImage_Cover.jpeg','avatar'=>1]));
                 }
-                array_push($smestaj_slike, new \App\Image(['url' => $images[array_rand($images)] ]));
+                array_push($smestaj_slike, new \App\Image(['url' => 'items/smestaj/'.$smestaj->naziv.'/SmestajImage_1.jpeg' ]));
             }
             $smestaj->gallery()->saveMany($smestaj_slike);
             $smestaj->cover()->save($smestaj_slike[0]);
@@ -217,7 +217,7 @@ class DatabaseSeeder extends Seeder
             $images = ['images/hotel.jpeg','images/pexels-photo-221532.jpeg','images/pexels-photo-386009.jpeg'];
 
 
-            $putovanje->naziv = $faker->realText(20);
+            $putovanje->naziv = 'Putovanje '. ($i+1);
             $putovanje->status = "aktivno";
             $putovanje->cena_od = 50;
             $putovanje->precrtana_cena = 100;
@@ -230,7 +230,8 @@ class DatabaseSeeder extends Seeder
             $putovanje->grad = $faker->city;
             $putovanje->lat = $faker->latitude;
             $putovanje->lng = $faker->longitude;
-            if ($i <3 ){
+            $putovanje->cena_do_vreme =\DateTime::createFromFormat('d/m/Y - H:i','19/06/2018 - 15:04');
+            if ($i <4 ){
                 $putovanje->glavni_slajder = '1';
                 $putovanje->slajder = '1';
             }else{
@@ -305,12 +306,24 @@ class DatabaseSeeder extends Seeder
             $putovanje_slike = [];
             for ($k= 0; $k < 3 ; $k++){
                 if ($k == 0){
-                    array_push($putovanje_slike, new \App\Image(['url' => $images[array_rand($images)],'avatar'=>1]));
+                    array_push($putovanje_slike, new \App\Image(['url' => 'items/putovanje/'.$putovanje->naziv.'/PutovanjeImage_Cover.jpeg','avatar'=>1]));
                 }
-                array_push($putovanje_slike, new \App\Image(['url' => $images[array_rand($images)] ]));
+                array_push($putovanje_slike, new \App\Image(['url' => 'items/putovanje/'.$putovanje->naziv.'/PutovanjeImage_1.jpeg' ]));
             }
             $putovanje->gallery()->saveMany($putovanje_slike);
             $putovanje->cover()->save($putovanje_slike[0]);
+        }
+        for($i = 0; $i < 10; $i++){
+            $baner = new \App\Baner();
+            if ($i < 2){
+                $baner->veliki = true;
+            }else{
+                $baner->mali = true;
+            }
+            $baner->url = 'https://laravel.com/'.$i;
+            $baner->slika = 'http://eskipaper.com/images/image-2.jpg';
+            $baner->save();
+
         }
     }
 }

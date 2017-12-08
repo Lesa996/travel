@@ -100,6 +100,22 @@
                                         <label class="form-label">Grupa*</label>
                                     </div>
                                 </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input list="browsers" name="piktogram" type="text" >
+                                        <datalist id="browsers">
+                                            <option value="Hit Cena">
+                                            <option value="Super Ponuda">
+                                            <option value="Firs Minute">
+                                            <option value="Last Minute">
+                                            <option value="Akcija">
+                                            <option value="Best Offer">
+                                            <option value="Hot Offer">
+                                        </datalist>
+                                        <label class="form-label">Piktogram</label>
+                                    </div>
+                                </div>
+
                             </fieldset>
 
                             <h3>Lokacija</h3>

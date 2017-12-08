@@ -473,15 +473,15 @@
 
     <div class="">
         <ul class="nav nav-tabs nav-bar-putovanja">
-            <li class="active col-xs-12"><a href="#Informacije" data-toggle="tab"><i class="glyphicon glyphicon-list-alt"></i> Informacije</a></li>
-            <li class="col-xs-12"><a href="#Cenovnik" data-toggle="tab" ><i class="glyphicon glyphicon-eur"></i> Cenovnik</a></li>
+            <li class="active col-xs-12"><a href="#Cenovnik" data-toggle="tab" ><i class="glyphicon glyphicon-eur"></i> Cenovnik</a></li>
+            <li class=" col-xs-12"><a href="#Informacije" data-toggle="tab"><i class="glyphicon glyphicon-list-alt"></i> Informacije</a></li>
             <li class="col-xs-12"><a href="#PlanPuta" data-toggle="tab"><i class="fa fa-map-o"></i> Plan puta</a></li>
             <li class="col-xs-12"><a href="#Smestaji" data-toggle="tab"><i class="fa fa-map-o"></i> Smestaj </a></li>
             <li class="col-xs-12"><a href="#Galerija" data-toggle="tab"><i class="fa fa-map-o"></i> Galerija </a></li>
             <li class="col-xs-12"><a href="#Izleti" data-toggle="tab"><i class="fa fa-tree"></i> Izleti</a></li>
         </ul>
         <div class="tab-content clearfix">
-            <div class="tab-pane active" id="Informacije">
+            <div class="tab-pane " id="Informacije">
                 <br>
                 <div class="container">
                     <div class="row">
@@ -662,7 +662,7 @@
                 </div>
                 <br>
             </div>
-            <div class="tab-pane" id="Cenovnik">
+            <div class="tab-pane active" id="Cenovnik">
                 <br>
                 <div class="container">
                     <div class="row">

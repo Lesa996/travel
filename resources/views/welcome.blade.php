@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="css/magnific-popup.css">
 
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="admin/jquery.countdown.css">
 
 
         <!-- Modernizr JS -->
@@ -56,9 +57,33 @@
         #header-title{
 
         }
+        .sticky-wrapper{
+            position: fixed !important;
+        }
+        .space{
+            margin-top: 5%;
+        }
+        .travel-blog-text{
+            background-color: rgba(0, 0, 0, 0.47);
+        }
+        .countdown{
+            text-align: center;
+            width: 100%;
+            font: unset;
+        }
     </style>
     @endpush
-    <header id="fh5co-header-section" class="sticky-banner">
+    <div id="top-div" class="top-navbar  animated fadeIn"  style="position: absolute;
+    z-index: 1050;">
+        <div class="container">
+            <div class="call-support col-sm-6 col-xs-6">
+                <span>CALL 24/7: </span><span><a href="tel:00442031290935">0044 20 3129 0935</a></span>
+            </div>
+
+        </div>
+    </div>
+    <header id="fh5co-header-section" class="sticky-banner" style="position: fixed !important">
+
         <div class="container">
             <div class="nav-header">
                 <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
@@ -93,14 +118,18 @@
                 <div class="carousel-inner carousel-zoom">
                     @foreach($glavni as $key => $item)
                         <div class="item @if($key==0) active @endif">
-                        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url({{$item->cover->url}});">
+                        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url('{{$item->cover->url}}');">
                             <div class="display-t">
                                 <div class="display-tc">
                                     <div class="container">
                                         <div class="col-md-10 col-md-offset-1">
                                             <div class="animate-box">
-                                                <h1>Putovanje</h1>
-                                                <h2>{{$item->naziv}}</h2>
+                                                <a href="{{url('putovanje',$item->naziv)}}">
+                                                    <h1>Putovanje</h1>
+                                                    <h2>{{$item->naziv}}</h2>
+                                                    <h1>See more..</h1>
+                                                </a>
+
                                             </div>
                                         </div>
                                     </div>
@@ -157,18 +186,32 @@
         </div>
 
         <div class="row">
-            @foreach($putovanja as $item)
-                <div class="col-md-3 col-sm-3 home-page-travel " style="background-image:url({{$item->cover->url}}) ">
+            <div  id="countdown"></div>
+
+        @foreach($putovanja as $item)
+                <div  class="col-md-3 col-sm-3 home-page-travel " style="background-image:url('{{$item->cover->url}}') ">
                     <div class="balcken"></div>
 
-                    <div class="travel-blog-text">
-                        <div class="prod-title animate-box">
-                            <h3><a href="{{url('putovanje',$item->naziv)}}">{{$item->naziv}}</a></h3>
-                            <p style="color: white">{{$item->opis->kratak_opis}}</p>
-                            <p><a href="{{url('putovanje',$item->naziv)}}">Learn More...</a></p>
+                    <div class="travel-blog-text" style="padding: unset;">
+                        <div  class="countdown"></div>
+                        <div style="padding: 15px 30px;">
+                            <div class="prod-title animate-box">
+                                <h3><a href="{{url('putovanje',$item->naziv)}}">{{$item->naziv}}</a></h3>
+                                <p style="color: white">{{$item->opis->kratak_opis}}</p>
+                                <p><a href="{{url('putovanje',$item->naziv)}}">Learn More...</a></p>
+                            </div>
+                        </div>
+
+                    </div>
+                    @if($item->piktogram)
+                    <div class="btn-toolbar pull-right" style="position: absolute;
+    top: 2%;
+    right: 10%;">
+                        <div class='label-latest' style="">
+                            <label style="padding: auto">{{$item->piktogram}}</label>
                         </div>
                     </div>
-
+                    @endif
                 </div>
             @endforeach
 
@@ -176,166 +219,26 @@
 
         <section>
             <div class="row ">
-                <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
+                @foreach($banerVeliki as $baner)
+                <div class="col-md-12 col-sm-12 co-xs-12 gal-item">
                     <div class="box">
-                        <a href="#" data-toggle="modal" data-target="#1">
-                            <img src="{{asset('images/pexels-photo-1.jpeg')}}">
+                        <a href="{{$baner->url}}" >
+                            <img src="{{$baner->slika}}">
                         </a>
-                        <div class="modal fade" id="1" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <div class="modal-body">
-                                        <img src="{{asset('images/pexels-photo-1.jpeg')}}">
-                                    </div>
-                                    <div class="col-md-12 description">
-                                        <h4>This is the first one on my Gallery</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                    <div class="box">
-                        <a href="#" data-toggle="modal" data-target="#2">
-                            <img src="{{asset('images/pexels-photo-2.jpeg')}}">
-                        </a>
-                        <div class="modal fade" id="2" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <div class="modal-body">
-                                        <img src="{{asset('images/pexels-photo-2.jpeg')}}">
-                                    </div>
-                                    <div class="col-md-12 description">
-                                        <h4>This is the second one on my Gallery</h4>
-                                    </div>
-                                </div>
+                @endforeach
+                    @foreach($banerMali as $baner)
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                            <div class="box">
+                                <a href="{{$baner->url}}" >
+                                    <img src="{{$baner->slika}}">
+                                </a>
+
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                    <div class="box">
-                        <a href="#" data-toggle="modal" data-target="#3">
-                            <img src="{{asset('images/pexels-photo-3.jpeg')}}">
-                        </a>
-                        <div class="modal fade" id="3" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <div class="modal-body">
-                                        <img src="{{asset('images/pexels-photo-3.jpeg')}}">
-                                    </div>
-                                    <div class="col-md-12 description">
-                                        <h4>This is the third one on my Gallery</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                    <div class="box">
-                        <a href="#" data-toggle="modal" data-target="#4">
-                            <img src="{{asset('images/pexels-photo-4.jpeg')}}">
-                        </a>
-                        <div class="modal fade" id="4" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <div class="modal-body">
-                                        <img src="{{asset('images/pexels-photo-4.jpeg')}}">
-                                    </div>
-                                    <div class="col-md-12 description">
-                                        <h4>This is the fourth one on my Gallery</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                    <div class="box">
-                        <a href="#" data-toggle="modal" data-target="#5">
-                            <img src="images/pexels-photo-5.jpeg">
-                        </a>
-                        <div class="modal fade" id="5" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <div class="modal-body">
-                                        <img src="images/pexels-photo-5.jpeg">
-                                    </div>
-                                    <div class="col-md-12 description">
-                                        <h4>This is the fifth one on my Gallery</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                    <div class="box">
-                        <a href="#" data-toggle="modal" data-target="#6">
-                            <img src="images/pexels-photo-6.jpeg">
-                        </a>
-                        <div class="modal fade" id="6" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <div class="modal-body">
-                                        <img src="images/pexels-photo-6.jpeg">
-                                    </div>
-                                    <div class="col-md-12 description">
-                                        <h4>This is the sixth one on my Gallery</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                    <div class="box">
-                        <a href="#" data-toggle="modal" data-target="#7">
-                            <img src="images/pexels-photo-7.jpeg">
-                        </a>
-                        <div class="modal fade" id="7" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <div class="modal-body">
-                                        <img src="images/pexels-photo-7.jpeg">
-                                    </div>
-                                    <div class="col-md-12 description">
-                                        <h4>This is the seventh one on my Gallery</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                    <div class="box">
-                        <a href="#" data-toggle="modal" data-target="#8">
-                            <img src="images/pexels-photo-8.jpeg">
-                        </a>
-                        <div class="modal fade" id="8" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                    <div class="modal-body">
-                                        <img src="images/pexels-photo-8.jpeg">
-                                    </div>
-                                    <div class="col-md-12 description">
-                                        <h4>This is the eighth one on my Gallery</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
 
             </div>
         </section>
@@ -379,7 +282,7 @@
 
         <div class="row">
             @foreach($smestaji as $item)
-            <div class="col-md-3   col-sm-3 home-page-travel " style="background-image:url({{$item->cover->url}}) ">
+            <div class="col-md-3   col-sm-3 home-page-travel " style="background-image:url('{{$item->cover->url}}') ">
                 <div class="balcken"></div>
 
                 <div class="travel-blog-text">
@@ -389,7 +292,15 @@
                         <p><a href="{{url('smestaj/'.$item->drzava.'/'.$item->grad.'/'.$item->naziv)}}">Learn More...</a></p>
                     </div>
                 </div>
-
+                @if($item->piktogram)
+                    <div class="btn-toolbar pull-right" style="position: absolute;
+    top: 2%;
+    right: 10%;">
+                        <div class='label-latest' style="">
+                            <label style="padding: auto">{{$item->piktogram}}</label>
+                        </div>
+                    </div>
+                @endif
             </div>
             @endforeach
         </div>
@@ -404,10 +315,20 @@
         <script src="js/jquery.stellar.min.js"></script>
         <script src="js/jquery.waypoints.min.js"></script>
         <script src="js/sticky.js"></script>
+        <script src="admin/jquery.countdown.js"></script>
 
-        <script >
 
-            var contentWayPoint = function() {
+    <script >
+        console.log( $('#countdown'));
+        $('.countdown').countdown({
+            timestamp	: new Date(2018,12,01),
+            callback	: function(days, hours, minutes, seconds){
+
+
+            }
+        });
+
+        var contentWayPoint = function() {
                 var i = 0;
                 $('.animate-box').waypoint( function( direction ) {
 
@@ -439,9 +360,19 @@
             if ($stickyElement.length) {
                 sticky = new Waypoint.Sticky({
                     element: $stickyElement[0],
-                    offset: 0
+                    wrapper:false,
+
                 })
             }
+//            var projectWrapperPosition = $('.fh5co-hero').position().top;
+//            $(window).scroll(function() {
+//                if($(window).scrollTop() > (projectWrapperPosition - 150))
+//                $('#fh5co-header-section').toggleClass('space');
+//                else
+//                $('#fh5co-header-section').removeClass('space');
+//
+//            });
+
             contentWayPoint();
         </script>
     @endpush

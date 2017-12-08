@@ -125,6 +125,13 @@
                     </a>
 
                 </li>
+                <li {!! classActiveSegment(2, ['baneri']) !!} {!! classActiveSegment(3, ['baner']) !!} >
+                    <a href="{{url('app/baneri')}}" {!! classActiveSegment(2, ['baberi']) !!}>
+                        <i class="material-icons">home</i>
+                        <span>Baneri</span>
+                    </a>
+
+                </li>
 
             </ul>
         </div>

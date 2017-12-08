@@ -50,6 +50,13 @@ $(function () {
                 });
                 a.css("display","none");
             }
+            if($("input[name='broj_ljudi']" )[0]){
+                var a = $( "input[name='broj_ljudi']" );
+                a.tagsinput({
+                });
+                a.css("display","none");
+            }
+
             if($("input[name='struktura_sobe']" )[0]){
                 var a = $( "input[name='struktura_sobe']" );
                 a.tagsinput({
@@ -69,6 +76,14 @@ $(function () {
                     clearButton: true,
                     weekStart: 1,
                     time: false
+                });
+            }
+            if ($('.datepicker-count').length){
+                $('.datepicker-count').bootstrapMaterialDatePicker({
+                    format: 'DD/MM/YYYY - HH:mm',
+                    clearButton: true,
+                    weekStart: 1,
+                    time: true
                 });
             }
 

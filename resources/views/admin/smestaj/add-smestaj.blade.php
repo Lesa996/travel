@@ -133,6 +133,24 @@
                                         <label class="form-label">Sadrzaj Sobe*</label>
                                     </div>
                                 </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input list="browsers" name="piktogram" type="text" >
+                                        <datalist id="browsers">
+                                            <option value="Party Hotel">
+                                            <option value="Najbolji Smestaj">
+                                            <option value="Najprodavanije">
+                                            <option value="U Centru">
+                                            <option value="Blizu Mora">
+                                            <option value="Nasa Preporuka">
+                                            <option value="Sa Doruckom">
+                                            <option value="Polupansijon">
+                                            <option value="All Inclusiv">
+                                        </datalist>
+                                        <label class="form-label">Piktogram</label>
+                                    </div>
+                                </div>
+
                             </fieldset>
 
                             <h3>Opis Smestaja</h3>

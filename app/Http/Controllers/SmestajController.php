@@ -49,9 +49,9 @@ class SmestajController extends Controller
         $images = $images->map(function($image, $key) use ($smestaj) {
             $destinationPath =  'items/smestaj/' . $smestaj->naziv ;
             $extension = $image->getClientOriginalExtension();
-            $fileName = "SmestajImage_" . $smestaj->naziv . rand(11111, 99999) . '.' . $extension;
+            $fileName = "SmestajImage_" .rand(11111, 99999) . '.' . $extension;
             if ($key == 0){
-                $fileName = "SmestajImage_" . $smestaj->naziv . 'Cover.' . $extension;
+                $fileName = "SmestajImage_" . 'Cover.' . $extension;
 
             }
             $image->move($destinationPath, $fileName);

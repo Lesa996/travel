@@ -133,6 +133,20 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('app/store/putovanje','PutovanjeController@store');
 
+    Route::get('app/baneri','BanerController@index');
+    Route::get('app/kreiraj/baner','BanerController@create');
+    Route::get('app/edit/baner/{baner}','BanerController@edit');
+    Route::post('app/store/baner/veliki','BanerController@veliki');
+    Route::post('app/store/baner/mali','BanerController@mali');
+    Route::get('app/delete/baner/{baner}','BanerController@destroy');
+    Route::post('app/store/baner','BanerController@store');
+    Route::post('app/edit/baner/{baner}','BanerController@update');
+
+
+
+
+
+
 });
 
 
