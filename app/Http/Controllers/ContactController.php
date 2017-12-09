@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 use App\Repositories\ContactRepository;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -59,6 +60,11 @@ class ContactController extends Controller
      */
     public function store(ContactRequest $request)
     {
+//        Mail::send('mail', ['request' => $request], function ($m)  {
+//            $m->from('sale.tkd.lesa@gmail.com', 'Your Application');
+//
+//            $m->to('sale.tkd.lesa@gmail.com', "sale")->subject('Your Reminder!');
+//        });
         $this->contactRepository->store($request->all());
 
         return redirect('/')->with('ok', trans('front/contact.ok'));

@@ -139,13 +139,14 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="grupa" data-role="tagsinput" required>
+                                        <input type="text"  class="form-control" name="grupa" data-role="tagsinput" required>
+
                                         <label class="form-label">Grupa*</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input list="browsers" name="piktogram" type="text" >
+                                        <input list="browsers" class="form-control" name="piktogram" type="text" >
                                         <datalist id="browsers">
                                             <option value="Hit Cena">
                                             <option value="Super Ponuda">

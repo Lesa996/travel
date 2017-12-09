@@ -206,7 +206,27 @@ class DatabaseSeeder extends Seeder
             $smestaj->cover()->save($smestaj_slike[0]);
 
         }
-
+        $category = new \App\Category();
+        $category->name = 'Leto za Mlade';
+        $category->save();
+        $category1 = new \App\Category();
+        $category1->name = 'Leto classic';
+        $category1->save();
+        $category2 = new \App\Category();
+        $category2->name = 'Studentske ekskurzije';
+        $category2->save();
+        $category3 = new \App\Category();
+        $category3->name = 'Prolece';
+        $category3->save();
+        $category4 = new \App\Category();
+        $category4->name = 'Doček Nove godine';
+        $category4->save();
+        $category5 = new \App\Category();
+        $category5->name = 'Jesen';
+        $category5->save();
+        $category6 = new \App\Category();
+        $category6->name = 'Party putovanja';
+        $category6->save();
         for ($i = 0; $i < 10; $i++){
             $putovanje = new \App\Putovanja();
             $opisPutovanje = new \App\OpisPutovanje();
@@ -214,6 +234,7 @@ class DatabaseSeeder extends Seeder
             $opisCenovnik = new \App\OpisCenovnik();
             $plan = new \App\PlanPuta();
             $put_smestaj = \App\Smestaj::find(1);
+
             $images = ['images/hotel.jpeg','images/pexels-photo-221532.jpeg','images/pexels-photo-386009.jpeg'];
 
 
@@ -225,7 +246,7 @@ class DatabaseSeeder extends Seeder
             $putovanje->broj_noci = 4;
             $putovanje->vrsta_prevoza = 'auto,bus';
             $putovanje->obroci = 'dorucak';
-            $putovanje->grupa = 'provod';
+            $putovanje->grupa = 'provod'; //OVDE MORA SE IZMENI
             $putovanje->drzava = $faker->country;
             $putovanje->grad = $faker->city;
             $putovanje->lat = $faker->latitude;

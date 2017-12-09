@@ -26,6 +26,10 @@
     <!-- Morris Chart Css-->
     <link href="{{url('admin/plugins/morrisjs/morris.css')}}" rel="stylesheet" />
 
+
+    <!-- Bootstrap Tagsinput Css -->
+    <link href="{{url('admin/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" rel="stylesheet">
+
     <!-- Custom Css -->
     <link href="{{url('admin/css/style.css')}}" rel="stylesheet">
 
@@ -97,6 +101,30 @@
                                     <div class="form-line">
                                         <input type="number" class="form-control" name="broj_zvezdica" value="{{$smestaj->broj_zvezdica}}" required>
                                         <label class="form-label">Broj Zvezdica*</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="udaljenost_centar" value="{{$smestaj->udaljenost_centar}}">
+                                        <label class="form-label">Udaljenost Centar</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="udaljenost_plaza" value="{{$smestaj->udaljenost_plaza}}">
+                                        <label class="form-label">Udaljenost Plaza</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="udaljenost_stanica" value="{{$smestaj->udaljenost_stanica}}">
+                                        <label class="form-label">Udaljenost Stanica</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="udaljenost_zicara" value="{{$smestaj->udaljenost_zicara}}">
+                                        <label class="form-label">Udaljenost Zicara</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
@@ -242,6 +270,9 @@
     <!-- GMap Js -->
     <script src="https://maps.google.com/maps/api/js?v=3&key=AIzaSyDq_RSFC_BAiBNji07rK-XvpX3rOZkg4bc"></script>
     <script src="{{url('admin/plugins/gmaps/gmaps.js')}}"></script>
+
+    <!-- Bootstrap Tags Input Plugin Js -->
+    <script src="{{url('admin/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
 
     <!-- Custom Js -->
     <script src="{{url('admin/js/admin.js')}}"></script>

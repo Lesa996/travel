@@ -30,6 +30,8 @@ class CreatePutovanjaTable extends Migration
             $table->string('lng');
             $table->string('piktogram')->nullable();
             $table->dateTime('cena_do_vreme');
+            $table->integer('redosled')->default(0);
+
 
             $table->enum('slajder', [0, 1])->default(0);
             $table->enum('glavni_slajder', [0, 1])->default(0);

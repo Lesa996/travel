@@ -195,27 +195,38 @@
             margin-bottom: 10%;
         }
     </style>
-    @endpush
-    <header id="fh5co-header-section" class="sticky-banner">
-        <div class="container">
-            <div class="nav-header">
-                <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                <h1 id="fh5co-logo"><a href="/">Go2Travel</a></h1>
-                <!-- START #fh5co-menu-wrap -->
-                <nav id="fh5co-menu-wrap" role="navigation">
-                    <ul class="sf-menu" id="fh5co-primary-menu">
-                        <li {!! classActivePath('/') !!} ><a href="{{url('/')}}" >Pocetna</a></li>
-                        <li {!! classActivePath('putovanje') !!} ><a href="{{url('putovanje')}}" >Putovanja</a></li>
-                        <li {!! classActivePath('smestaj') !!} ><a href="{{url('smestaj')}}">Smestaj</a></li>
-                        <li {!! classActiveSegment(1, ['blog']) !!} {!! classActivePath('blog') !!}><a href="{{url('blog')}}">Blog</a></li>
-                        <li {!! classActivePath('o-nama') !!}><a href="{{url('o-nama')}}">O nama </a></li>
-                        <li {!! classActivePath('kontakt') !!}><a href="{{url('kontakt')}}'">Kontakt</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <style>
+        .logo-heder{
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 5%;
+            float: left;
+        }
+        #fh5co-menu-wrap{
+            margin: auto;
+        }
+        #header-title{
 
+        }
+        .sticky-wrapper{
+            position: fixed !important;
+        }
+        .space{
+            margin-top: 2%;
+        }
+        .travel-blog-text{
+            background-color: rgba(0, 0, 0, 0.47);
+        }
+        .countdown{
+            text-align: center;
+            width: 100%;
+            font: unset;
+        }
+    </style>
+
+    @endpush
+    @include('heder')
 
     <div class="container">
 
@@ -284,14 +295,34 @@
             } , { offset: '85%' } );
         };
 
+        $(window).stellar();
         var $stickyElement = $('.sticky-banner');
         var sticky;
         if ($stickyElement.length) {
             sticky = new Waypoint.Sticky({
                 element: $stickyElement[0],
-                offset: 0
+                wrapper:false,
+
             })
         }
+
+    </script>
+    <script>
+        //            var projectWrapperPosition = $('.fh5co-hero').position().top;
+        $(window).scroll(function() {
+
+            if($(window).scrollTop() < 20){
+                $('#fh5co-header-section').addClass('space');
+            }else{
+                $('#fh5co-header-section').removeClass('space');
+            }
+//                if($(window).scrollTop() > (projectWrapperPosition - 150))
+//                $('#fh5co-header-section').toggleClass('space');
+//                else
+//                $('#fh5co-header-section').removeClass('space');
+
+        });
+
         contentWayPoint();
     </script>
     {!! HTML::script('ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js') !!}

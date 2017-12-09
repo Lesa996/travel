@@ -35,7 +35,7 @@ class CreateSmestajTable extends Migration
             $table->string('lat');
             $table->string('lng');
             $table->string('piktogram')->nullable();
-
+            $table->integer('redosled')->default(0);
             $table->enum('slajder', [0, 1])->default(0);
             $table->timestamps();
             $table->softDeletes();

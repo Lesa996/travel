@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Cenovnik;
 use App\Image;
 use App\OpisCenovnik;
@@ -165,7 +166,41 @@ class PutovanjeController extends Controller
      */
     public function update(Request $request, Putovanja $putovanje)
     {
-        //
+        $putovanje->fill($request->all());
+        $putovanje->save();
+        $putovanje->opis->fill($request->all());
+        $putovanje->opis->save();
+        $putovanje->opisCenovnik->fill($request->all());
+        $putovanje->opisCenovnik->save();
+
+        if ($request->gallery){
+            $images = collect($request->gallery);
+
+            $images = $images->map(function($image, $key) use ($putovanje) {
+                $destinationPath =  'items/putovanje/' . $putovanje->naziv ;
+                $extension = $image->getClientOriginalExtension();
+                $fileName = "PutovanjeImage_" .  rand(11111, 99999) . '.' . $extension;
+                if ($key == 0){
+                    $fileName = "PutovanjeImage_" .  'Cover.' . $extension;
+
+                }
+                $image->move($destinationPath, $fileName);
+                $url = $destinationPath . "/" . $fileName;
+                $image = new Image(['url' => $url]);
+                return $image;
+            });
+            $image = $images[0];
+            $image->avatar = 1;
+
+            $putovanje->gallery()->saveMany($images);
+            $putovanje->cover->avatar = 0;
+            $putovanje->cover->save();
+            $putovanje->cover()->save($image);
+        }
+
+        return redirect('app/putovanje');
+
+
     }
 
     /**
@@ -231,5 +266,56 @@ class PutovanjeController extends Controller
         }
 
         return redirect('app/putovanje');
+    }
+    public function setRedosled(Request $request){
+
+        $hidden = $_POST['multiple_value']; //get the values from the hidden field
+        $hidden_in_array = explode(",", $hidden); //convert the values into array
+        $filter_array = array_filter($hidden_in_array); //remove empty index
+        $reset_keys = array_values($filter_array); //reset the array key
+
+        $redosled = Putovanja::where('redosled','!=',0)->get();
+        foreach ($redosled as $item){
+            $item->redosled = 0;
+            $item->save();
+        }
+        $noviRedosled = $reset_keys;
+        if(is_array($noviRedosled)){
+            foreach ($noviRedosled as $key=>$slajd){
+                $smestaj = Putovanja::find($slajd);
+                $smestaj->redosled = sizeof($noviRedosled)- $key +1;
+                $smestaj->save();
+
+            }
+        }
+        return redirect('app/putovanje');
+
+    }
+    public function listCategory(){
+        $category = Category::all();
+        return view('admin.putovanje.lista-category',['category'=>$category]);
+    }
+    public function setCategory(Request $request){
+        $category = new Category($request->all());
+        $category->save();
+        return redirect('app/category');
+    }
+    public function setActiveCategory(Request $request){
+        $category = Category::where('active',true)->get();
+        foreach ($category as $item){
+            $item->active = false;
+            $item->save();
+        }
+        $noviRedosled = $request->category;
+        if(is_array($noviRedosled)){
+            foreach ($noviRedosled as $key=>$slajd){
+                $smestaj = Category::find($slajd);
+                $smestaj->active = true;
+                $smestaj->save();
+
+            }
+        }
+        return redirect('app/category');
+
     }
 }

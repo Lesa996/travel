@@ -180,4 +180,35 @@ class SmestajController extends Controller
 
 
     }
+    public function setRedosled(Request $request){
+
+        $hidden = $_POST['multiple_value']; //get the values from the hidden field
+        $hidden_in_array = explode(",", $hidden); //convert the values into array
+        $filter_array = array_filter($hidden_in_array); //remove empty index
+        $reset_keys = array_values($filter_array); //reset the array key
+
+        $redosled = Smestaj::where('redosled','!=',0)->get();
+        foreach ($redosled as $item){
+            $item->redosled = 0;
+            $item->save();
+        }
+        $noviRedosled = $reset_keys;
+        if(is_array($noviRedosled)){
+            foreach ($noviRedosled as $key=>$slajd){
+                $smestaj = Smestaj::find($slajd);
+                $smestaj->redosled = sizeof($noviRedosled)- $key +1;
+                $smestaj->save();
+
+            }
+        }
+        return redirect('app/smestaj');
+
+    }
+    public function search(Request $request)
+    {
+
+        $smestaji = Smestaj::searchDrzaca($request->drzava)->searchGrad($request->grad)->searchObjekat($request->objekat)
+                    ->searchSobe($request->sobe)->searchDodatno($request->dodatno)->orderBy('redosled','desc')->get();
+        return view('searchSmestaj',['smestaji'=>$smestaji]);
+    }
 }

@@ -194,41 +194,49 @@
             width: 7%;
             float: left;
         }
-        #fh5co-menu-wrap{
-            margin: auto;
-        }
+
         #header-title{
 
         }
+        #fh5co-wrapper{
+            overflow-y: unset;
+            overflow-x: unset;
+        }
     </style>
+
+    <style>
+        .logo-heder{
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 5%;
+            float: left;
+        }
+
+        #header-title{
+
+        }
+        .sticky-wrapper{
+            position: fixed !important;
+        }
+        .space{
+            margin-top: 2%;
+        }
+        .travel-blog-text{
+            background-color: rgba(0, 0, 0, 0.47);
+        }
+        .countdown{
+            text-align: center;
+            width: 100%;
+            font: unset;
+        }
+    </style>
+
     @endpush
 
-    <header id="fh5co-header-section" class="sticky-banner">
-        <div class="container">
-            <div class="nav-header">
-                <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                <h1 >
-                    <img src="{{url('logo.png')}}" class="img-responsive logo-heder" alt="">
-                </h1>
-                <!-- START #fh5co-menu-wrap -->
-                <nav id="fh5co-menu-wrap" role="navigation">
-                    <ul class="sf-menu" id="fh5co-primary-menu">
-                        <li {!! classActivePath('/') !!} ><a href="{{url('/')}}" >Pocetna</a></li>
-                        <li {!! classActivePath('putovanje') !!} ><a href="{{url('putovanje')}}" >Putovanja</a></li>
-                        <li {!! classActivePath('smestaj') !!} ><a href="{{url('smestaj')}}">Smestaj</a></li>
-                        <li {!! classActivePath('blog') !!}><a href="{{url('blog')}}">Blog</a></li>
-                        <li {!! classActivePath('o-nama') !!}><a href="{{url('o-nama')}}">O nama </a></li>
-                        <li {!! classActivePath('kontakt') !!}><a href="{{url('kontakt')}}">Kontakt</a></li>
-                        <li class="active"><a>Kontakt: +381 18 257 991 </a> </li>
-
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-
+    @include('heder')
     <div class="fh5co-hero" data-section="home">
-        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url({{url($smestaj->cover->url)}});">
+        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url('{{url($smestaj->cover->url)}}');">
 
             <div class="display-t">
                 <div class="display-tc">
@@ -249,10 +257,10 @@
         <ul class="nav nav-tabs nav-bar-putovanja">
             <li class="active col-xs-12"><a href="#Informacije" data-toggle="tab"><i class="glyphicon glyphicon-list-alt"></i> Informacije</a></li>
             <li class="col-xs-12"><a href="#Cenovnik" data-toggle="tab" ><i class="glyphicon glyphicon-eur"></i> Cenovnik</a></li>
-            <li class="col-xs-12"><a href="#Putovanja" data-toggle="tab"><i class="fa fa-map-o"></i> Putovanja </a></li>
+            <li class="col-xs-12"><a href="#Putovanja" data-toggle="tab"><i class="fa fa-road"></i> Putovanja </a></li>
 
             <li class="col-xs-12"><a href="#Mapa" data-toggle="tab"><i class="fa fa-map-o"></i> Mapa</a></li>
-            <li class="col-xs-12"><a href="#Galerija" data-toggle="tab"><i class="fa fa-map-o"></i> Galerija </a></li>
+            <li class="col-xs-12"><a href="#Galerija" data-toggle="tab"><i class="fa fa-picture-o"></i> Galerija </a></li>
 
         </ul>
         <div class="tab-content clearfix">
@@ -539,7 +547,7 @@
                 <div class="container">
                     <div class="row">
                         @foreach($smestaj->cenovnik()->groupBy('putovanje_id')->get() as  $item)
-                            <div class="col-md-3  col-md-offset-1 col-sm-3 home-page-travel " style="background-image:url({{url($item->putovanje->cover->url)}}) ">
+                            <div class="col-md-3  col-md-offset-1 col-sm-3 home-page-travel " style="background-image:url('{{url($item->putovanje->cover->url)}}') ">
                                 <div class="balcken"></div>
 
                                 <div class="travel-blog-text">
@@ -576,7 +584,7 @@
         var map;
         function initMap() {
             map = new google.maps.Map(document.getElementById('googleMap'), {
-                center: {lat: 40.0154, lng: 23.5270},
+                center: {lat: {!! $smestaj->lat !!}, lng: {!! $smestaj->lng !!}},
                 zoom: 8
             });
 
@@ -608,14 +616,34 @@
             } , { offset: '85%' } );
         };
 
+        $(window).stellar();
         var $stickyElement = $('.sticky-banner');
         var sticky;
         if ($stickyElement.length) {
             sticky = new Waypoint.Sticky({
                 element: $stickyElement[0],
-                offset: 0
+                wrapper:false
+
             })
         }
+
+    </script>
+    <script>
+        //            var projectWrapperPosition = $('.fh5co-hero').position().top;
+        $(window).scroll(function() {
+
+            if($(window).scrollTop() < 20){
+                $('#fh5co-header-section').addClass('space');
+            }else{
+                $('#fh5co-header-section').removeClass('space');
+            }
+//                if($(window).scrollTop() > (projectWrapperPosition - 150))
+//                $('#fh5co-header-section').toggleClass('space');
+//                else
+//                $('#fh5co-header-section').removeClass('space');
+
+        });
+
         contentWayPoint();
     </script>
     <script

@@ -48,7 +48,7 @@
             margin: auto;
             margin-top: 20px;
             margin-bottom: 20px;
-            width: 7%;
+            width: 5%;
             float: left;
         }
         #fh5co-menu-wrap{
@@ -61,7 +61,7 @@
             position: fixed !important;
         }
         .space{
-            margin-top: 5%;
+            margin-top: 2%;
         }
         .travel-blog-text{
             background-color: rgba(0, 0, 0, 0.47);
@@ -73,39 +73,7 @@
         }
     </style>
     @endpush
-    <div id="top-div" class="top-navbar  animated fadeIn"  style="position: absolute;
-    z-index: 1050;">
-        <div class="container">
-            <div class="call-support col-sm-6 col-xs-6">
-                <span>CALL 24/7: </span><span><a href="tel:00442031290935">0044 20 3129 0935</a></span>
-            </div>
-
-        </div>
-    </div>
-    <header id="fh5co-header-section" class="sticky-banner" style="position: fixed !important">
-
-        <div class="container">
-            <div class="nav-header">
-                <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                <h1 >
-                    <img src="{{url('logo.png')}}" class="img-responsive logo-heder" alt="">
-                </h1>
-                {{--<h3> </h3>--}}
-                <!-- START #fh5co-menu-wrap -->
-                <nav id="fh5co-menu-wrap" role="navigation">
-                    <ul class="sf-menu" id="fh5co-primary-menu">
-                        <li {!! classActivePath('/') !!} ><a href="/" >Pocetna</a></li>
-                        <li {!! classActivePath('putovanje') !!} ><a href="putovanje" >Putovanja</a></li>
-                        <li {!! classActivePath('smestaj') !!} ><a href="smestaj">Smestaj</a></li>
-                        <li {!! classActivePath('blog') !!}><a href="blog">Blog</a></li>
-                        <li {!! classActivePath('o-nama') !!}><a href="o-nama">O nama </a></li>
-                        <li {!! classActivePath('kontakt') !!}><a href="kontakt">Kontakt</a></li>
-                        <li class="active"><a>Kontakt: +381 18 257 991 </a> </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    @include('heder')
 
     <div class="fh5co-hero" data-section="home">
             {{--<div class="fh5co-overlay"></div>--}}
@@ -193,7 +161,7 @@
                     <div class="balcken"></div>
 
                     <div class="travel-blog-text" style="padding: unset;">
-                        <div  class="countdown"></div>
+                        <div data-countdown="{{$item->cena_do_vreme}}" class="countdown"></div>
                         <div style="padding: 15px 30px;">
                             <div class="prod-title animate-box">
                                 <h3><a href="{{url('putovanje',$item->naziv)}}">{{$item->naziv}}</a></h3>
@@ -320,13 +288,16 @@
 
     <script >
         console.log( $('#countdown'));
-        $('.countdown').countdown({
-            timestamp	: new Date(2018,12,01),
-            callback	: function(days, hours, minutes, seconds){
+        $('[data-countdown]').each(function() {
+            var $this = $(this), finalDate = $(this).data('countdown');
+            $this.countdown({
+                timestamp	: new Date(finalDate),
+                callback	: function(days, hours, minutes, seconds) {
 
-
-            }
+                }
+                });
         });
+
 
         var contentWayPoint = function() {
                 var i = 0;
@@ -364,16 +335,25 @@
 
                 })
             }
-//            var projectWrapperPosition = $('.fh5co-hero').position().top;
-//            $(window).scroll(function() {
+
+        </script>
+    <script>
+        //            var projectWrapperPosition = $('.fh5co-hero').position().top;
+        $(window).scroll(function() {
+
+            if($(window).scrollTop() < 20){
+                $('#fh5co-header-section').addClass('space');
+            }else{
+                $('#fh5co-header-section').removeClass('space');
+            }
 //                if($(window).scrollTop() > (projectWrapperPosition - 150))
 //                $('#fh5co-header-section').toggleClass('space');
 //                else
 //                $('#fh5co-header-section').removeClass('space');
-//
-//            });
 
-            contentWayPoint();
-        </script>
+        });
+
+        contentWayPoint();
+    </script>
     @endpush
 @endsection

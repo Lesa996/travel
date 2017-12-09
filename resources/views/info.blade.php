@@ -191,37 +191,43 @@
             width: 7%;
             float: left;
         }
+
+        #header-title{
+
+        }
+    </style>
+    <style>
+        .logo-heder{
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 5%;
+            float: left;
+        }
         #fh5co-menu-wrap{
             margin: auto;
         }
         #header-title{
 
         }
+        .sticky-wrapper{
+            position: fixed !important;
+        }
+        .space{
+            margin-top: 2%;
+        }
+        .travel-blog-text{
+            background-color: rgba(0, 0, 0, 0.47);
+        }
+        .countdown{
+            text-align: center;
+            width: 100%;
+            font: unset;
+        }
     </style>
-    @endpush
-    <header id="fh5co-header-section" class="sticky-banner">
-        <div class="container">
-            <div class="nav-header">
-                <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                <h1 >
-                    <img src="{{url('logo.png')}}" class="img-responsive logo-heder" alt="">
-                </h1>
-                <!-- START #fh5co-menu-wrap -->
-                <nav id="fh5co-menu-wrap" role="navigation">
-                    <ul class="sf-menu" id="fh5co-primary-menu">
-                        <li {!! classActivePath('/') !!} ><a href="/" >Pocetna</a></li>
-                        <li {!! classActivePath('putovanje') !!} ><a href="putovanje" >Putovanja</a></li>
-                        <li {!! classActivePath('smestaj') !!} ><a href="smestaj">Smestaj</a></li>
-                        <li {!! classActiveSegment(1, ['blog']) !!} {!! classActivePath('blog') !!}><a href="blog">Blog</a></li>
-                        <li {!! classActivePath('o-nama') !!}><a href="o-nama">O nama </a></li>
-                        <li {!! classActivePath('kontakt') !!}><a href="kontakt">Kontakt</a></li>
-                        <li class="active"><a>Kontakt: +381 18 257 991 </a> </li>
 
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    @endpush
+    @include('heder')
 
 
     <div class="fh5co-hero" data-section="home">
@@ -245,41 +251,56 @@
 
     <div class="">
 
-        <div class="tab-content clearfix">
+        <div class="">
             <br>
             <div class="container ">
                 <div class="row about-1">
-                    <div class="col-lg-9 col-md-9 col-sm-14 col-xs-14">
-                        <h2>Mi nismo samo work and travel agencija</h2>
-                        <span>Max Travel</span>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                        <h2 style="color: #fed700;">Mi nismo samo work and travel agencija</h2>
+                        <span >Max Travel</span>
                         <p style="text-align: justify;" data-mce-style="text-align: justify;">Agencija Max Travel doo nastala je kao posebna članica grupacije Eurojet, 2007. godine. Od tada je i članica YUTA-e i sa ponosom i velikim uspehom zastupa nekoliko svojih brendova: Go2 Travelling koji je jedan od najpopularnijih turističkih brendova za mlade, Go2 Adventure koji se bavi avanturističkim putovanjima i dalekim i egzotičnim destinacijama, Go2 Serbia koja se bavi inkamingom i razvojem domaćeg turizma, Go2 America, brend koji se bavi Work and Travel programom u SAD. Velika posvećenost i stručnost naših zaposlenih dovodi i do sjajnih rezultata. Rezultati su lako merljivi, a to je zadovoljstvo naših putnika. Naš slogan je Explore. Dream. Discover, a uspomene stvaramo zajedno!</p>    </div>
-                    <div class="col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-4 col-sm-14 col-xs-14 about-spec">
-                        34
-                        <p>zaposlenih u kompaniji</p>    </div>
-                </div>
-
-                <div class="row">
-                    <div class="about-box">
-                        <a class="about-box-logo" href="http://www.go2travelling.net/" target="_blank" style="background-image: url('http://www.go2america.rs/images/page_items_parts/go2travelling.svg');"></a>
-                        <h3>Go2 Travelling</h3>
-                        <p style="text-align: justify;" data-mce-style="text-align: justify;">Jedna je od najpopularnijih turističkih agencija za mlade, koja se bavi organizacijom studentskih putovanja i stručnih ekskurzija za mlade u Srbiji. U svojoj ponudi ima preko 50 različitih tipova putovanja tokom cele godine, što podrazumeva doček Nove godine u evropskim gradovima, skijanje u najboljim skijaškim centrima, prolećna putovanja uz krstarenje Mediteranom, jesenja putovanja, letovanja. Pored putovanja, Go2 Travelling uspešno organizuje događaje i festivale kao što su Uranak festival na Srebrnom jezeru, Go2 Halloween – tradicionalni maskenbal za Noć veštica, Go2 Grudvanje- otvaranje ski sezone na Kopaoniku.</p>    </div>
-                    <div class="about-box">
-                        <a class="about-box-logo" href="https://www.facebook.com/go2adventure2016/?fref=ts" target="_blank" style="background-image: url('http://www.go2america.rs/images/page_items_parts/go2adventure.svg');"></a>
-                        <h3>Go2 Adventure</h3>
-                        <p style="text-align: justify;" data-mce-style="text-align: justify;">Go2 Adventure je deo brenda Go2 Travelling koji se bavi organizacijom avanturističkih putovanja, dalekih destinacija kao i putovanja koja su namenjena starijoj ciljnoj grupi. Go2 Adventure vas vodi na Tajland, Šri Lanku, Brazil, Vijetnam, na najbolja francuska i austrijska skijališta, kao i na jedrenje Grčkom i Hrvatskom. Pre osnivanja podbrenda Go2 Adventure, preko agencije Go2 Travelling daleke destinacije posetilo je preko 500 zadovoljnih putnika.</p>    </div>
-                    <div class="about-box">
-                        <a class="about-box-logo" href="http://www.go2serbia.net/" target="_blank" style="background-image: url('http://www.go2america.rs/images/page_items_parts/go2serbia.svg');"></a>
-                        <h3>Go2 Serbia</h3>
-                        <p style="text-align: justify;" data-mce-style="text-align: justify;">Turistički brend Go2 Serbia je jedna od osvežavajućih novina u turističkoj ponudi Beograda i Srbije. Ima za cilj da predstavi naše turističke potencijale kroz posebne programe razgledanja, ekskurzije i ture na poseban način: avionom, brodom, gliserom, vozom, autobusom i peške. Domaći i strani turisti svakoga dana imaju adekvatan program tokom kog mogu da upoznaju sve lepote prestonice i cele zemlje uz profesionalne usluge. Go2 Serbia u svojoj ponudi ima preko 15 tura preko kojih na najlepši način možete da upoznate Beograd. Pored toga, ovaj profesionalni tim uspešno organizuje razne događaje, team building-e, svečanosti, koktele, kao i noćne party ture.</p>    </div>
-                    <div class="about-box">
-                        <a class="about-box-logo" href="http://www.go2america.rs/" target="_blank" style="background-image: url('http://www.go2america.rs/images/page_items_parts/go2america.svg');"></a>
-                        <h3>Go2 America</h3>
-                        <p>Go2 America je brend posvećen organizovanju i realizovanju kulturne razmene studenata u SAD. Naš glavni cilj je pružanje kompletne usluge prilikom plasmana studenata na letnji Work and Travel program. Višegodišnje iskustvo nam omogućava da na najkvalitetniji način obavimo sve aktivnosti koje su potrebne da bi kandidat bio uspešno plasiran na program. Ono što možemo da garantujemo je da ćemo se u svakom trenutku ovog dugačkog procesa, truditi da svojim savetima i brigom za svakog studenta ponaosob, maksimalno pripremimo mlade za ovu nezaboravnu avanturu!<br></p>    </div>
+                    <div class="col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-2 col-sm-2 col-xs-14 about-spec">
+                        <h1 id="animate-number" data-number="34" style="font-size: 230px;
+    text-align: center; color: #fed700;">34</h1>
+                        <p style="text-align: center;">zaposlenih u kompaniji</p>    </div>
                 </div>
 
             </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-3">
+                    <a class="about-box-logo" href="http://www.go2travelling.net/" target="_blank" style="background-image: url('http://www.go2america.rs/images/page_items_parts/go2travelling.svg');"></a>
+                    <h3 style="color: #fed700;">Go2 Travelling</h3>
+                    <p style="text-align: justify;" data-mce-style="text-align: justify;">Jedna je od najpopularnijih turističkih agencija za mlade, koja se bavi organizacijom studentskih putovanja i stručnih ekskurzija za mlade u Srbiji. U svojoj ponudi ima preko 50 različitih tipova putovanja tokom cele godine, što podrazumeva doček Nove godine u evropskim gradovima, skijanje u najboljim skijaškim centrima, prolećna putovanja uz krstarenje Mediteranom, jesenja putovanja, letovanja. Pored putovanja, Go2 Travelling uspešno organizuje događaje i festivale kao što su Uranak festival na Srebrnom jezeru, Go2 Halloween – tradicionalni maskenbal za Noć veštica, Go2 Grudvanje- otvaranje ski sezone na Kopaoniku.</p>    </div>
+                <div class="col-md-3">
+                    <a class="about-box-logo" href="https://www.facebook.com/go2adventure2016/?fref=ts" target="_blank" style="background-image: url('http://www.go2america.rs/images/page_items_parts/go2adventure.svg');"></a>
+                    <h3 style="color: #fed700;">Go2 Adventure</h3>
+                    <p style="text-align: justify;" data-mce-style="text-align: justify;">Go2 Adventure je deo brenda Go2 Travelling koji se bavi organizacijom avanturističkih putovanja, dalekih destinacija kao i putovanja koja su namenjena starijoj ciljnoj grupi. Go2 Adventure vas vodi na Tajland, Šri Lanku, Brazil, Vijetnam, na najbolja francuska i austrijska skijališta, kao i na jedrenje Grčkom i Hrvatskom. Pre osnivanja podbrenda Go2 Adventure, preko agencije Go2 Travelling daleke destinacije posetilo je preko 500 zadovoljnih putnika.</p>    </div>
+                <div class="col-md-3">
+                    <a class="about-box-logo" href="http://www.go2serbia.net/" target="_blank" style="background-image: url('http://www.go2america.rs/images/page_items_parts/go2serbia.svg');"></a>
+                    <h3 style="color: #fed700;">Go2 Serbia</h3>
+                    <p style="text-align: justify;" data-mce-style="text-align: justify;">Turistički brend Go2 Serbia je jedna od osvežavajućih novina u turističkoj ponudi Beograda i Srbije. Ima za cilj da predstavi naše turističke potencijale kroz posebne programe razgledanja, ekskurzije i ture na poseban način: avionom, brodom, gliserom, vozom, autobusom i peške. Domaći i strani turisti svakoga dana imaju adekvatan program tokom kog mogu da upoznaju sve lepote prestonice i cele zemlje uz profesionalne usluge. Go2 Serbia u svojoj ponudi ima preko 15 tura preko kojih na najlepši način možete da upoznate Beograd. Pored toga, ovaj profesionalni tim uspešno organizuje razne događaje, team building-e, svečanosti, koktele, kao i noćne party ture.</p>    </div>
+                <div class="col-md-3">
+                    <a class="about-box-logo" href="http://www.go2america.rs/" target="_blank" style="background-image: url('http://www.go2america.rs/images/page_items_parts/go2america.svg');"></a>
+                    <h3 style="color: #fed700;">Go2 America</h3>
+                    <p>Go2 America je brend posvećen organizovanju i realizovanju kulturne razmene studenata u SAD. Naš glavni cilj je pružanje kompletne usluge prilikom plasmana studenata na letnji Work and Travel program. Višegodišnje iskustvo nam omogućava da na najkvalitetniji način obavimo sve aktivnosti koje su potrebne da bi kandidat bio uspešno plasiran na program. Ono što možemo da garantujemo je da ćemo se u svakom trenutku ovog dugačkog procesa, truditi da svojim savetima i brigom za svakog studenta ponaosob, maksimalno pripremimo mlade za ovu nezaboravnu avanturu!<br></p>    </div>
+            </div>
         </div>
     </div>
+    <hr>
+    <section class="about-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <h2 style="color: #fed700;">Poverenje</h2>
+                    <span>Rezultati govore sve</span>
+                    <p style="text-align: justify;" data-mce-style="text-align: justify;">Naš tim čini visoko obrazovan i stručan kadar ljudi, koji iz dana u dan pomera granice omladinskog turizma u Srbiji. Od 2007. godine pa do danas, poverenje nam je ukazalo preko 100.000 putnika, koji su sa nama obišli najveće i najpoznatije evropske gradove, skijali i snowboardovali u najboljim skijaškim centrima, doživeli nezaboravna letnja iskustva na mnogim grčkim ostrvima, krstarili Mediteranom i Jonskim morem, upoznavali se sa raznim kulturama i narodima u dalekoj Aziji. Poverenje su nam ukazali i mnogi studenti koji su preko Work and Travel programa, doživeli nezaboravna radna iskustva u Americi, a pri tom upoznali nove ljude, novu kulturu, stekli nova iskustva I koji se, na naše veliko zadovoljstvo, vraćaju i ove godine u USA. Godišnje, poverenje nam ukazuje 10.000 studenata! Budi jedan od njih i kreni u nezaboravnu avanturu!</p><p style="text-align: justify;" data-mce-style="text-align: justify;">Čekamo Vas!</p>      </div>
+                <div class="col-lg-offset-1 col-lg-5 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-6 col-xs-14">
+                    <img style="margin-top: 10%" src="http://www.go2america.rs/images/page_items/10000-slika.png" class="img-responsive pull-right">
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     @push('scripts')
@@ -292,9 +313,7 @@
     <script src="{{url('js/jquery.stellar.min.js')}}"></script>
     <script src="{{url('js/jquery.waypoints.min.js')}}"></script>
     <script src="{{url('js/sticky.js')}}"></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq_RSFC_BAiBNji07rK-XvpX3rOZkg4bc&callback=initMap">
-    </script>
+
 
     <script >
         function initMap() {
@@ -335,14 +354,34 @@
             } , { offset: '85%' } );
         };
 
+
         var $stickyElement = $('.sticky-banner');
         var sticky;
         if ($stickyElement.length) {
             sticky = new Waypoint.Sticky({
                 element: $stickyElement[0],
-                offset: 0
-            })
+                wrapper:false
+            });
         }
+
+
+    </script>
+    <script>
+        //            var projectWrapperPosition = $('.fh5co-hero').position().top;
+        $(window).scroll(function() {
+            console.log($(window).scrollTop())
+            if($(window).scrollTop() < 20){
+                $('#fh5co-header-section').addClass('space');
+            }else{
+                $('#fh5co-header-section').removeClass('space');
+            }
+//                if($(window).scrollTop() > (projectWrapperPosition - 150))
+//                $('#fh5co-header-section').toggleClass('space');
+//                else
+//                $('#fh5co-header-section').removeClass('space');
+
+        });
+
         contentWayPoint();
     </script>
     @endpush

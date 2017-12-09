@@ -36,11 +36,8 @@
     <div class="container-fluid">
         <div class="block-header">
             <h2>
-                Lista Smestaja
+                Lista Kategorija
 
-                <a href="{{url('app/kreiraj/smestaj')}}" class="btn btn-success btn-circle waves-effect waves-circle waves-float">
-                    <i class="material-icons">add</i>
-                </a>
             </h2>
 
         </div>
@@ -50,46 +47,19 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            Slajder pocetne strane
+                            Aktivne Kategorije
                         </h2>
 
                     </div>
                     <div class="body">
-                        <form action="{{url('app/store/smestaj/slajder')}}" method="POST" >
+                        <form action="{{url('app/store/category/active')}}" method="POST" >
                             {!! csrf_field() !!}
-                            <select id="optgroup" class="ms" multiple="multiple" name="slajder[]">
-                                @foreach($smestaji as $smestaj)
-                                    @if($smestaj->slajder == "1")
-                                        <option value="{{$smestaj->id}}" selected>{{$smestaj->naziv}}</option>
+                            <select id="header_slajder" class="ms" multiple="multiple" name="category[]">
+                                @foreach($category as $putovanje)
+                                    @if($putovanje->active)
+                                        <option value="{{$putovanje->id}}" selected>{{$putovanje->name}}</option>
                                     @else
-                                        <option value="{{$smestaj->id}}" >{{$smestaj->naziv}}</option>
-                                    @endif
-                                @endforeach
-                            </select>
-                            <button type="submit" class="btn btn-primary m-t-15 waves-effect">Save</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>
-                            Redosled Prikaza Putovanja
-                        </h2>
-
-                    </div>
-                    <div class="body">
-                        <form action="{{url('app/store/smestaj/redosled')}}" method="POST" >
-                            {!! csrf_field() !!}
-                            <input type="hidden" name="multiple_value" id="multiple_value"  />
-                            <select id="redosled" class="ms" multiple="multiple" name="redosled[]">
-
-                                @foreach($smestaji->sortByDesc('redosled') as $putovanje)
-                                    @if($putovanje->redosled != 0)
-                                        <option value="{{$putovanje->id}}" selected>{{$putovanje->naziv}}</option>
-                                    @else
-                                        <option value="{{$putovanje->id}}" >{{$putovanje->naziv}}</option>
+                                        <option value="{{$putovanje->id}}" >{{$putovanje->name}}</option>
                                     @endif
                                 @endforeach
                             </select>
@@ -102,33 +72,37 @@
         </div>
         <!-- #END# Multi Select -->
         <div class="row clearfix">
-            @foreach($smestaji as $smestaj)
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="body">
-                        <img class="img-responsive" src="{{url($smestaj->cover->url)}}">
-                    </div>
-                    <div class="header bg-green">
+                    <div class="header">
                         <h2>
-                            {{$smestaj->naziv}} <small>{{str_limit($smestaj->opis->kratak_opis, $limit = 20, $end = '...')}}...</small>
+                            Kreiraj Kategoriju
                         </h2>
-                        <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="{{url('app/kreiraj/smestaj')}}">Kreiraj</a></li>
-                                    <li><a href="{{url('app/edit/smestaj/'.$smestaj->id)}}">Edit</a></li>
-                                    <li><a href="{{url('app/delete/smestaj/'.$smestaj->id)}}">Izbrisi</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
 
+                    </div>
+                    <div class="body">
+                        <form action="{{url('app/store/category')}}" method="POST">
+                            <div class="row clearfix">
+
+                                    {!! csrf_field() !!}
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="name" placeholder="Naziv Kategorije">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                                        <button type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect">Save</button>
+                                    </div>
+
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            @endforeach
         </div>
     </div>
 
@@ -185,7 +159,9 @@
         <script src="{{url('admin/js/demo.js')}}"></script>
 
         <script>
-            $('#optgroup').multiSelect();
+            $('#header_slajder').multiSelect();
+            $('#other_slajder').multiSelect();
+            $('#last_slajder').multiSelect();
             $('#redosled').multiSelect({
                 keepOrder: true,
 

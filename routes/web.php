@@ -11,9 +11,8 @@
 	    return view('search');
 	});
 
-	Route::get('smestaj', function () {
-        return view('searchSmestaj');
-	});
+	Route::get('smestaj','SmestajController@search');
+	Route::post('smestaj','SmestajController@search');
 
 	Route::get('smestaj/{drzava}/{grad}/{smestaj}','SmestajController@singleSmestaj');
 	Route::get('putovanje/{putovanje}','PutovanjeController@singlePutovanje');
@@ -28,7 +27,7 @@
 
 
     Route::get('test', function () {
-            var_dump(\App\Putovanja::whereNotIn('id',\App\Izlet::find(7)->putovanje->pluck('id'))->get());
+            dd($users = \App\Putovanja::search("1")->get());
     });
 
 
@@ -112,6 +111,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('app/kreiraj/putovanje/{putovanje}','PutovanjeController@indexKreiraj');
 
     Route::get('app/edit/putovanje/{putovanje}','PutovanjeController@edit');
+    Route::post('app/edit/putovanje/{putovanje}','PutovanjeController@update');
 
 
     Route::get('app/edit/smestaj/{smestaj}/galerija','SmestajController@editGalerija');
@@ -127,9 +127,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('app/delete/putovanje/{putovanje}','PutovanjeController@destroy');
 
     Route::post('app/store/smestaj/slajder','SmestajController@setSlajder');
+    Route::post('app/store/smestaj/redosled','SmestajController@setRedosled');
+
 
     Route::post('app/store/putovanje/slajder/glavni','PutovanjeController@setSlajderGlavni');
     Route::post('app/store/putovanje/slajder/sporedni','PutovanjeController@setSlajderSporedni');
+    Route::post('app/store/putovanje/redosled','PutovanjeController@setRedosled');
 
     Route::post('app/store/putovanje','PutovanjeController@store');
 
@@ -142,7 +145,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('app/store/baner','BanerController@store');
     Route::post('app/edit/baner/{baner}','BanerController@update');
 
-
+    Route::get('app/category','PutovanjeController@listCategory');
+    Route::post('app/store/category','PutovanjeController@setCategory');
+    Route::post('app/store/category/active','PutovanjeController@setActiveCategory');
 
 
 

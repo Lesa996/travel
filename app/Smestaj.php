@@ -11,6 +11,7 @@ class Smestaj extends Model
         'naziv', 'tip_objekta', 'broj_zvezdica', 'vrsta_soba', 'tip_soba','broj_ljudi',
         'struktura_sobe','sadrzaj_sobe','udaljenost_centar','udaljenost_plaza','udaljenost_stanica',
         'udaljenost_zicara','dodatni_sadrzaj','napomena_hotel','drzava','grad','lat','lng','slajder','piktogram',
+        'redosled',
     ];
 
     public $timestamps = true;
@@ -34,5 +35,27 @@ class Smestaj extends Model
     public function blog()
     {
         return $this->belongsToMany(Post::class,'blog_smestaj','smestaj_id');
+    }
+    public function scopeSearchDrzaca($query, $location)
+    {
+        if ($location) $query->where('drzava','like',  '%' . $location . '%');
+    }
+    public function scopeSearchGrad($query, $location)
+    {
+        if ($location) $query->where('grad', 'like',  '%' .$location . '%');
+    }
+    public function scopeSearchObjekat($query, $location)
+    {
+        if ($location) $query->where('tip_objekta','like',  '%' . $location . '%');
+    }
+    public function scopeSearchSobe($query, $location)
+    {
+        if ($location) $query->where('vrsta_soba', 'like',  '%' .$location . '%');
+    }
+    public function scopeSearchDodatno($query, $location)
+    {
+        if ($location){
+            $query->where('dodatni_sadrzaj', 'like',  '%' .$location . '%');
+        }
     }
 }

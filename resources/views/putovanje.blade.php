@@ -420,40 +420,51 @@
             float: left;
         }
         #fh5co-menu-wrap{
-            margin: auto;
+            overflow-y: unset;
+            overflow-x: unset;
         }
         #header-title{
 
         }
     </style>
+    <style>
+        .logo-heder{
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 5%;
+            float: left;
+        }
+
+        #header-title{
+
+        }
+        .sticky-wrapper{
+            position: fixed !important;
+        }
+        .space{
+            margin-top: 2%;
+        }
+        .travel-blog-text{
+            background-color: rgba(0, 0, 0, 0.47);
+        }
+        .countdown{
+            text-align: center;
+            width: 100%;
+            font: unset;
+        }
+        #fh5co-wrapper{
+            overflow-y: unset;
+            overflow-x: unset;
+        }
+    </style>
+
+
     @endpush
 
-    <header id="fh5co-header-section" class="sticky-banner">
-        <div class="container">
-            <div class="nav-header">
-                <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                <h1 >
-                    <img src="{{url('logo.png')}}" class="img-responsive logo-heder" alt="">
-                </h1>
-                <!-- START #fh5co-menu-wrap -->
-                <nav id="fh5co-menu-wrap" role="navigation">
-                    <ul class="sf-menu" id="fh5co-primary-menu">
-                        <li {!! classActivePath('/') !!} ><a href="{{url('/')}}" >Pocetna</a></li>
-                        <li {!! classActivePath('putovanje') !!} ><a href="{{url('putovanje')}}" >Putovanja</a></li>
-                        <li {!! classActivePath('smestaj') !!} ><a href="{{url('smestaj')}}">Smestaj</a></li>
-                        <li {!! classActivePath('blog') !!}><a href="{{url('blog')}}">Blog</a></li>
-                        <li {!! classActivePath('o-nama') !!}><a href="{{url('o-nama')}}">O nama </a></li>
-                        <li {!! classActivePath('kontakt') !!}><a href="{{url('kontakt')}}">Kontakt</a></li>
-                        <li class="active"><a>Kontakt: +381 18 257 991 </a> </li>
-
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-
+    @include('heder')
     <div class="fh5co-hero" data-section="home">
-        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url({{'../'.$putovanje->cover->url}});">
+        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url('../{{$putovanje->cover->url}}');">
 
             <div class="display-t">
                 <div class="display-tc">
@@ -475,8 +486,8 @@
         <ul class="nav nav-tabs nav-bar-putovanja">
             <li class="active col-xs-12"><a href="#Cenovnik" data-toggle="tab" ><i class="glyphicon glyphicon-eur"></i> Cenovnik</a></li>
             <li class=" col-xs-12"><a href="#Informacije" data-toggle="tab"><i class="glyphicon glyphicon-list-alt"></i> Informacije</a></li>
-            <li class="col-xs-12"><a href="#PlanPuta" data-toggle="tab"><i class="fa fa-map-o"></i> Plan puta</a></li>
-            <li class="col-xs-12"><a href="#Smestaji" data-toggle="tab"><i class="fa fa-map-o"></i> Smestaj </a></li>
+            <li class="col-xs-12"><a href="#PlanPuta" data-toggle="tab"><i class="fa fa-list-alt"></i> Plan puta</a></li>
+            <li class="col-xs-12"><a href="#Smestaji" data-toggle="tab"><i class="fa fa-home"></i> Smestaj </a></li>
             <li class="col-xs-12"><a href="#Galerija" data-toggle="tab"><i class="fa fa-map-o"></i> Galerija </a></li>
             <li class="col-xs-12"><a href="#Izleti" data-toggle="tab"><i class="fa fa-tree"></i> Izleti</a></li>
         </ul>
@@ -615,7 +626,7 @@
                 <div class="container">
                     <div class="row">
                         @foreach($putovanje->cenovnik()->groupBy('smestaj_id')->get() as  $item)
-                            <div class="col-md-3  col-md-offset-1 col-sm-3 home-page-travel " style="background-image:url({{url($item->smestaj->cover->url)}}) ">
+                            <div class="col-md-3  col-md-offset-1 col-sm-3 home-page-travel " style="background-image:url('{{url($item->smestaj->cover->url)}}') ">
                                 <div class="balcken"></div>
 
                                 <div class="travel-blog-text">
@@ -710,17 +721,22 @@
                                     </div>
                                     <hr>
                                 @endforeach
-                                <hr>
+                                <div class="row">
+                                    <hr>
+                                    <div class="col-md-6 opis-naziv">Napomena</div>
+                                    <div class="col-md-6 opis-text">
+                                        <div>
+                                            {{$putovanje->opisCenovnik->napomena_cenovnik}}
+                                        </div>
 
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <hr>
                                     <div class="col-md-6 opis-naziv">Cena obuhvata</div>
                                     <div class="col-md-6 opis-text">
                                         <div>
-                                            <i class="glyphicon glyphicon-ok"></i> Dorucak
-                                        </div>
-                                        <div>
-                                            <i class="glyphicon glyphicon-ok"></i> Rucak
+                                            {{$putovanje->opisCenovnik->obuhvata}}
 
                                         </div>
                                     </div>
@@ -730,11 +746,39 @@
                                     <div class="col-md-6 opis-naziv">Cena ne obuhvata</div>
                                     <div class="col-md-6 opis-text">
                                         <div>
-                                            <i class="glyphicon glyphicon-remove"></i> Boravisna taksa
+                                            {{$putovanje->opisCenovnik->neobuhvata}}
                                         </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <hr>
+                                    <div class="col-md-6 opis-naziv">Dinamika Placanja</div>
+                                    <div class="col-md-6 opis-text">
                                         <div>
-                                            <i class="glyphicon glyphicon-remove"></i> Izlete
+                                            {{$putovanje->opisCenovnik->dinamika_placanja}}
                                         </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <hr>
+                                    <div class="col-md-6 opis-naziv">Nacin Placanja</div>
+                                    <div class="col-md-6 opis-text">
+                                        <div>
+                                            {{$putovanje->opisCenovnik->nacin_placanja}}
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <hr>
+                                    <div class="col-md-6 opis-naziv">Nacin Prijave</div>
+                                    <div class="col-md-6 opis-text">
+                                        <div>
+                                            {{$putovanje->opisCenovnik->nacin_prijave}}
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -758,125 +802,22 @@
                             <h1 class="putovanje-naziv">Letovanje Grcka</h1>
                             <br>
                             <div class="plan-puta">
+                                @foreach($putovanje->plan as $key=>$plan)
                                 <div class="row">
                                     <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">1</div>
+                                        <div class="bullet">{{$key+1}}</div>
 
                                     </div>
                                     <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 1: Polazak</div>
+                                        <div class="opis-naziv">Dan {{$plan->dan}}</div>
                                         <br>
                                         <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
+                                            {!! $plan->opis !!}
                                         </div>
                                     </div>
                                 </div>
                                 <br>
-                                <div class="row">
-                                    <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">2</div>
-
-                                    </div>
-                                    <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 2: Lorem</div>
-                                        <br>
-                                        <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">3</div>
-
-                                    </div>
-                                    <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 3: Lorem</div>
-                                        <br>
-                                        <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">4</div>
-
-                                    </div>
-                                    <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 4: Lorem</div>
-                                        <br>
-                                        <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">5</div>
-
-                                    </div>
-                                    <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 5: Lorem</div>
-                                        <br>
-                                        <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">6</div>
-
-                                    </div>
-                                    <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 6: Lorem</div>
-                                        <br>
-                                        <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-xs-3 col-md-1">
-                                        <div class="bullet">7</div>
-
-                                    </div>
-                                    <div class="col-xs-7 col-md-10 dan-puta">
-                                        <div class="opis-naziv">Dan 7: Lorem</div>
-                                        <br>
-                                        <div class="opis-text ">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra purus vitae venenatis laoreet. Phasellus tincidunt rhoncus rutrum. Mauris a eleifend nisl. Cras ac bibendum massa.
-                                            Donec ultricies, turpis a sagittis suscipit, ex odio volutpat sem, vel molestie varius est.
-                                            Suspendisse ultrices nulla eu volutpat volutpat. Proin gravida nibh vel velit auctor aliqueenean.
-                                            Nunc tincidunt mollis felis, sed bibendum ligula auctor et. Etiam a erat sit amet augue tincidunt euismod.
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
+                                @endforeach
                             </div>
                             <div class="mapa">
                                 <div class="row">
@@ -940,7 +881,7 @@
 
     <script >
         function initMap() {
-            var uluru = {lat: 39.2853, lng: 20.4005};
+            var uluru = {lat: {!! $putovanje->lat !!}, lng: {!! $putovanje->lng !!}};
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 4,
                 center: uluru
@@ -977,14 +918,34 @@
             } , { offset: '85%' } );
         };
 
+        $(window).stellar();
         var $stickyElement = $('.sticky-banner');
         var sticky;
         if ($stickyElement.length) {
             sticky = new Waypoint.Sticky({
                 element: $stickyElement[0],
-                offset: 0
+                wrapper:false
+
             })
         }
+
+    </script>
+    <script>
+        //            var projectWrapperPosition = $('.fh5co-hero').position().top;
+        $(window).scroll(function() {
+
+            if($(window).scrollTop() < 20){
+                $('#fh5co-header-section').addClass('space');
+            }else{
+                $('#fh5co-header-section').removeClass('space');
+            }
+//                if($(window).scrollTop() > (projectWrapperPosition - 150))
+//                $('#fh5co-header-section').toggleClass('space');
+//                else
+//                $('#fh5co-header-section').removeClass('space');
+
+        });
+
         contentWayPoint();
     </script>
     @endpush

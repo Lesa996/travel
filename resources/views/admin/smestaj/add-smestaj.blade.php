@@ -105,6 +105,30 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
+                                        <input type="number" class="form-control" name="udaljenost_centar" >
+                                        <label class="form-label">Udaljenost Centar</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="udaljenost_plaza" >
+                                        <label class="form-label">Udaljenost Plaza</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="udaljenost_stanica" >
+                                        <label class="form-label">Udaljenost Stanica</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="number" class="form-control" name="udaljenost_zicara" >
+                                        <label class="form-label">Udaljenost Zicara</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
                                         <input type="text" class="form-control" name="vrsta_soba" >
                                         <label class="form-label">Vrsta Sobe*</label>
                                     </div>

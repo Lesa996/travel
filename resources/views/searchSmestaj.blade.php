@@ -210,32 +210,70 @@
             padding-top: 7em;
 
         }
+        #fh5co-started .form-control{
+            color: #555555;
+        }
     </style>
+    <style>
+        .logo-heder{
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 5%;
+            float: left;
+        }
+        #fh5co-menu-wrap{
+            margin: auto;
+        }
+        #header-title{
+
+        }
+        .sticky-wrapper{
+            position: fixed !important;
+        }
+        .space{
+            margin-top: 2%;
+        }
+        .travel-blog-text{
+            background-color: rgba(0, 0, 0, 0.47);
+        }
+        .countdown{
+            text-align: center;
+            width: 100%;
+            font: unset;
+        }
+    </style>
+    <style>
+        .logo-heder{
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 5%;
+            float: left;
+        }
+
+        #header-title{
+
+        }
+        .sticky-wrapper{
+            position: fixed !important;
+        }
+        .space{
+            margin-top: 2%;
+        }
+        .travel-blog-text{
+            background-color: rgba(0, 0, 0, 0.47);
+        }
+        .countdown{
+            text-align: center;
+            width: 100%;
+            font: unset;
+        }
+    </style>
+
     @endpush
 
-    <header id="fh5co-header-section" class="sticky-banner">
-        <div class="container">
-            <div class="nav-header">
-                <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                <h1 >
-                    <img src="{{url('logo.png')}}" class="img-responsive logo-heder" alt="">
-                </h1>
-                <!-- START #fh5co-menu-wrap -->
-                <nav id="fh5co-menu-wrap" role="navigation">
-                    <ul class="sf-menu" id="fh5co-primary-menu">
-                        <li {!! classActivePath('/') !!} ><a href="{{url('/')}}" >Pocetna</a></li>
-                        <li {!! classActivePath('putovanje') !!} ><a href="{{url('putovanje')}}" >Putovanja</a></li>
-                        <li {!! classActivePath('smestaj') !!} ><a href="{{url('smestaj')}}">Smestaj</a></li>
-                        <li {!! classActivePath('blog') !!}><a href="{{url('blog')}}">Blog</a></li>
-                        <li {!! classActivePath('o-nama') !!}><a href="{{url('o-nama')}}">O nama </a></li>
-                        <li {!! classActivePath('kontakt') !!}><a href="{{url('kontakt')}}">Kontakt</a></li>
-                        <li class="active"><a>Kontakt: +381 18 257 991 </a> </li>
-
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    @include('heder')
     <div id="fh5co-started" data-stellar-background-ratio="0.5" style="background-image:url(images/pexels-photo-248771.jpeg)" >
         <div class="container">
             <div class="row animate-box">
@@ -245,43 +283,53 @@
             </div>
             <div class="row animate-box">
                 <div class="col-md-10 col-md-offset-2">
-                    <form class="form-inline">
+                    <form action="{{url('smestaj')}}" method="POST" class="form-inline">
+                        {{csrf_field()}}
                         <div class="col-md-4 col-sm-4">
                             <div class="form-group">
-                                <label for="name" class="sr-only">Drzava</label>
-                                <input type="name" class="form-control" id="name" placeholder="Drzava">
+
+                                <input type="name" name="drzava" class="form-control" id="name" placeholder="Drzava">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div class="form-group">
-                                <label for="name" class="sr-only">Grad</label>
-                                <input type="name" class="form-control" id="name" placeholder="Grad">
+
+                                <input type="name" name="grad" class="form-control" id="name" placeholder="Grad">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div class="form-group">
-                                <select name="objekat" class="form-control">
-                                    <option value="" disabled selected>Select your option</option>
-                                    <option >Hotel</option>
-                                    <option >Hostel</option>
-                                    <option >Vila</option>
+                                <select name="objekat" class="form-control" >
+                                    <option   value="" selected>Grad</option>
+                                    <option value="Hotel">Hotel</option>
+                                    <option value="Hostel">Hostel</option>
+                                    <option value="Vila">Vila</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div class="form-group">
-                                <select name="objekat" class="form-control" placeholder="Soba">
-                                    <option value="" disabled selected>Select your option</option>
-                                    <option >1/1</option>
-                                    <option >1/2</option>
-                                    <option >1/3</option>
+                                <select name="sobe" class="form-control" >
+                                    <option   value="" selected>Sobe</option>
+                                    <option value="1/1">1/1</option>
+                                    <option value="1/2">1/2</option>
+                                    <option value="1/3">1/3</option>
+                                    <option value="1/4">1/4</option>
+                                    <option value="1/5">1/5</option>
+                                    <option value="1/6">1/6</option>
+                                    <option value="1/7">1/7</option>
+                                    <option value="1/8">1/8</option>
+                                    <option value="1/9">1/9</option>
+                                    <option value="1/10">1/10</option>
+                                    <option value="1/11">1/11</option>
+                                    <option value="1/12">1/12</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="col-md-4 col-sm-4">
                             <div class="form-group">
-                                <input type="name" class="form-control" id="name" placeholder="Dodatni sadrzaj">
+                                <input type="text" name="dodatno" class="form-control" id="name" placeholder="Dodatni sadrzaj">
                             </div>
                         </div>
 
@@ -301,394 +349,25 @@
 
     <div class="container">
                 <div class="row search">
-                    <div class="col-md-4 col-md-offset-1">
-                        <div class="col-md-12  home-page-travel " style="background-image:url(images/pexels-photo-386009.jpeg) ">
+                    @foreach($smestaji as $key => $item)
+
+                        <div class="col-md-3  col-md-offset-1 col-sm-3 home-page-travel " style="background-image:url('{{url($item->cover->url)}}') ">
                             <div class="balcken"></div>
 
                             <div class="travel-blog-text">
                                 <div class="prod-title animate-box">
-                                    <h3><a href="#">Destination</a></h3>
-                                    <div class="precrtana-cena">
-                                        <h3 class="cena">
-                                            <i class="glyphicon glyphicon-eur"></i>
-                                            350
-                                        </h3>
-                                    </div>
-                                    <div class="aktuelna-cena">
-                                        <h3 class="cena">
-                                            /<i class="glyphicon glyphicon-eur"></i>
-                                            250
-                                        </h3>
-                                    </div>
-                                    <br>
-                                    <div class="text">
-                                        <br>
-                                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p><a href="#">Learn More...</a></p>
-                                    </div>
+                                    <h3><a href="{{url('smestaj/'.$item->drzava.'/'.$item->grad.'/'.$item->naziv)}}">{{$item->naziv}}</a></h3>
+                                    <p style="color: white">{{$item->opis->kratak_opis}}</p>
+                                    <p><a href="{{url('smestaj/'.$item->drzava.'/'.$item->grad.'/'.$item->naziv)}}">Learn More...</a></p>
                                 </div>
                             </div>
 
                         </div>
+                        @if(($key % 2 == 0) && ($key != 0))
+                            <br>
+                        @endif
+                    @endforeach
 
-                    </div>
-                    <div class="col-md-4 col-md-offset-1">
-                        <div class="col-md-12  home-page-travel" style="background-image:url(images/pexels-photo-297755.jpeg) ">
-                            <div class="balcken"></div>
-
-                            <div class="travel-blog-text">
-                                <div class="prod-title animate-box">
-                                    <h3><a href="#">Destination</a></h3>
-
-                                    <div class="precrtana-cena">
-                                        <h3 class="cena">
-                                            <i class="glyphicon glyphicon-eur"></i>
-                                            350
-                                        </h3>
-                                    </div>
-                                    <div class="aktuelna-cena">
-                                        <h3 class="cena">
-                                            /<i class="glyphicon glyphicon-eur"></i>
-                                            250
-                                        </h3>
-                                    </div>
-                                    <br>
-                                    <div class="text">
-                                        <br>
-                                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p><a href="#">Learn More...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <br>
-                    <div class="col-md-4 col-md-offset-1">
-                        <div class="col-md-12  home-page-travel" style="background-image:url(https://static.pexels.com/photos/371442/pexels-photo-371442.jpeg) ">
-                            <div class="balcken"></div>
-
-                            <div class="travel-blog-text">
-                                <div class="prod-title animate-box">
-                                    <h3><a href="#">Destination</a></h3>
-
-                                    <div class="precrtana-cena">
-                                        <h3 class="cena">
-                                            <i class="glyphicon glyphicon-eur"></i>
-                                            350
-                                        </h3>
-                                    </div>
-                                    <div class="aktuelna-cena">
-                                        <h3 class="cena">
-                                            /<i class="glyphicon glyphicon-eur"></i>
-                                            250
-                                        </h3>
-                                    </div>
-                                    <br>
-                                    <div class="text">
-                                        <br>
-                                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p><a href="#">Learn More...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-4 col-md-offset-1">
-                        <div class="col-md-12  home-page-travel" style="background-image:url(https://static.pexels.com/photos/393859/pexels-photo-393859.jpeg) ">
-                            <div class="balcken"></div>
-
-                            <div class="travel-blog-text">
-                                <div class="prod-title animate-box">
-                                    <h3><a href="#">Destination</a></h3>
-
-                                    <div class="precrtana-cena">
-                                        <h3 class="cena">
-                                            <i class="glyphicon glyphicon-eur"></i>
-                                            350
-                                        </h3>
-                                    </div>
-                                    <div class="aktuelna-cena">
-                                        <h3 class="cena">
-                                            /<i class="glyphicon glyphicon-eur"></i>
-                                            250
-                                        </h3>
-                                    </div>
-                                    <br>
-                                    <div class="text">
-                                        <br>
-                                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p><a href="#">Learn More...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <br>
-                    <div class="col-md-4 col-md-offset-1">
-                        <div class="col-md-12  home-page-travel" style="background-image:url(https://static.pexels.com/photos/371442/pexels-photo-371442.jpeg) ">
-                            <div class="balcken"></div>
-
-                            <div class="travel-blog-text">
-                                <div class="prod-title animate-box">
-                                    <h3><a href="#">Destination</a></h3>
-
-                                    <div class="precrtana-cena">
-                                        <h3 class="cena">
-                                            <i class="glyphicon glyphicon-eur"></i>
-                                            350
-                                        </h3>
-                                    </div>
-                                    <div class="aktuelna-cena">
-                                        <h3 class="cena">
-                                            /<i class="glyphicon glyphicon-eur"></i>
-                                            250
-                                        </h3>
-                                    </div>
-                                    <br>
-                                    <div class="text">
-                                        <br>
-                                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p><a href="#">Learn More...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-4 col-md-offset-1">
-                        <div class="col-md-12  home-page-travel" style="background-image:url(https://static.pexels.com/photos/393859/pexels-photo-393859.jpeg) ">
-                            <div class="balcken"></div>
-
-                            <div class="travel-blog-text">
-                                <div class="prod-title animate-box">
-                                    <h3><a href="#">Destination</a></h3>
-
-                                    <div class="precrtana-cena">
-                                        <h3 class="cena">
-                                            <i class="glyphicon glyphicon-eur"></i>
-                                            350
-                                        </h3>
-                                    </div>
-                                    <div class="aktuelna-cena">
-                                        <h3 class="cena">
-                                            /<i class="glyphicon glyphicon-eur"></i>
-                                            250
-                                        </h3>
-                                    </div>
-                                    <br>
-                                    <div class="text">
-                                        <br>
-                                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p><a href="#">Learn More...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <br>
-                    <div class="col-md-4 col-md-offset-1">
-                        <div class="col-md-12  home-page-travel" style="background-image:url(https://static.pexels.com/photos/371442/pexels-photo-371442.jpeg) ">
-                            <div class="balcken"></div>
-
-                            <div class="travel-blog-text">
-                                <div class="prod-title animate-box">
-                                    <h3><a href="#">Destination</a></h3>
-
-                                    <div class="precrtana-cena">
-                                        <h3 class="cena">
-                                            <i class="glyphicon glyphicon-eur"></i>
-                                            350
-                                        </h3>
-                                    </div>
-                                    <div class="aktuelna-cena">
-                                        <h3 class="cena">
-                                            /<i class="glyphicon glyphicon-eur"></i>
-                                            250
-                                        </h3>
-                                    </div>
-                                    <br>
-                                    <div class="text">
-                                        <br>
-                                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p><a href="#">Learn More...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-4 col-md-offset-1">
-                        <div class="col-md-12  home-page-travel" style="background-image:url(https://static.pexels.com/photos/393859/pexels-photo-393859.jpeg) ">
-                            <div class="balcken"></div>
-
-                            <div class="travel-blog-text">
-                                <div class="prod-title animate-box">
-                                    <h3><a href="#">Destination</a></h3>
-
-                                    <div class="precrtana-cena">
-                                        <h3 class="cena">
-                                            <i class="glyphicon glyphicon-eur"></i>
-                                            350
-                                        </h3>
-                                    </div>
-                                    <div class="aktuelna-cena">
-                                        <h3 class="cena">
-                                            /<i class="glyphicon glyphicon-eur"></i>
-                                            250
-                                        </h3>
-                                    </div>
-                                    <br>
-                                    <div class="text">
-                                        <br>
-                                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p><a href="#">Learn More...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <br>
-                    <div class="col-md-4 col-md-offset-1">
-                        <div class="col-md-12  home-page-travel" style="background-image:url(https://static.pexels.com/photos/371442/pexels-photo-371442.jpeg) ">
-                            <div class="balcken"></div>
-
-                            <div class="travel-blog-text">
-                                <div class="prod-title animate-box">
-                                    <h3><a href="#">Destination</a></h3>
-
-                                    <div class="precrtana-cena">
-                                        <h3 class="cena">
-                                            <i class="glyphicon glyphicon-eur"></i>
-                                            350
-                                        </h3>
-                                    </div>
-                                    <div class="aktuelna-cena">
-                                        <h3 class="cena">
-                                            /<i class="glyphicon glyphicon-eur"></i>
-                                            250
-                                        </h3>
-                                    </div>
-                                    <br>
-                                    <div class="text">
-                                        <br>
-                                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p><a href="#">Learn More...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-4 col-md-offset-1">
-                        <div class="col-md-12  home-page-travel" style="background-image:url(https://static.pexels.com/photos/393859/pexels-photo-393859.jpeg) ">
-                            <div class="balcken"></div>
-
-                            <div class="travel-blog-text">
-                                <div class="prod-title animate-box">
-                                    <h3><a href="#">Destination</a></h3>
-
-                                    <div class="precrtana-cena">
-                                        <h3 class="cena">
-                                            <i class="glyphicon glyphicon-eur"></i>
-                                            350
-                                        </h3>
-                                    </div>
-                                    <div class="aktuelna-cena">
-                                        <h3 class="cena">
-                                            /<i class="glyphicon glyphicon-eur"></i>
-                                            250
-                                        </h3>
-                                    </div>
-                                    <br>
-                                    <div class="text">
-                                        <br>
-                                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p><a href="#">Learn More...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <br>
-                    <div class="col-md-4 col-md-offset-1">
-                        <div class="col-md-12  home-page-travel" style="background-image:url(https://static.pexels.com/photos/371442/pexels-photo-371442.jpeg) ">
-                            <div class="balcken"></div>
-
-                            <div class="travel-blog-text">
-                                <div class="prod-title animate-box">
-                                    <h3><a href="#">Destination</a></h3>
-
-                                    <div class="precrtana-cena">
-                                        <h3 class="cena">
-                                            <i class="glyphicon glyphicon-eur"></i>
-                                            350
-                                        </h3>
-                                    </div>
-                                    <div class="aktuelna-cena">
-                                        <h3 class="cena">
-                                            /<i class="glyphicon glyphicon-eur"></i>
-                                            250
-                                        </h3>
-                                    </div>
-                                    <br>
-                                    <div class="text">
-                                        <br>
-                                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p><a href="#">Learn More...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-4 col-md-offset-1">
-                        <div class="col-md-12  home-page-travel" style="background-image:url(https://static.pexels.com/photos/393859/pexels-photo-393859.jpeg) ">
-                            <div class="balcken"></div>
-
-                            <div class="travel-blog-text">
-                                <div class="prod-title animate-box">
-                                    <h3><a href="#">Destination</a></h3>
-
-                                    <div class="precrtana-cena">
-                                        <h3 class="cena">
-                                            <i class="glyphicon glyphicon-eur"></i>
-                                            350
-                                        </h3>
-                                    </div>
-                                    <div class="aktuelna-cena">
-                                        <h3 class="cena">
-                                            /<i class="glyphicon glyphicon-eur"></i>
-                                            250
-                                        </h3>
-                                    </div>
-                                    <br>
-                                    <div class="text">
-                                        <br>
-                                        <p style="color: white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                        <p><a href="#">Learn More...</a></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
                 </div>
             </div>
 
@@ -732,14 +411,34 @@
             } , { offset: '85%' } );
         };
 
+        $(window).stellar();
         var $stickyElement = $('.sticky-banner');
         var sticky;
         if ($stickyElement.length) {
             sticky = new Waypoint.Sticky({
                 element: $stickyElement[0],
-                offset: 0
+                wrapper:false
+
             })
         }
+
+    </script>
+    <script>
+        //            var projectWrapperPosition = $('.fh5co-hero').position().top;
+        $(window).scroll(function() {
+
+            if($(window).scrollTop() < 20){
+                $('#fh5co-header-section').addClass('space');
+            }else{
+                $('#fh5co-header-section').removeClass('space');
+            }
+//                if($(window).scrollTop() > (projectWrapperPosition - 150))
+//                $('#fh5co-header-section').toggleClass('space');
+//                else
+//                $('#fh5co-header-section').removeClass('space');
+
+        });
+
         contentWayPoint();
     </script>
     @endpush

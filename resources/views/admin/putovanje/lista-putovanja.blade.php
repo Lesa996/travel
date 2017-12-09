@@ -121,6 +121,33 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            Redosled Prikaza Putovanja
+                        </h2>
+
+                    </div>
+                    <div class="body">
+                        <form action="{{url('app/store/putovanje/redosled')}}" method="POST" >
+                            {!! csrf_field() !!}
+                            <input type="hidden" name="multiple_value" id="multiple_value"  />
+                            <select id="redosled" class="ms" multiple="multiple" name="redosled[]">
+
+                                @foreach($putovanja->sortByDesc('redosled') as $putovanje)
+                                    @if($putovanje->redosled != 0)
+                                        <option value="{{$putovanje->id}}" selected>{{$putovanje->naziv}}</option>
+                                    @else
+                                        <option value="{{$putovanje->id}}" >{{$putovanje->naziv}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            <button type="submit" class="btn btn-primary m-t-15 waves-effect">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- #END# Multi Select -->
         <div class="row clearfix">
@@ -210,6 +237,21 @@
             $('#header_slajder').multiSelect();
             $('#other_slajder').multiSelect();
             $('#last_slajder').multiSelect();
+            $('#redosled').multiSelect({
+                keepOrder: true,
+
+                afterSelect: function(value, text){
+                    var get_val = $("#multiple_value").val();
+                    var hidden_val = (get_val != "") ? get_val+"," : get_val;
+                    $("#multiple_value").val(hidden_val+""+value);
+                },
+                afterDeselect: function(value, text){
+                    var get_val = $("#multiple_value").val();
+                    var new_val = get_val.replace(value, "");
+                    $("#multiple_value").val(new_val);
+                }
+
+            });
         </script>
     @endpush
 @endsection

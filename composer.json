@@ -10,7 +10,8 @@
         "laravelcollective/html": "5.3.*",
         "barryvdh/laravel-elfinder": "^0.3.8",
         "magyarjeti/laravel-lipsum": "^1.1",
-        "unisharp/laravel-filemanager": "~1.8"
+        "unisharp/laravel-filemanager": "~1.8",
+        "nicolaslopezj/searchable": "1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
