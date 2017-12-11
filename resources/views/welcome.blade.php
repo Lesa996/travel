@@ -131,17 +131,17 @@
                 </div>
                 <div class="row animate-box">
                     <div class="col-md-10 col-md-offset-1">
-                        <form class="form-inline">
+                        <form class="form-inline" action="{{url('putovanje')}}" method="GET">
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="name" class="sr-only">Gde</label>
-                                    <input type="name" class="form-control" id="name" placeholder="Gde">
+                                    <input type="text" class="form-control" name="gde" id="name" placeholder="Gde">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="email" class="sr-only">Kad</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Kad">
+                                    <input type="date" class="form-control" name="kad" id="email" placeholder="Kad">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
@@ -164,7 +164,10 @@
                         <div data-countdown="{{$item->cena_do_vreme}}" class="countdown"></div>
                         <div style="padding: 15px 30px;">
                             <div class="prod-title animate-box">
-                                <h3><a href="{{url('putovanje',$item->naziv)}}">{{$item->naziv}}</a></h3>
+                                <h3><a href="{{url('putovanje',$item->naziv)}}">{{$item->naziv}}
+                                       <br> <i class="glyphicon glyphicon-eur"></i>
+                                        {{$item->cena_od}}</a></h3>
+
                                 <p style="color: white">{{$item->opis->kratak_opis}}</p>
                                 <p><a href="{{url('putovanje',$item->naziv)}}">Learn More...</a></p>
                             </div>
@@ -214,7 +217,7 @@
         <div class="container">
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center heading-section">
-                    <a href="putovanje">
+                    <a href="putovanje#lastminute">
                         <h2 >Last Minute</h2>
                         <h3>More here...</h3>
                     </a>
@@ -232,11 +235,11 @@
                 </div>
                 <div class="row animate-box">
                     <div class="col-md-10 col-md-offset-3">
-                        <form class="form-inline">
+                        <form class="form-inline" action="{{url('smestaj')}}" method="GET">
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="name" class="sr-only">Lokacija</label>
-                                    <input type="name" class="form-control" id="name" placeholder="Lokacija">
+                                    <input type="name" name="lokacija" class="form-control" id="name" placeholder="Lokacija">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4">
@@ -354,6 +357,8 @@
         });
 
         contentWayPoint();
+
+
     </script>
     @endpush
 @endsection

@@ -246,7 +246,70 @@
         </div>
 
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="left"><h1 id="kontaktNaslov">
+                        MaxTravel</h1>
+                    <div id="kontaktTekst">
+                        <strong>BEOGRAD</strong><br>
+                        <a href="https://www.google.rs/maps/place/Strahinjića+Bana+36,+Beograd/@44.8225805,20.4592155,20z/data=!4m13!1m7!3m6!1s0x475a654acf650e27:0x7a835bc7e8b3617a!2sStrahinjića+Bana+36,+Beograd!3b1!8m2!3d44.8225805!4d20.4594891!3m4!1s0x475a654acf650e27:0x7a835bc7e8b3617a!8m2!3d44.8225805!4d20.4594891" target="_blank">Strahinjića Bana 36</a><br>
+                        +381 11 334 2444<br>
+                        office@maxtravel.rs<br>
 
+                        <span style="font-size:10px;"><strong>ZIMSKO RADNO VREME PRODAJE:&nbsp;</strong></span><br>
+                        Radnim danom 11-19h<br>
+                        Subotom 09-15h<br>
+                        <br>
+                        <strong>NOVI SAD</strong><br>
+                        <a href="https://wego.here.com/directions/mix//Go2-Travelling-Novi-Sad,-Kralja-Aleksandra-12,-Pariski-Mgazin-I-sprat,-21000-Novi-Sad,-Serbia:e-eyJuYW1lIjoiR28yIFRyYXZlbGxpbmcgTm92aSBTYWQiLCJhZGRyZXNzIjoiS3JhbGphIEFsZWtzYW5kcmEgMTIsIFBhcmlza2kgTWdhemluIEkgc3ByYXQsIDIxMDAwIE5vdmkgU2FkLCBTZXJiaWEiLCJsYXRpdHVkZSI6NDUuMjUzODEwNjE5MDI4LCJsb25naXR1ZGUiOjE5Ljg0Mzc2NTQ5NzIwOCwicHJvdmlkZXJOYW1lIjoiZmFjZWJvb2siLCJwcm92aWRlcklkIjo2MDI0NTk1MzY0NTc3MzJ9?map=45.25381,19.84377,18,normal&amp;fb_locale=en_GB" target="_blank">Kralja Aleksandra 12, Pariski Magazin-lokal 14</a><br>
+                        +381 21&nbsp;523 525<br>
+                        go2travelling021@gmail.com<br>
+
+                        <strong style="font-size: 10px;">RADNO VREME:&nbsp;</strong><br>
+                        Radnim danom 10-20h<br>
+                        Subotom 10-14h<br>
+                        <br>
+                        <strong>NIŠ</strong><br>
+                        <a href="https://wego.here.com/directions/mix//Go2-Travelling-Niš,-Obrenovićeva-bb,-TC-KALČA,-lamela-D,-3.sprat,-Niš:e-eyJuYW1lIjoiR28yIFRyYXZlbGxpbmcgTmlcdTAxNjEiLCJhZGRyZXNzIjoiT2JyZW5vdmlcdTAxMDdldmEgYmIsIFRDIEtBTFx1MDEwY0EsIGxhbWVsYSBELCAzLnNwcmF0LCBOaVx1MDE2MSIsImxhdGl0dWRlIjo0My4zMTgxMDYwMTA0NzEsImxvbmdpdHVkZSI6MjEuODk0MDc4MjU0NywicHJvdmlkZXJOYW1lIjoiZmFjZWJvb2siLCJwcm92aWRlcklkIjoyNTA5NDAwMTUwNTcyNDF9?map=43.31811,21.89408,18,normal&amp;fb_locale=en_GB" target="_blank">TPC Kalča, lamela D, 3. sprat</a><br>
+                        <div>
+                            +381&nbsp;18 257 991</div>
+                        <div>
+                            +381&nbsp;18 257 992</div>
+                        go2travelling018@gmail.com<br>
+
+                        <strong style="font-size: 10px;">RADNO VREME:&nbsp;</strong><br>
+                        Radnim danom 11-19h<br>
+                        Subotom 11-14h<br>
+
+                        <strong>KRAGUJEVAC</strong><br>
+                        <a href="https://wego.here.com/?map=44.01869,20.89803,16,normal&amp;fb_locale=en_GB" target="_blank">Kralja Aleksandra I Karađorđevića&nbsp;108</a><br>
+                        +381 34 201 573<br>
+                        +381 62 143 2942<br>
+                        go2travelling.kg.034@gmail.com<br>
+
+                        <strong style="font-size: 10px;">RADNO VREME:&nbsp;</strong><br>
+                        Radnim danom 11-18h<br>
+                        Subotom 11-15h<br>
+                        <br>
+                        <div>
+                            <strong>ZAJEČAR&nbsp;</strong><br>
+                            <span style="font-family: arial, sans, sans-serif; font-size: 13px; white-space: pre-wrap;">Via Travel</span><br>
+                            <a href="https://www.google.rs/maps/place/Hotel+Srbija+TIS/@43.9034378,22.2771348,19z/data=!4m5!3m4!1s0x4754735d7e0c30cb:0xa483dd8f13267248!8m2!3d43.903434!4d22.277682?hl=en" target="_blank"><span style="font-family: arial, sans, sans-serif; font-size: 13px; white-space: pre-wrap;">Nikole Pašića bb</span></a><br>
+                            <span style="font-family: arial, sans, sans-serif; font-size: 13px; white-space: pre-wrap;">+381 19 420 587</span></div>
+
+                        <strong>SKOPLJE MAKEDONIJA&nbsp;</strong><br>
+                        <font face="arial, sans, sans-serif"><span style="font-size: 13px; white-space: pre-wrap;">Ok Travel</span></font><br>
+                        <a href="https://www.google.rs/maps/place/OK+Travel/@41.9844224,21.4493607,16z/data=!4m8!1m2!2m1!1sTravel+Agency!3m4!1s0x135415ea46a91a1d:0x332e11f7372ae8d8!8m2!3d41.9841179!4d21.4533323?hl=en" target="_blank"><font face="arial, sans, sans-serif"><span style="font-size: 13px; white-space: pre-wrap;">Pandil Shishkov 4, lok. 7 naselba aerodrom</span></font></a><br>
+                        <span style="font-family: arial, sans, sans-serif; font-size: 13px; white-space: pre-wrap;">+389 2 2477 301</span><br>
+
+                        Licenca kategorije OTP br. 65 / 2010 od 02.02.2010.</div></div>
+            </div>
+            <div class="col-sm-6">
+                <img src="mapa-za-sajt-nova.png" alt="">
+            </div>
+        </div>
+    </div>
     <div class="">
 
         <div class="tab-content clearfix">
@@ -284,9 +347,7 @@
     <script src="{{url('js/jquery.stellar.min.js')}}"></script>
     <script src="{{url('js/jquery.waypoints.min.js')}}"></script>
     <script src="{{url('js/sticky.js')}}"></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq_RSFC_BAiBNji07rK-XvpX3rOZkg4bc&callback=initMap">
-    </script>
+
 
     <script >
         function initMap() {
@@ -355,6 +416,50 @@
         });
 
         contentWayPoint();
+        // Offcanvas and cloning of the main menu
+        var offcanvas = function() {
+
+            var $clone = $('#fh5co-menu-wrap').clone();
+            $clone.attr({
+                'id' : 'offcanvas-menu'
+            });
+            $clone.find('> ul').attr({
+                'class' : '',
+                'id' : ''
+            });
+
+            $('#fh5co-page').prepend($clone);
+
+            // click the burger
+            $('.js-fh5co-nav-toggle').on('click', function(){
+
+                if ( $('body').hasClass('fh5co-offcanvas') ) {
+                    $('body').removeClass('fh5co-offcanvas');
+                } else {
+                    $('body').addClass('fh5co-offcanvas');
+                }
+                // event.preventDefault();
+
+            });
+
+            $('#offcanvas-menu').css('height', $(window).height());
+
+            $(window).resize(function(){
+                var w = $(window);
+
+
+                $('#offcanvas-menu').css('height', w.height());
+
+                if ( w.width() > 769 ) {
+                    if ( $('body').hasClass('fh5co-offcanvas') ) {
+                        $('body').removeClass('fh5co-offcanvas');
+                    }
+                }
+
+            });
+
+        }
+        offcanvas();
     </script>
     @endpush
 @endsection

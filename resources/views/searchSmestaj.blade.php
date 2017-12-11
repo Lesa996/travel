@@ -211,7 +211,10 @@
 
         }
         #fh5co-started .form-control{
-            color: #555555;
+            /*color: #555555;*/
+        }
+        #fh5co-started .form-inline .form-group .form-control{
+            padding: unset !important;
         }
     </style>
     <style>

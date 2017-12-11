@@ -30,6 +30,10 @@
     <div id="fh5co-page">
         @yield('content')
 
+
+
+
+
         <footer>
             <div id="footer">
                 <div class="container">
@@ -39,11 +43,16 @@
                         </div>
                         <div class="col-md-6 col-md-offset-3 text-center">
                             <p class="fh5co-social-icons">
-                                <a href="#"><i class="icon-twitter2"></i></a>
-                                <a href="#"><i class="icon-facebook2"></i></a>
-                                <a href="#"><i class="icon-instagram"></i></a>
-                                <a href="#"><i class="icon-dribbble2"></i></a>
-                                <a href="#"><i class="icon-youtube"></i></a>
+                                POSLOVNI PODACI
+                                <br>
+                                Poslovno ime: Max Travel d.o.o.
+                                <br>
+                                PIB: 104633429
+                                <br>
+                                Matični broj: 20203773
+                                <br>
+                                Licenca br: OTP 065/2010
+
                             </p>
                         </div>
                     </div>

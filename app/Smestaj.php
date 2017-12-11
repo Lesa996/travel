@@ -50,7 +50,10 @@ class Smestaj extends Model
     }
     public function scopeSearchSobe($query, $location)
     {
-        if ($location) $query->where('vrsta_soba', 'like',  '%' .$location . '%');
+        if ($location){
+
+            $query->where('tip_soba', 'like',  '%' .$location . '%');
+        }
     }
     public function scopeSearchDodatno($query, $location)
     {

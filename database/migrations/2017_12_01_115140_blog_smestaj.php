@@ -19,11 +19,11 @@ class BlogSmestaj extends Migration
         });
         Schema::table('blog_smestaj', function (Blueprint $table) {
             $table->foreign('post_id')->references('id')->on('posts')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->foreign('smestaj_id')->references('id')->on('smestaj')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

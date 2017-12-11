@@ -725,7 +725,7 @@ figure {
 }
 
 #fh5co-started .form-control:focus {
-  background: rgba(255, 255, 255, 0.3);
+  /*background: rgba(255, 255, 255, 0.3);*/
 }
 
 #fh5co-started .btn-block {
@@ -955,8 +955,7 @@ figure {
 }
 
 #fh5co-wrapper {
-  overflow-x: hidden;
-  overflow-y: hidden;
+
   position: relative;
 }
 

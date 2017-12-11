@@ -304,7 +304,7 @@
         <div class="tab-pane" id="{{snake_case($cat->name)}}">
             <div class="container">
                 <div class="row search">
-                    @foreach(\App\Putovanja::where('grupa','like', '%' . $cat->name . '%')->orderBy('redosled','desc')->get() as $key => $item)
+                    @foreach(\App\Putovanja::searchGde(app('request')->input('gde'))->searchKad(app('request')->input('kad'))->where('grupa','like', '%' . $cat->name . '%')->orderBy('redosled','desc')->get() as $key => $item)
 
                         <div  class="col-md-4 col-md-offset-1 col-sm-3 home-page-travel " style="background-image:url('{{$item->cover->url}}') ">
                             <div class="balcken"></div>
@@ -345,7 +345,7 @@
         <div class="tab-pane active" id="Sva">
             <div class="container">
                 <div class="row search">
-                    @foreach(\App\Putovanja::orderBy('redosled','desc')->get() as $key=>$item)
+                    @foreach(\App\Putovanja::searchGde(app('request')->input('gde'))->searchKad(app('request')->input('kad'))->orderBy('redosled','desc')->get() as $key=>$item)
 
                             <div  class="col-md-4 col-md-offset-1 col-sm-3 home-page-travel " style="background-image:url('{{$item->cover->url}}') ">
                                 <div class="balcken"></div>

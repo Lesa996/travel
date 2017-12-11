@@ -209,9 +209,11 @@ class PutovanjeController extends Controller
      * @param  \App\Putovanje  $putovanje
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Putovanja $putovanje)
+    public function destroy($id)
     {
-        //
+        $smestaj= Putovanja::find($id);
+        $smestaj->delete();
+        return redirect('app/putovanje');
     }
     public function showAll()
     {
@@ -316,6 +318,9 @@ class PutovanjeController extends Controller
             }
         }
         return redirect('app/category');
+
+    }
+    public function search(Request $request){
 
     }
 }

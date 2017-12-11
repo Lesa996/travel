@@ -19,11 +19,11 @@ class BlogPutovanje extends Migration
         });
         Schema::table('blog_putovanje', function (Blueprint $table) {
             $table->foreign('post_id')->references('id')->on('posts')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->foreign('putovanje_id')->references('id')->on('putovanja')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

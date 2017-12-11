@@ -206,9 +206,19 @@ class SmestajController extends Controller
     }
     public function search(Request $request)
     {
+        $smestaji = null;
+        if ($request->drzava){
+            $smestaji = Smestaj::searchDrzaca($request->drzava)->searchGrad($request->grad)->searchObjekat($request->objekat)
+                ->searchSobe($request->sobe)->searchDodatno($request->dodatno)->orderBy('redosled','desc')->get();
+        }elseif ($request->lokacija){
+            $smestaji = Smestaj::searchDrzaca($request->lokacija)->searchGrad($request->grad)->searchObjekat($request->objekat)
+                ->searchSobe($request->sobe)->searchDodatno($request->dodatno)->orderBy('redosled','desc')->get();
+        }else{
+            $smestaji = Smestaj::searchDrzaca($request->lokacija)->searchGrad($request->grad)->searchObjekat($request->objekat)
+                ->searchSobe($request->sobe)->searchDodatno($request->dodatno)->orderBy('redosled','desc')->get();
 
-        $smestaji = Smestaj::searchDrzaca($request->drzava)->searchGrad($request->grad)->searchObjekat($request->objekat)
-                    ->searchSobe($request->sobe)->searchDodatno($request->dodatno)->orderBy('redosled','desc')->get();
+        }
+
         return view('searchSmestaj',['smestaji'=>$smestaji]);
     }
 }

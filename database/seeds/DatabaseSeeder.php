@@ -163,11 +163,11 @@ class DatabaseSeeder extends Seeder
             $opis = new \App\OpisSmestaj();
             $smestaj = new \App\Smestaj();
             $images = ['images/hotel.jpeg','images/pexels-photo-221532.jpeg','images/pexels-photo-386009.jpeg'];
-
+            $sobe = ['apartman','studio'];
             $smestaj->naziv = "Smestaj ".($i+1);
             $smestaj->tip_objekta = 'Hotel';
             $smestaj->broj_zvezdica =random_int(1,5);
-            $smestaj->vrsta_soba =array_rand(['apartman','studio']);
+            $smestaj->vrsta_soba =$sobe[array_rand($sobe)];
             $smestaj->tip_soba = '1/4,1/5,1/6';
             $smestaj->broj_ljudi = '4,5,6,7';
             $smestaj->struktura_sobe = $faker->realText(20);

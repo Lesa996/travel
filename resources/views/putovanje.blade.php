@@ -598,6 +598,7 @@
                             </div>
                         <div class="col-md-4">
                             @foreach($putovanje->blog as $post)
+                                <a href="{{url('blog',$post->slug)}}">
                             <div class="card">
                                 <div class="header">
                                     <h2>
@@ -609,6 +610,7 @@
                                     {!! $post->summary !!}
                                 </div>
                             </div>
+                                </a>
                             @endforeach
                         </div>
                         <div class="col-md-10">
@@ -863,7 +865,71 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSc_3WKEqd7RKmF1zfiw-DupW7HV_mRRtYZDgSRT8pl0iibQxg/formResponse" target="_self" method="POST" id="mG61Hd" _lpchecked="1">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ime i prezime (obavezno) *</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="entry.1928593467" aria-describedby="emailHelp" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Kontakt telefon (obavezno) *</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="entry.303124269" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Email (obavezno) *</label>
+                    <input type="email" class="form-control" id="exampleInputPassword2" name="entry.1033341512" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Planirani broj putnika</label>
+                    <input type="number" class="form-control" id="exampleInputPassword2" name="entry.1671280420" placeholder="" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Smestaj i destinacija</label>
+                    <input type="text" class="form-control" id="exampleInputPassword2" name="entry.1199028561" placeholder="" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Termin</label>
+                    <input type="text" class="form-control" id="exampleInputPassword2" name="entry.98292600" placeholder="" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Najbliža poslovnica</label>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="entry.1180828048" id="exampleRadios1" value="Beograd" checked>
+                            Beograd
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="entry.1180828048" id="exampleRadios2" value="Niš">
+                            Niš
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="entry.1180828048" id="exampleRadios2" value="Novi Sad">
+                            Novi Sad
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="entry.1180828048" id="exampleRadios2" value="Kragujevac">
+                            Kragujevac
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Napomena</label>
+                    <input type="text" class="form-control" name="entry.1773864557" id="exampleInputPassword2" placeholder="" >
+                </div>
 
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <br>
+        </div>
+
+    </div>
 
     @push('scripts')
     <!-- Google Map -->

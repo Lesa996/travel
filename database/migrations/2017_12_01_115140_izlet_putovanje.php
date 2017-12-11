@@ -19,11 +19,11 @@ class IzletPutovanje extends Migration
         });
         Schema::table('izlet_putovanje', function (Blueprint $table) {
             $table->foreign('izlet_id')->references('id')->on('izlets')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->foreign('putovanje_id')->references('id')->on('putovanja')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

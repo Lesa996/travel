@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Model;
@@ -77,5 +78,23 @@ class Putovanja extends Model
     public function blog()
     {
         return $this->belongsToMany(Post::class,'blog_putovanje','putovanje_id');
+    }
+
+    public function scopeSearchGde($query, $location)
+    {
+        if ($location){
+            $query->where('grad', 'like',  '%' .$location . '%')->orWhere('drzava', 'like',  '%' .$location . '%');
+
+        }
+    }
+    public function scopeSearchKad($query, $location)
+    {
+
+        if ($location){
+            $query->whereHas('cenovnik',function ($query) use ($location){
+                $query->where('datum_od','<=',$location)->where('datum_do','=>',$location);
+            });
+
+        }
     }
 }
