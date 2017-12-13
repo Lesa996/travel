@@ -134,7 +134,7 @@
                 </li>
                 <li {!! classActiveSegment(2, ['category']) !!} {!! classActiveSegment(3, ['category']) !!} >
                     <a href="{{url('app/category')}}" {!! classActiveSegment(2, ['category']) !!}>
-                        <i class="material-icons">home</i>
+                        <i class="material-icons">dns</i>
                         <span>Kategorije</span>
                     </a>
 
