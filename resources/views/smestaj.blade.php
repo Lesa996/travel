@@ -782,7 +782,7 @@
                                     <div class="prod-title animate-box">
                                         <h3><a href="{{url('putovanje/'.$item->putovanje->naziv)}}">{{$item->putovanje->naziv}}</a></h3>
                                         <p style="color: white">{{$item->putovanje->opis->kratak_opis}}</p>
-                                        <p><a href="{{url('putovanje/'.$item->putovanje->naziv)}}">Learn More...</a></p>
+                                        <p><a href="{{url('putovanje/'.$item->putovanje->naziv)}}">Vidi vise...</a></p>
                                     </div>
                                 </div>
 

@@ -323,4 +323,9 @@ class PutovanjeController extends Controller
     public function search(Request $request){
 
     }
+    public function getCenovnik($id){
+
+        $cenovnik = Cenovnik::where('putovanje_id',$id)->with('smestaj')->get();
+        return json_encode($cenovnik);
+    }
 }

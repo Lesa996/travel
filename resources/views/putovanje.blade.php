@@ -635,7 +635,7 @@
                                     <div class="prod-title animate-box">
                                         <h3><a href="{{url('smestaj/'.$item->smestaj->drzava.'/'.$item->smestaj->grad.'/'.$item->smestaj->naziv)}}">{{$item->smestaj->naziv}}</a></h3>
                                         <p style="color: white">{{$item->smestaj->opis->kratak_opis}}</p>
-                                        <p><a href="{{url('smestaj/'.$item->smestaj->drzava.'/'.$item->smestaj->grad.'/'.$item->smestaj->naziv)}}">Learn More...</a></p>
+                                        <p><a href="{{url('smestaj/'.$item->smestaj->drzava.'/'.$item->smestaj->grad.'/'.$item->smestaj->naziv)}}">Vidi vise...</a></p>
                                     </div>
                                 </div>
 

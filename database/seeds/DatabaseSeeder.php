@@ -232,7 +232,7 @@ class DatabaseSeeder extends Seeder
             $opisPutovanje = new \App\OpisPutovanje();
             $cenovnik = new \App\Cenovnik();
             $opisCenovnik = new \App\OpisCenovnik();
-            $plan = new \App\PlanPuta();
+
             $put_smestaj = \App\Smestaj::find(1);
 
             $images = ['images/hotel.jpeg','images/pexels-photo-221532.jpeg','images/pexels-photo-386009.jpeg'];
@@ -319,6 +319,7 @@ class DatabaseSeeder extends Seeder
             $opisCenovnik->save();
 
             for ($j = 1 ; $j <= 5;$j++){
+                $plan = new \App\PlanPuta();
                 $plan->dan = $j;
                 $plan->opis = $faker->realText(100);
                     $plan->putovanje_id = $putovanje->id;

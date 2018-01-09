@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Putovanja</label>
+                        <label>Smestaj</label>
                         <select id="smestaj" class="ms" multiple="multiple" name="smestaj[]">
                             @foreach(\App\Smestaj::whereNotIn('id',$post->smestaj->pluck('id'))->get() as $putovanje)
                                 <option value="{{$putovanje->id}}" >{{$putovanje->naziv}}</option>

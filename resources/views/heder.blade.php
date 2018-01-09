@@ -1,9 +1,10 @@
 
 <div id="top-div" class="top-navbar  animated fadeIn"  style="position: absolute;
-    z-index: 1050;">
+    z-index: 1022; background-color: rgba(251, 172, 23, 0.75);
+    width: 100%;">
     <div class="container">
         <div class="call-support col-sm-6 col-xs-6">
-            <span><a href="tel:+38118257991">Kontakt: +381 18 257 991</a></span>
+            <span><a href="tel:+38118257991" style="color: white">Kontakt: +381 18 257 991</a></span>
         </div>
 
     </div>

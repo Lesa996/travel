@@ -95,7 +95,7 @@
                                                 <a href="{{url('putovanje',$item->naziv)}}">
                                                     <h1>Putovanje</h1>
                                                     <h2>{{$item->naziv}}</h2>
-                                                    <h1>See more..</h1>
+                                                    <h1>Vidi vise..</h1>
                                                 </a>
 
                                             </div>
@@ -169,7 +169,7 @@
                                         {{$item->cena_od}}</a></h3>
 
                                 <p style="color: white">{{$item->opis->kratak_opis}}</p>
-                                <p><a href="{{url('putovanje',$item->naziv)}}">Learn More...</a></p>
+                                <p><a href="{{url('putovanje',$item->naziv)}}">Vidi vise...</a></p>
                             </div>
                         </div>
 
@@ -219,7 +219,7 @@
                 <div class="col-md-8 col-md-offset-2 text-center heading-section">
                     <a href="putovanje#lastminute">
                         <h2 >Last Minute</h2>
-                        <h3>More here...</h3>
+                        <h3>Vidi vise...</h3>
                     </a>
                 </div>
             </div>
@@ -260,7 +260,7 @@
                     <div class="prod-title animate-box">
                         <h3><a href="{{url('smestaj/'.$item->drzava.'/'.$item->grad.'/'.$item->naziv)}}">{{$item->naziv}}</a></h3>
                         <p style="color: white">{{$item->opis->kratak_opis}}</p>
-                        <p><a href="{{url('smestaj/'.$item->drzava.'/'.$item->grad.'/'.$item->naziv)}}">Learn More...</a></p>
+                        <p><a href="{{url('smestaj/'.$item->drzava.'/'.$item->grad.'/'.$item->naziv)}}">Vidi vise...</a></p>
                     </div>
                 </div>
                 @if($item->piktogram)

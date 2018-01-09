@@ -315,7 +315,7 @@
                                     <div class="prod-title animate-box">
                                         <h3><a href="{{url('putovanje',$item->naziv)}}">{{$item->naziv}}</a></h3>
                                         <p style="color: white">{{$item->opis->kratak_opis}}</p>
-                                        <p><a href="{{url('putovanje',$item->naziv)}}">Learn More...</a></p>
+                                        <p><a href="{{url('putovanje',$item->naziv)}}">Vidi vise...</a></p>
                                     </div>
                                 </div>
 
@@ -356,7 +356,7 @@
                                         <div class="prod-title animate-box">
                                             <h3><a href="{{url('putovanje',$item->naziv)}}">{{$item->naziv}}</a></h3>
                                             <p style="color: white">{{$item->opis->kratak_opis}}</p>
-                                            <p><a href="{{url('putovanje',$item->naziv)}}">Learn More...</a></p>
+                                            <p><a href="{{url('putovanje',$item->naziv)}}">Vidi vise...</a></p>
                                         </div>
                                     </div>
 

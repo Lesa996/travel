@@ -35,68 +35,74 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{url('admin/css/themes/all-themes.css')}}" rel="stylesheet" />
     @endpush
+    <div ng-app="phonecatApp">
+        <div  ng-controller="PhoneListController"  class="container-fluid">
+            <!-- Advanced Form Example With Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Nastavi Sa Kreiranjem Putovanja</h2>
+                        </div>
+                        <div class="body">
+                            <form action="{{url('app/store/smestaj/dva')}}" id="wizard_with_validation" method="POST" enctype="multipart/form-data">
+                                {!! csrf_field() !!}
+                                <h3>Cenovnik</h3>
+                                <fieldset>
 
-    <div class="container-fluid">
-        <!-- Advanced Form Example With Validation -->
-        <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>Nastavi Sa Kreiranjem Putovanja</h2>
-                    </div>
-                    <div class="body">
-                        <form action="{{url('app/store/smestaj/dva')}}" id="wizard_with_validation" method="POST" enctype="multipart/form-data">
-                            {!! csrf_field() !!}
-                            <h3>Plan Puta</h3>
-                            <fieldset>
+                                    <a ng-click="add()" class="btn btn-success btn-circle waves-effect waves-circle waves-float">
+                                        <i class="material-icons">add</i>
+                                    </a>
+                                    <div ng-repeat="period in data track by $index">
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" class="datepicker form-control" ng-model="period.datumOd" name="datum_od" placeholder="Datum od">
 
-                                @foreach($putovanje->plan as $plan)
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <textarea cols="30" rows="3" class="form-control no-resize"  name="dan[]" required></textarea>
-                                            <label class="form-label">Dan {{$plan->dan}}</label>
+                                            </div>
                                         </div>
-                                    </div>
-                                @endforeach
-                            </fieldset>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" class="datepicker form-control" ng-model="period.datumDo" name="datum_do" placeholder="Datum do">
 
-
-                            <h3>Cenovnik</h3>
-                            <fieldset>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="datepicker form-control" name="datum_od" placeholder="Datum od">
-
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="datepicker form-control" name="datum_do" placeholder="Datum do">
-
-                                    </div>
-                                </div>
-                                <input type="text" name="putovanje" id="" value="{{$putovanje->id}}" hidden>
-                                @foreach($putovanje->cenovnik as $cenovnik)
-                                    <b>{{$cenovnik->smestaj->naziv . '  '.$cenovnik->tip}}</b>
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <input type="number" class="form-control" name="cenovnikCena{{$cenovnik->smestaj->naziv}}[]" >
-                                            <label class="form-label">Cena</label>
+                                            </div>
                                         </div>
+
+                                        <input type="text" name="putovanje" id="putovanje_id"  value="{{$putovanje->id}}" hidden>
+
+                                        @foreach($putovanje->cenovnik as $cenovnik)
+                                            <b>{{$cenovnik->smestaj->naziv . '  '.$cenovnik->tip}}</b>
+
+                                            <div class="form-group form-float">
+                                                <div class="form-line">
+                                                    <input type="number" class="form-control" name="cenovnikCena{{$cenovnik->smestaj->naziv}}[]" >
+                                                    <label class="form-label">Cena</label>
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
 
+                                </fieldset>
+                                <h3>Plan Puta</h3>
+                                <fieldset>
 
-                                @endforeach
-                            </fieldset>
+                                    @foreach($putovanje->plan as $plan)
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <textarea cols="30" rows="3" class="form-control no-resize"  name="dan[]" required></textarea>
+                                                <label class="form-label">Dan {{$plan->dan}}</label>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </fieldset>
 
-
-
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- #END# Advanced Form Example With Validation -->
         </div>
-        <!-- #END# Advanced Form Example With Validation -->
+
     </div>
 
 
@@ -154,12 +160,12 @@
 
     <!-- GMap Js -->
     <script src="https://maps.google.com/maps/api/js?v=3&key=AIzaSyDq_RSFC_BAiBNji07rK-XvpX3rOZkg4bc"></script>
-    <script src="{{url('admin/plugins/gmaps/gmaps.js')}}"></script>
+    {{--<script src="{{url('admin/plugins/gmaps/gmaps.js')}}"></script>--}}
 
     <!-- Custom Js -->
     <script src="{{url('admin/js/admin.js')}}"></script>
     <script src="{{url('admin/js/pages/forms/form-wizard.js')}}"></script>
-    <script src="{{url('admin/js/pages/maps/google.js')}}"></script>
+    {{--<script src="{{url('admin/js/pages/maps/google.js')}}"></script>--}}
 
     <!-- Moment Plugin Js -->
     <script src="{{url('admin/plugins/momentjs/moment.js')}}"></script>
@@ -180,5 +186,7 @@
         //Date
         $demoMaskedInput.find('.date').inputmask('dd/mm/yyyy', { placeholder: '__/__/____' });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="{{url('admin/js/angularApp.js')}}"></script>
     @endpush
 @endsection
